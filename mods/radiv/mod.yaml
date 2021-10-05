@@ -4,40 +4,40 @@ Metadata:
 
 Packages:
 	^EngineDir
-	$example: example
+	$radiv: radiv
 	^EngineDir|mods/common: common
-	example|bits
+	radiv|bits
 
 MapFolders:
-	example|maps: System
+	radiv|maps: System
 
 Rules:
-	example|rules.yaml
+	radiv|rules.yaml
 
 TileSets:
-	example|tileset.yaml
+	radiv|tileset.yaml
 
 Cursors:
-	example|cursor.yaml
+	radiv|cursor.yaml
 
 Chrome:
-	example|chrome.yaml
+	radiv|chrome.yaml
 
 Assemblies:
 	^BinDir|OpenRA.Mods.Common.dll
 	^BinDir|OpenRA.Mods.Example.dll
 
 ChromeLayout:
-	example|mainmenu.yaml
+	radiv|mainmenu.yaml
 
 Music:
-	example|audio/music.yaml
+	radiv|audio/music.yaml
 
 Notifications:
-	example|audio/notifications.yaml
+	radiv|audio/notifications.yaml
 
 Translations:
-	example|english.yaml
+	radiv|english.yaml
 
 Hotkeys:
 	common|hotkeys/game.yaml
@@ -52,7 +52,7 @@ ServerTraits:
 
 ChromeMetrics:
 	common|metrics.yaml
-	example|metrics.yaml
+	radiv|metrics.yaml
 
 Fonts:
 	Bold:
