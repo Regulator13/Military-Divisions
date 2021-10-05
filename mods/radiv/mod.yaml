@@ -78,7 +78,6 @@ Cursors:
 
 Chrome:
 	ra|chrome.yaml
-    radiv|chrome.yaml
 
 Assemblies:
 	^BinDir|OpenRA.Mods.Common.dll
@@ -140,7 +139,6 @@ Weapons:
 
 Voices:
 	ra|audio/voices.yaml
-    radiv|audio/voices.yaml
 
 Notifications:
 	ra|audio/notifications.yaml
@@ -174,7 +172,6 @@ ServerTraits:
 ChromeMetrics:
 	common|metrics.yaml
 	ra|metrics.yaml
-    radiv|metrics.yaml
 
 Fonts:
 	Tiny:
