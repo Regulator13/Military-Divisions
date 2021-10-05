@@ -57,6 +57,12 @@ Rules:
 	ra|rules/aircraft.yaml
 	ra|rules/ships.yaml
 	ra|rules/fakes.yaml
+    radiv|rules/aircraft.yaml
+    radiv|rules/infantry.yaml
+    radiv|rules/ships.yaml
+    radiv|rules/structures.yaml
+    radiv|rules/vehicles.yaml
+    radiv|rules/world.yaml
 
 Sequences:
 	ra|sequences/ships.yaml
