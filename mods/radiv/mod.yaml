@@ -1,12 +1,39 @@
 Metadata:
-	Title: Example mod
-	Version: {DEV_VERSION}
+	Title: Red Alert Divisions Mod
+	Version: release-20210321
+	Website: https://www.openra.net
+	WebIcon32: https://www.openra.net/images/icons/ra_32x32.png
 
 Packages:
+	~^SupportDir|Content/ra/v2/
+	~^SupportDir|Content/ra/v2/expand
+	~^SupportDir|Content/ra/v2/cnc
+	~^SupportDir|Content/ra/v2/movies
 	^EngineDir
+    ^EngineDir|mods/ra: ra
 	$radiv: radiv
 	^EngineDir|mods/common: common
-	radiv|bits
+	~main.mix
+	~conquer.mix
+	~lores.mix: lores
+	~hires.mix
+	~local.mix
+	~sounds.mix
+	~speech.mix
+	~allies.mix
+	~russian.mix
+	~temperat.mix
+	~snow.mix
+	~interior.mix
+	~scores.mix
+	~expand2.mix
+	~hires1.mix
+	~desert.mix
+	ra|bits
+	ra|bits/desert
+	ra|bits/scripts
+	ra|uibits
+    $radiv: radiv
 
 MapFolders:
 	radiv|maps: System
