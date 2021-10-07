@@ -137,12 +137,12 @@ ChromeLayout:
 	common|chrome/playerprofile.yaml
 
 Weapons:
-	ra|weapons/explosions.yaml
-	ra|weapons/ballistics.yaml
-	ra|weapons/missiles.yaml
-	ra|weapons/other.yaml
-	ra|weapons/smallcaliber.yaml
-	ra|weapons/superweapons.yaml
+	radiv|weapons/explosions.yaml
+	radiv|weapons/ballistics.yaml
+	radiv|weapons/missiles.yaml
+	radiv|weapons/other.yaml
+	radiv|weapons/smallcaliber.yaml
+	radiv|weapons/superweapons.yaml
 
 Voices:
 	ra|audio/voices.yaml

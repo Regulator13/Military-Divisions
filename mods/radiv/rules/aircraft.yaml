@@ -188,6 +188,76 @@ YAK:
 		RequiresSelection: true
 		PipCount: 6
 
+FireBomber:
+	Inherits: ^Plane
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Aircraft
+		BuildAtProductionType: Plane
+		BuildPaletteOrder: 30
+		Prerequisites: ~afld, ~techlevel.medium
+		Description: YAK that lights things up.
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Fire Bomber
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 6000
+	RevealsShroud:
+		MinRange: 9c0
+		Range: 11c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 9c0
+		Type: GroundPosition
+	Armament@PRIMARY:
+		Weapon: AirFlame
+		LocalOffset: 256,0,0
+		PauseOnCondition: !ammo
+	AttackAircraft:
+		FacingTolerance: 80
+		PersistentTargeting: false
+		OpportunityFire: False
+	Aircraft:
+		CruiseAltitude: 2560
+		TurnSpeed: 16
+		Speed: 178
+		RepulsionSpeed: 40
+		MaximumPitch: 56
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	AmmoPool:
+		Ammo: 55
+		ReloadDelay: 6
+		AmmoCondition: ammo
+	WithMuzzleOverlay:
+	Contrail:
+		Offset: -853,0,0
+	SpawnActorOnDeath:
+		Actor: YAK.Husk
+	SmokeTrailWhenDamaged:
+		Offset: -853,0,0
+		Interval: 2
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Selectable:
+		DecorationBounds: 30,28,0,2
+	Rearmable:
+		RearmActors: afld, afld.ukraine
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 6
+    EjectOnDeath:
+        PilotActor: e4
+    RenderSprites:
+        Image: YAK
+
 TRAN:
 	Inherits: ^Helicopter
 	Inherits@CARGOPIPS: ^CargoPips
