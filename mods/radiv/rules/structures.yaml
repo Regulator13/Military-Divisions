@@ -1966,7 +1966,7 @@ BARR:
 		Prerequisite: infantry.russia-support
     ProvidesPrerequisite@any-support:
 		Factions: allies, england, france, germany, soviet, russia, ukraine, support
-		Prerequisite: infantry.any-support        
+		Prerequisite: infantry.any-support     
 	ProvidesPrerequisite@sovietstructure:
 		RequiresPrerequisites: structures.soviet
 		Prerequisite: infantry.soviet
@@ -2173,6 +2173,9 @@ TENT:
     ProvidesPrerequisite@any-support:
 		Factions: allies, england, france, germany, soviet, russia, ukraine, support
 		Prerequisite: infantry.any-support
+    ProvidesPrerequisite@allies-support:
+		Factions: allies, england, france, germany, support
+		Prerequisite: infantry.allies-support
 	ProvidesPrerequisite@alliedstructure:
 		RequiresPrerequisites: structures.allies
 		Prerequisite: infantry.allies
