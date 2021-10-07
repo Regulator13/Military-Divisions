@@ -465,7 +465,7 @@ BUGG:
 	Mobile:
 		TurnSpeed: 40
 		Speed: 140
-		PauseOnCondition: notmobile || being-captured
+		PauseOnCondition: being-captured
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 8c0
