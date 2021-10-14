@@ -240,7 +240,7 @@ V2RL:
 	Selectable:
 		DecorationBounds: 44,38,0,-4
 
-MMII:
+MKII:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove

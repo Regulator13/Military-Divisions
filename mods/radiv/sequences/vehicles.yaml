@@ -143,6 +143,33 @@ hhusk2:
 		UseClassicFacings: True
 		ZOffset: -512
 
+mkii:
+	idle:
+		Facings: 8
+		UseClassicFacings: False
+    walk:
+        Facings: 8
+        Length: 12
+        UseClassicFacings: False
+	turret:
+		Start: 96
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: gunfire2
+		Length: 5
+	icon: mkiiicon
+
+mkii.destroyed:
+	idle: 4tnk
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -512
+	turret: 4tnk
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -512
+
 v2rl:
 	idle:
 		Facings: 32
