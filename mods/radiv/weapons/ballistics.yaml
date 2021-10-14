@@ -138,7 +138,7 @@ TurretGun:
             
 200mm:
 	Inherits: ^Cannon
-	ReloadDelay: 250
+	ReloadDelay: 125
 	InvalidTargets: Air, Infantry
 	Warhead@1Dam: SpreadDamage
         Spread: 500

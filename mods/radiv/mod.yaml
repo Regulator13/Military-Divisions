@@ -69,11 +69,12 @@ Sequences:
 	ra|sequences/ships.yaml
 	ra|sequences/vehicles.yaml
 	ra|sequences/structures.yaml
-	ra|sequences/infantry.yaml
 	ra|sequences/aircraft.yaml
 	ra|sequences/misc.yaml
 	ra|sequences/decorations.yaml
     radiv|sequences/structures.yaml
+    radiv|sequences/infantry.yaml
+    radiv|sequences/vehicles.yaml
 
 TileSets:
 	ra|tilesets/snow.yaml
