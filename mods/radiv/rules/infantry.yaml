@@ -411,6 +411,64 @@ E7:
 		VoiceSet: TanyaVoice
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
+        
+Commander:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 120
+		Prerequisites: ~barracks, ~techlevel.high, ~infantry.command
+		BuildLimit: 1
+		Description: The boss. Kills infantry and tanks alike.
+	Valued:
+		Cost: 4000
+	Tooltip:
+		Name: Commando
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 50000
+	Mobile:
+		Speed: 90
+		Voice: Move
+	Guard:
+		Voice: Move
+	RevealsShroud:
+		Range: 8c0
+	Passenger:
+		CustomPipType: red
+		Voice: Move
+	Armament@PRIMARY:
+		Weapon: Colt45
+		LocalOffset: 0,0,0, 0,0,0
+	Armament@SECONDARY:
+		Weapon: Colt45
+		LocalOffset: 0,0,0, 0,0,0
+    Armament:
+        Weapon: CommandoCannon
+        LocalOffset: 0,0,0, 0,0,0
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: Colt45
+		MuzzleSequence: garrison-muzzle
+	WithInfantryBody:
+		AttackSequences:
+			primary: shoot-left, shoot-right
+		StandSequences: stand
+	ExternalCondition@PRODUCED:
+		Condition: produced
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+	AnnounceOnKill:
+	Voiced:
+		VoiceSet: TanyaVoice
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+    RenderSprites:
+        Image: E7
 
 MEDI:
 	Inherits: ^Soldier

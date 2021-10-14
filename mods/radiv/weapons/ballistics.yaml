@@ -76,6 +76,16 @@
 		Versus:
 			Heavy: 115
 		InvalidTargets: Air
+        
+CommandoCannon:
+	Inherits: ^Cannon
+	ReloadDelay: 25
+	InvalidTargets: Air, Infantry
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
+		Versus:
+			Heavy: 115
+		InvalidTargets: Air
 
 TurretGun:
 	Inherits: ^Cannon
@@ -125,6 +135,24 @@ TurretGun:
 		Falloff: 100, 55, 20, 5
 		Versus:
 			None: 60
+            
+200mm:
+	Inherits: ^Cannon
+	ReloadDelay: 250
+	InvalidTargets: Air, Infantry
+	Warhead@1Dam: SpreadDamage
+        Spread: 500
+		Damage: 5000
+		Falloff: 2000, 750, 250, 50, 18, 7, 0
+		Versus:
+			None: 60
+			Wood: 80
+			Light: 60
+			Heavy: 100
+			Concrete: 100
+		InvalidTargets: Air
+    Warhead@4EffWater: CreateEffect
+		Explosions: large_splash
 
 8Inch:
 	Inherits: ^Artillery

@@ -1470,6 +1470,63 @@ PROCCOM:
     RenderSprites:
 		Image: proc
 
+OILCOM:
+	Inherits: ^Building
+	Inherits@shape: ^2x2Shape
+    Buildable:
+        Queue: Building
+		Prerequisites: anypower, ~techlevel.infonly, ~structures.command
+        Description: Produces credits at regular intervals.
+        BuildLimit: 6
+        BuildDurationModifier: 20
+    Valued:
+        Cost: 1000
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 630,-300,0, 420,512,0, -420,-512,0, -630,300,0
+	Selectable:
+		Priority: 0
+		Bounds: 48,48
+	OwnerLostAction:
+		Action: ChangeOwner
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 80000
+	RevealsShroud:
+		Range: 4c0
+	CaptureManager:
+	Capturable:
+		Types: building
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	EngineerRepairable:
+	CashTrickler:
+		Interval: 375
+		Amount: 100
+		RequiresCondition: enabled
+	Tooltip:
+		Name: Oil Derrick
+	TooltipDescription@ally:
+		Description: Provides additional funds.
+		ValidRelationships: Ally
+	TooltipDescription@other:
+		Description: Capture to receive additional funds.
+		ValidRelationships: Neutral, Enemy
+	Explodes:
+		Weapon: BarrelExplode
+	GpsDot:
+		String: Oil
+	AppearsOnMapPreview:
+	GivesCashOnCapture:
+		Amount: 100
+	UpdatesDerrickCount:
+	GrantConditionOnCombatantOwner:
+		Condition: enabled
+    RenderSprites:
+        Image: OILB
+
 SILO:
 	Inherits: ^Building
 	Selectable:
@@ -1503,7 +1560,7 @@ SILO:
 	WithResourceLevelSpriteBody:
 		Sequence: stages
 	StoresResources:
-		Capacity: 3000
+		Capacity: 15000
 	-SpawnActorsOnSell:
 	Power:
 		Amount: -10
@@ -1612,7 +1669,7 @@ AFLD:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 130
-		Prerequisites: dome, ~structures.soviet-airforce, ~techlevel.medium, ~!structures.ukraine
+		Prerequisites: dome, ~structures.soviet, ~techlevel.medium, ~!structures.ukraine
 		Description: Produces and reloads aircraft.\n  Special Ability: Spy Plane\n  Special Ability: Paratroopers
 	Valued:
 		Cost: 500

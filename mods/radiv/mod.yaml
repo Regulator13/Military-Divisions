@@ -35,7 +35,7 @@ Packages:
 	ra|bits/desert
 	ra|bits/scripts
 	ra|uibits
-    $radiv: radiv
+    radiv|bits
 
 MapFolders:
 	ra|maps: System
@@ -63,6 +63,7 @@ Rules:
     radiv|rules/structures.yaml
     radiv|rules/vehicles.yaml
     radiv|rules/world.yaml
+    radiv|rules/civilian.yaml
 
 Sequences:
 	ra|sequences/ships.yaml
@@ -72,6 +73,7 @@ Sequences:
 	ra|sequences/aircraft.yaml
 	ra|sequences/misc.yaml
 	ra|sequences/decorations.yaml
+    radiv|sequences/structures.yaml
 
 TileSets:
 	ra|tilesets/snow.yaml
