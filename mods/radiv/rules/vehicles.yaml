@@ -240,7 +240,7 @@ V2RL:
 	Selectable:
 		DecorationBounds: 44,38,0,-4
 
-MMII:
+MKII:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -264,6 +264,9 @@ MMII:
 	Mobile:
 		Speed: 40
 		Locomotor: heavytracked
+	WithMoveAnimation:
+		MoveSequence: walk
+		ValidMovementTypes: Horizontal, Turn
 	RevealsShroud:
 		MinRange: 4c0
 		Range: 6c0
@@ -300,7 +303,7 @@ MMII:
 	Selectable:
 		DecorationBounds: 44,38,0,-4
     RenderSprites:
-        Image: 4TNK
+        Image: mkii
 
 ARTY:
 	Inherits: ^TrackedVehicle

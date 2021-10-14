@@ -429,7 +429,7 @@ Commander:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 50000
+		HP: 30000
 	Mobile:
 		Speed: 90
 		Voice: Move
@@ -468,7 +468,7 @@ Commander:
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
     RenderSprites:
-        Image: E7
+        Image: commando
 
 MEDI:
 	Inherits: ^Soldier
