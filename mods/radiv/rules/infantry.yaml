@@ -295,7 +295,7 @@ SPY:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 90
-		Prerequisites: dome, ~tent, ~techlevel.medium, ~infantry.allies-meme, ~!infantry.england
+		Prerequisites: dome, ~tent, ~techlevel.medium, ~infantry.allallies, ~!infantry.england
 		Description: Infiltrates enemy structures for intel or\nsabotage. Exact effect depends on the\nbuilding infiltrated.\nLoses disguise when attacking.\nCan detect spies.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft\n  Special Ability: Disguised
 	Valued:
 		Cost: 500
@@ -363,7 +363,7 @@ E7:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 120
-		Prerequisites: ~tent, atek, ~techlevel.high, ~infantry.any-support
+		Prerequisites: ~tent, atek, ~techlevel.high, ~infantry.allies-meme-support
 		BuildLimit: 1
 		Description: Elite commando infantry. Armed with\ndual pistols and C4.\nMaximum 1 can be trained.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4
 	Valued:

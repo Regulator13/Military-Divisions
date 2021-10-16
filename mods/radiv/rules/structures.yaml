@@ -1586,7 +1586,7 @@ HPAD:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 120
-		Prerequisites: dome, ~structures.allies-airforce, ~techlevel.medium
+		Prerequisites: dome, ~structures.allies, ~techlevel.medium
 		Description: Produces and reloads\nhelicopters.
 	Valued:
 		Cost: 500
@@ -1637,6 +1637,15 @@ HPAD:
 	ProvidesPrerequisite@germany:
 		Factions: germany
 		Prerequisite: aircraft.germany
+	ProvidesPrerequisite@airforce:
+		Factions: airforce
+		Prerequisite: aircraft.airforce
+	ProvidesPrerequisite@ukraine-airforce:
+		Factions: ukraine, airforce
+		Prerequisite: aircraft.ukraine-airforce
+	ProvidesPrerequisite@soviet-airforce:
+		Factions: soviet, russia, ukraine, airforce
+		Prerequisite: aircraft.soviet-airforce
 	ProvidesPrerequisite@alliedstructure:
 		RequiresPrerequisites: structures.allies
 		Prerequisite: aircraft.allies
@@ -1658,6 +1667,25 @@ HPAD:
 	InfiltrateForSupportPower:
 		Proxy: aircraft.upgraded
 		Types: SpyInfiltrate
+        
+HPAD.Airforce:
+    Inherits: HPAD
+	Buildable:
+		Prerequisites: dome, ~techlevel.medium, ~structures.airforce
+		Description: Produces, repairs, and reloads aircraft.\n  Special Ability: Spy Plane\n  Special Ability: Paratroopers\n  Special Ability: Parabombs
+	RenderSprites:
+		Image: hpad
+    Tooltip:
+        Name: Airforce Helipad
+	RepairsUnits:
+		HpPerStep: 500
+		Interval: 7
+		StartRepairingNotification: Repairing
+		FinishRepairingNotification: UnitRepaired
+		PlayerExperience: 15
+	ProvidesPrerequisite@airforce:
+		Factions: airforce
+		Prerequisite: hpad
 
 AFLD:
 	Inherits: ^Building
@@ -1711,6 +1739,9 @@ AFLD:
 	ProvidesPrerequisite@ukraine:
 		Factions: ukraine
 		Prerequisite: aircraft.ukraine
+	ProvidesPrerequisite@airforce:
+		Factions: airforce
+		Prerequisite: aircraft.airforce
 	ProvidesPrerequisite@ukraine-airforce:
 		Factions: ukraine, airforce
 		Prerequisite: aircraft.ukraine-airforce
@@ -1811,10 +1842,26 @@ AFLD:
 AFLD.Ukraine:
 	Inherits: AFLD
 	Buildable:
-		Prerequisites: dome, ~techlevel.medium, ~structures.ukraine-airforce
+		Prerequisites: dome, ~techlevel.medium, ~structures.ukraine
 		Description: Produces and reloads aircraft.\n  Special Ability: Spy Plane\n  Special Ability: Paratroopers\n  Special Ability: Parabombs
 	RenderSprites:
 		Image: afld
+        
+AFLD.Airforce:
+    Inherits: AFLD.Ukraine
+	Buildable:
+		Prerequisites: dome, ~techlevel.medium, ~structures.airforce
+		Description: Produces, repairs, and reloads aircraft.\n  Special Ability: Spy Plane\n  Special Ability: Paratroopers\n  Special Ability: Parabombs
+	RenderSprites:
+		Image: afld
+    Tooltip:
+        Name: Airforce Airfield
+	RepairsUnits:
+		HpPerStep: 500
+		Interval: 7
+		StartRepairingNotification: Repairing
+		FinishRepairingNotification: UnitRepaired
+		PlayerExperience: 15
 
 POWR:
 	Inherits: ^Building
@@ -2191,6 +2238,9 @@ TENT:
 	ProvidesPrerequisite@newallies:
 		Factions: support, airforce, meme
 		Prerequisite: infantry.newallies
+	ProvidesPrerequisite@allallies:
+		Factions: allies, england, france, germany, support, airforce, meme
+		Prerequisite: infantry.allallies
 	ProvidesPrerequisite@alliesvanilla:
 		Factions: allies
 		Prerequisite: infantry.alliesvanilla
@@ -2233,6 +2283,9 @@ TENT:
     ProvidesPrerequisite@allies-support:
 		Factions: allies, england, france, germany, support
 		Prerequisite: infantry.allies-support
+    ProvidesPrerequisite@allies-meme-support:
+		Factions: allies, england, france, germany, support, meme
+		Prerequisite: infantry.allies-meme-support
 	ProvidesPrerequisite@alliedstructure:
 		RequiresPrerequisites: structures.allies
 		Prerequisite: infantry.allies

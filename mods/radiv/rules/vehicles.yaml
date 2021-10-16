@@ -409,6 +409,18 @@ HARV:
 		ResourceSequences:
 			Ore: pip-yellow
 			Gems: pip-red
+            
+HARVCOM:
+    Inherits: HARV
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 110
+		Prerequisites: ~proccom, ~techlevel.infonly
+		Description: Collects Ore and Gems for processing.\n  Unarmed
+    Valued:
+        Cost: 600
+    RenderSprites:
+        Image: HARV
 
 MCV:
 	Inherits: ^Vehicle

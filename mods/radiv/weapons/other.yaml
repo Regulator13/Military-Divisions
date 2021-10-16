@@ -60,22 +60,19 @@ Flamer:
 
 AirFlame:
 	Inherits: ^FireWeapon
-	ReloadDelay: 50
-	Burst: 45
+	ReloadDelay: 25
+	Burst: 25
 	BurstDelays: 1
 	Projectile: Bullet
-		Speed: 170
+		Speed: 220
 		TrailImage: fb4
 		Image: fb3
 		LaunchAngle: 62
-		Inaccuracy: 500
-        BounceCount: 200
+		Inaccuracy: 2000
 	Warhead@1Dam: SpreadDamage
-		Spread: 341
+		Spread: 356
 		Damage: 1000
 		Versus:
-			None: 70
-			Wood: 80
 			Tree: 80
 			Light: 40
 			Heavy: 20
