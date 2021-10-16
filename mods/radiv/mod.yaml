@@ -75,6 +75,7 @@ Sequences:
     radiv|sequences/structures.yaml
     radiv|sequences/infantry.yaml
     radiv|sequences/vehicles.yaml
+    radiv|sequences/aircraft.yaml
 
 TileSets:
 	ra|tilesets/snow.yaml

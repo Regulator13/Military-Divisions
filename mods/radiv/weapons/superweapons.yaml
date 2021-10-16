@@ -30,6 +30,40 @@ ParaBomb:
 		Explosions: small_splash
 		ImpactSounds: splash9.aud
 		ValidTargets: Water, Underwater
+        
+BadrBomb:
+	ReloadDelay: 6
+	Range: 4c0
+	Report: chute1.aud
+	ValidTargets: Ground, Water, GroundActor, WaterActor
+	Projectile: GravityBomb
+		Image: PARABOMB
+		OpenSequence: open
+		Velocity: 0, 0, -40
+		Acceleration: 0, 0, 0
+		Shadow: False
+	Warhead@1Dam: SpreadDamage
+		Spread: 3c0
+		Damage: 2000
+        Falloff: 500, 40, 15
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 50
+			Wood: 30
+			Light: 75
+			Concrete: 25
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+		ValidTargets: Ground, Infantry
+	Warhead@3Eff: CreateEffect
+		Explosions: artillery_explosion
+		ImpactSounds: kaboom15.aud
+		ValidTargets: Ground, GroundActor, WaterActor, Trees
+	Warhead@4EffWater: CreateEffect
+		Explosions: small_splash
+		ImpactSounds: splash9.aud
+		ValidTargets: Water, Underwater
 
 Atomic:
 	ValidTargets: Ground, Water, GroundActor, WaterActor, Underwater, AirborneActor, Trees
