@@ -1,6 +1,27 @@
 C1:
 	Inherits@1: ^CivInfantry
 	Inherits@2: ^ArmedCivilian
+    
+MoneyHolder:
+    Inherits@1: ^CivInfantry
+    Tooltip:
+        Name: Cash Dude
+    RevealsShroud:
+        Range: 0c0
+    DamageMultiplier:
+        Modifier: 0
+    StoresResources: 
+        Capacity: 50000
+    CashTrickler@Decrease:
+        Amount: -20000
+        Interval: 10000000
+    CashTrickler@Increase:
+        Amount: 20000
+        UseResourceStorage: True
+        InitialDelay: 5
+        Interval: 10000000
+    RenderSprites:
+        Image:C1
 
 C2:
 	Inherits: ^CivInfantry

@@ -273,7 +273,7 @@ FireBomber:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 30
-		Prerequisites: ~afld, ~techlevel.medium
+		Prerequisites: ~afld, ~techlevel.medium, ~aircraft.airforce
 		Description: YAK that lights things up.
 	Valued:
 		Cost: 1500

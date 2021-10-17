@@ -18,7 +18,7 @@ Metrics:
     FactionSuffix-airforce: allies
     FactionSuffix-navy: soviet
     FactionSuffix-command: soviet
-    FactionSuffix-meme: allies
+    FactionSuffix-techno: allies
 	IncompatibleProtectedGameColor: B22222
 	IncompatibleVersionColor: D3D3D3
 	TextfieldColorHighlight: 562020

@@ -11,7 +11,7 @@ MSLO:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 140
-		Prerequisites: techcenter, ~techlevel.unrestricted
+		Prerequisites: techcenter, ~techlevel.unrestricted, ~!structures.command, ~!structures.armored, ~!structures.support, ~!structures.navy, ~!structures.airforce
 		BuildLimit: 1
 		Description: Provides an atomic bomb.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Atom Bomb
 	Building:
@@ -78,7 +78,7 @@ GAP:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 110
-		Prerequisites: atek, ~structures.allies-meme, ~techlevel.high
+		Prerequisites: atek, ~structures.allies-techno, ~techlevel.high
 		Description: Obscures the enemy's view with shroud.\nRequires power to operate.
 	Selectable:
 		Bounds: 24,24
@@ -381,7 +381,7 @@ IRON:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 130
-		Prerequisites: techcenter, ~structures.soviet-meme, ~techlevel.unrestricted
+		Prerequisites: techcenter, ~structures.soviet-armored, ~techlevel.unrestricted
 		BuildLimit: 1
 		Description: Makes a group of units invulnerable\nfor a short time.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Invulnerability
 	Valued:
@@ -447,7 +447,7 @@ PDOX:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 120
-		Prerequisites: atek, ~structures.allies-meme, ~techlevel.unrestricted
+		Prerequisites: atek, ~structures.allies-techno, ~techlevel.unrestricted
 		BuildLimit: 1
 		Description: Teleports a group of units across the\nmap for a short time.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Chronoshift
 	Valued:
@@ -534,7 +534,7 @@ TSLA:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 80
-		Prerequisites: weap, ~structures.soviet-command, ~techlevel.medium
+		Prerequisites: weap, ~structures.soviet-armored, ~techlevel.medium
 		Description: Advanced base defense.\nRequires power to operate.\nCan detect cloaked units.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
 	Valued:
 		Cost: 1200
@@ -579,7 +579,7 @@ AGUN:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 90
-		Prerequisites: dome, ~structures.allies-command, ~techlevel.medium
+		Prerequisites: dome, ~techlevel.medium, ~!structures.soviet, ~!structures.command, ~!structures.navy
 		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
 	Valued:
 		Cost: 800
@@ -683,7 +683,7 @@ PBOX:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 40
-		Prerequisites: barracks, ~structures.allies-command, ~techlevel.low
+		Prerequisites: barracks, ~techlevel.low, ~!structures.soviet, ~!structures.command, ~!structures.techno, ~!structures.support, ~!structures.navy
 		Description: Static defense with a fireport for\na garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 600
@@ -739,7 +739,7 @@ HBOX:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 50
-		Prerequisites: barracks, ~structures.allies-command, ~techlevel.medium
+		Prerequisites: barracks, ~techlevel.medium, ~!structures.soviet, ~!structures.command, ~!structures.support, ~!structures.navy, ~!structures.airforce
 		Description: Camouflaged static defense with a fireport\nfor a garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 750
@@ -798,7 +798,7 @@ GUN:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 70
-		Prerequisites: barracks, ~structures.allies-command, ~techlevel.medium
+		Prerequisites: barracks, ~structures.allies-armored, ~techlevel.medium
 		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 800
@@ -847,7 +847,7 @@ FTUR:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 60
-		Prerequisites: barr, ~structures.soviet-command, ~techlevel.low
+		Prerequisites: barr, ~structures.newsoviets, ~techlevel.low
 		Description: Anti-Infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 600
@@ -900,7 +900,7 @@ SAM:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
-		Prerequisites: dome, ~structures.soviet-command, ~techlevel.medium
+		Prerequisites: dome, ~structures.newsoviets, ~techlevel.medium
 		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
 	Valued:
 		Cost: 700
@@ -1005,7 +1005,7 @@ WEAP:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 80
-		Prerequisites: anypower, ~techlevel.low, ~!structures.airforce, ~!structures.navy
+		Prerequisites: anypower, ~techlevel.low, ~!structures.airforce
 		Description: Produces vehicles.
 	Valued:
 		Cost: 2000
@@ -1078,9 +1078,9 @@ WEAP:
     ProvidesPrerequisite@command:
 		Factions: command
 		Prerequisite: vehicles.command
-    ProvidesPrerequisite@meme:
-		Factions: meme
-		Prerequisite: vehicles.meme
+    ProvidesPrerequisite@techno:
+		Factions: techno
+		Prerequisite: vehicles.techno
     ProvidesPrerequisite@soviet-support:
 		Factions: soviet, russia, ukraine, support
 		Prerequisite: vehicles.soviet-support
@@ -1093,30 +1093,33 @@ WEAP:
     ProvidesPrerequisite@allies-armored:
 		Factions: allies, england, germany, france, armored
 		Prerequisite: vehicles.allies-armored
-    ProvidesPrerequisite@soviet-meme:
-		Factions: soviet, russia, ukraine, meme
-		Prerequisite: vehicles.soviet-meme
-    ProvidesPrerequisite@allies-meme:
-		Factions: soviet, russia, ukraine, allies, england, germany, france, meme
-		Prerequisite: vehicles.any-meme
-    ProvidesPrerequisite@any-meme:
-		Factions: allies, england, germany, france, meme
-		Prerequisite: vehicles.allies-meme
-    ProvidesPrerequisite@england-meme:
-		Factions: england, meme
-		Prerequisite: vehicles.england-meme
-    ProvidesPrerequisite@france-meme:
-		Factions: france, meme
-		Prerequisite: vehicles.france-meme
-    ProvidesPrerequisite@germany-meme:
-		Factions: germany, meme
-		Prerequisite: vehicles.germany-meme
+    ProvidesPrerequisite@soviet-techno:
+		Factions: soviet, russia, ukraine, techno
+		Prerequisite: vehicles.soviet-techno
+    ProvidesPrerequisite@any-techno:
+		Factions: soviet, russia, ukraine, allies, england, germany, france, techno
+		Prerequisite: vehicles.any-techno
+    ProvidesPrerequisite@allies-techno:
+		Factions: allies, england, germany, france, techno
+		Prerequisite: vehicles.allies-techno
+    ProvidesPrerequisite@any-navy:
+		Factions: soviet, russia, ukraine, allies, england, germany, france, navy
+		Prerequisite: vehicles.any-navy
+    ProvidesPrerequisite@england-techno:
+		Factions: england, techno
+		Prerequisite: vehicles.england-techno
+    ProvidesPrerequisite@france-techno:
+		Factions: france, techno
+		Prerequisite: vehicles.france-techno
+    ProvidesPrerequisite@germany-techno:
+		Factions: germany, techno
+		Prerequisite: vehicles.germany-techno
     ProvidesPrerequisite@russia-armored:
 		Factions: russia, armored
 		Prerequisite: vehicles.russia-armored
-    ProvidesPrerequisite@ukraine-meme:
-		Factions: ukraine, meme
-		Prerequisite: vehicles.ukraine-meme
+    ProvidesPrerequisite@ukraine-navy:
+		Factions: ukraine, navy
+		Prerequisite: vehicles.ukraine-navy
 	ProvidesPrerequisite@alliedstructure:
 		RequiresPrerequisites: structures.allies
 		Prerequisite: vehicles.allies
@@ -1159,9 +1162,9 @@ WEAP:
     ProvidesPrerequisite@commandstructure:
 		RequiresPrerequisites: structures.command
         Prerequisite: vehicles.command
-    ProvidesPrerequisite@memestructure:
-		RequiresPrerequisites: structures.meme
-        Prerequisite: vehicles.meme
+    ProvidesPrerequisite@technostructure:
+		RequiresPrerequisites: structures.techno
+        Prerequisite: vehicles.techno
     ProvidesPrerequisite@soviet-supportstructure:
 		RequiresPrerequisites: structures.soviet-support
         Prerequisite: vehicles.soviet-support
@@ -1174,15 +1177,15 @@ WEAP:
     ProvidesPrerequisite@allies-armoredstructure:
 		RequiresPrerequisites: structures.allies-armored
         Prerequisite: vehicles.allies-armored
-    ProvidesPrerequisite@soviet-memestructure:
-		RequiresPrerequisites: structures.soviet-meme
-        Prerequisite: vehicles.soviet-meme
-    ProvidesPrerequisite@allies-memestructure:
-		RequiresPrerequisites: structures.allies-meme
-        Prerequisite: vehicles.allies-meme
-    ProvidesPrerequisite@any-memestructure:
-		RequiresPrerequisites: structures.any-meme
-        Prerequisite: vehicles.any-meme
+    ProvidesPrerequisite@soviet-technostructure:
+		RequiresPrerequisites: structures.soviet-techno
+        Prerequisite: vehicles.soviet-techno
+    ProvidesPrerequisite@allies-technostructure:
+		RequiresPrerequisites: structures.allies-techno
+        Prerequisite: vehicles.allies-techno
+    ProvidesPrerequisite@any-technostructure:
+		RequiresPrerequisites: structures.any-techno
+        Prerequisite: vehicles.any-techno
 	ProductionBar:
 		ProductionType: Vehicle
 	Power:
@@ -1253,24 +1256,30 @@ FACT:
     ProvidesPrerequisite@command:
 		Factions: command
 		Prerequisite: structures.command
-    ProvidesPrerequisite@meme:
-		Factions: meme
-		Prerequisite: structures.meme
+    ProvidesPrerequisite@techno:
+		Factions: techno
+		Prerequisite: structures.techno
     ProvidesPrerequisite@newteams:
-        Factions: armored, support, airforce, navy, command, meme
+        Factions: armored, support, airforce, navy, command, techno
         Prerequisite: structures.newteams
     ProvidesPrerequisite@newsoviets:
         Factions: soviet, russia, ukraine, armored, navy, command
         Prerequisite: structures.newsoviets    
     ProvidesPrerequisite@newallies:
-        Factions: allies, england, germany, france, support, airforce, meme
+        Factions: allies, england, germany, france, support, airforce, techno
         Prerequisite: structures.newallies
-    ProvidesPrerequisite@allies-meme:
-        Factions: allies, england, germany, france, meme
-        Prerequisite: structures.allies-meme
-    ProvidesPrerequisite@soviet-meme:
-        Factions: soviet, russia, ukraine, meme
-        Prerequisite: structures.soviet-meme
+    ProvidesPrerequisite@allies-techno:
+        Factions: allies, england, germany, france, techno
+        Prerequisite: structures.allies-techno
+    ProvidesPrerequisite@allies-armored:
+        Factions: allies, england, germany, france, armored
+        Prerequisite: structures.allies-armored
+    ProvidesPrerequisite@soviet-techno:
+        Factions: soviet, russia, ukraine, techno
+        Prerequisite: structures.soviet-techno
+    ProvidesPrerequisite@soviet-armored:
+        Factions: soviet, russia, ukraine, armored
+        Prerequisite: structures.soviet-armored
     ProvidesPrerequisite@soviet-navy:
         Factions: soviet, russia, ukraine, navy
         Prerequisite: structures.soviet-navy
@@ -1467,6 +1476,7 @@ PROCCOM:
 		Cost: 700
 	Tooltip:
 		Name: Command Ore Refinery
+    -StoresResources:
     RenderSprites:
 		Image: proc
 
@@ -1475,7 +1485,7 @@ OILCOM:
 	Inherits@shape: ^2x2Shape
     Buildable:
         Queue: Building
-		Prerequisites: anypower, ~techlevel.infonly, ~structures.command
+		Prerequisites: anypower, weap, ~techlevel.infonly, ~structures.command
         Description: Produces credits at regular intervals.
         BuildLimit: 6
         BuildDurationModifier: 20
@@ -1506,6 +1516,7 @@ OILCOM:
 		Interval: 375
 		Amount: 100
 		RequiresCondition: enabled
+        UseResourceStorage: True
 	Tooltip:
 		Name: Oil Derrick
 	TooltipDescription@ally:
@@ -1534,8 +1545,8 @@ SILO:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 35
-		Prerequisites: ~techlevel.infonly
-		Description: Stores excess refined\nOre and Gems.
+		Prerequisites: ~techlevel.infonly, ~!structures.command
+		Description: Used to receive funds
 	Valued:
 		Cost: 150
 	Targetable:
@@ -1545,9 +1556,9 @@ SILO:
 	-GivesBuildableArea:
 	-MustBeDestroyed:
 	Health:
-		HP: 30000
+		HP: 100000
 	Armor:
-		Type: Wood
+		Type: Concrete
 	RevealsShroud:
 		Range: 4c0
 	InfiltrateForCash:
@@ -1559,8 +1570,58 @@ SILO:
 	-WithSpriteBody:
 	WithResourceLevelSpriteBody:
 		Sequence: stages
-	StoresResources:
-		Capacity: 15000
+    ExternalCondition@1:
+        Condition: Funded
+    ExternalCondition@2:
+        Condition: Funded2
+    ExternalCondition@3:
+        Condition: Funded3
+    ExternalCondition@4:
+        Condition: Funded4
+    ExternalCondition@5:
+        Condition: Funded5
+    ExternalCondition@6:
+        Condition: Funded6
+    ExternalCondition@7:
+        Condition: Funded7
+    ExternalCondition@8:
+        Condition: Funded8
+    ExternalCondition@9:
+        Condition: Funded9
+    ExternalCondition@10:
+        Condition: Funded10    
+	CashTricklerMultiplier@RANK-1:
+		RequiresCondition: Funded2
+		Modifier: 200
+	CashTricklerMultiplier@RANK-2:
+		RequiresCondition: Funded3
+		Modifier: 300
+	CashTricklerMultiplier@RANK-3:
+		RequiresCondition: Funded4
+		Modifier: 400
+	CashTricklerMultiplier@RANK-4:
+		RequiresCondition: Funded5
+		Modifier: 500
+	CashTricklerMultiplier@RANK-5:
+		RequiresCondition: Funded6
+		Modifier: 600
+	CashTricklerMultiplier@RANK-6:
+		RequiresCondition: Funded7
+		Modifier: 700
+	CashTricklerMultiplier@RANK-7:
+		RequiresCondition: Funded8
+		Modifier: 800
+	CashTricklerMultiplier@RANK-8:
+		RequiresCondition: Funded9
+		Modifier: 900
+	CashTricklerMultiplier@RANK-9:
+		RequiresCondition: Funded10
+		Modifier: 1000
+    CashTrickler:
+        Interval: 100
+		Amount: 100
+		RequiresCondition: Funded
+        UseResourceStorage: True
 	-SpawnActorsOnSell:
 	Power:
 		Amount: -10
@@ -1573,7 +1634,236 @@ SILO:
 		RequiresSelection: true
 		PipCount: 5
 		FullSequence: pip-yellow
+    StoresResources:
+        Capacity: 0
 
+DISP:
+	Inherits: ^Building
+	Selectable:
+		Bounds: 24,24
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 35
+		Prerequisites: ~techlevel.infonly, ~structures.command
+		Description: Gives money to allies
+    Building:
+		Footprint: =x= =_= ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	Valued:
+		Cost: 0
+	Targetable:
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, ThiefInfiltrate
+	Tooltip:
+		Name: Cash Dispenser
+	-GivesBuildableArea:
+	-MustBeDestroyed:
+	Health:
+		HP: 100000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		Range: 4c0
+	InfiltrateForCash:
+		Percentage: 50
+		Types: ThiefInfiltrate
+		InfiltratedNotification: CreditsStolen
+	WithBuildingBib:
+		HasMinibib: true
+	-WithSpriteBody:
+	WithResourceLevelSpriteBody:
+		Sequence: stages
+	-SpawnActorsOnSell:
+    GrantConditionOnDeploy:
+        DeployedCondition: deploy
+	GainsExperience:
+		LevelUpNotification: LevelUp
+		Conditions:
+			2: rank-money
+			4: rank-money
+			6: rank-money
+			8: rank-money
+			10: rank-money
+			12: rank-money
+			14: rank-money
+			16: rank-money
+			18: rank-money
+		LevelUpImage: crate-effects
+        ExperienceModifier: 1
+	CashTricklerMultiplier@RANK-1:
+		RequiresCondition: rank-money == 1
+		Modifier: 200
+	CashTricklerMultiplier@RANK-2:
+		RequiresCondition: rank-money == 2
+		Modifier: 300
+	CashTricklerMultiplier@RANK-3:
+		RequiresCondition: rank-money == 3
+		Modifier: 400
+	CashTricklerMultiplier@RANK-4:
+		RequiresCondition: rank-money == 4
+		Modifier: 500
+	CashTricklerMultiplier@RANK-5:
+		RequiresCondition: rank-money == 5
+		Modifier: 600
+	CashTricklerMultiplier@RANK-6:
+		RequiresCondition: rank-money == 6
+		Modifier: 700
+	CashTricklerMultiplier@RANK-7:
+		RequiresCondition: rank-money == 7
+		Modifier: 800
+	CashTricklerMultiplier@RANK-8:
+		RequiresCondition: rank-money == 8
+		Modifier: 900
+	CashTricklerMultiplier@RANK-9:
+		RequiresCondition: rank-money == 9
+		Modifier: 1000
+    ProximityExternalCondition@RANK-0:
+        RequiresCondition: HasMoney
+        Condition: Funded
+        Range: 1c0
+    ProximityExternalCondition@RANK-1:
+        RequiresCondition: rank-money == 1 && HasMoney
+        Condition: Funded2
+        Range: 1c0
+    ProximityExternalCondition@RANK-2:
+        RequiresCondition: rank-money == 2 && HasMoney
+        Condition: Funded3
+        Range: 1c0
+    ProximityExternalCondition@RANK-3:
+        RequiresCondition: rank-money == 3 && HasMoney
+        Condition: Funded4
+        Range: 1c0
+    ProximityExternalCondition@RANK-4:
+        RequiresCondition: rank-money == 4 && HasMoney
+        Condition: Funded5
+        Range: 1c0
+    ProximityExternalCondition@RANK-5:
+        RequiresCondition: rank-money == 5 && HasMoney
+        Condition: Funded6
+        Range: 1c0
+    ProximityExternalCondition@RANK-6:
+        RequiresCondition: rank-money == 6 && HasMoney
+        Condition: Funded7
+        Range: 1c0
+    ProximityExternalCondition@RANK-7:
+        RequiresCondition: rank-money == 7 && HasMoney
+        Condition: Funded8
+        Range: 1c0
+    ProximityExternalCondition@RANK-8:
+        RequiresCondition: rank-money == 8 && HasMoney
+        Condition: Funded9
+        Range: 1c0
+    ProximityExternalCondition@RANK-9:
+        RequiresCondition: rank-money >= 9 && HasMoney
+        Condition: Funded10
+        Range: 1c0
+	WithDecoration@RANK-0:
+		Image: barrank
+		Sequence: rank-veteran-1
+		Palette: effect
+		Position: TopLeft
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+        RequiresCondition: !rank-money
+	WithDecoration@RANK-1:
+		Image: barrank
+		Sequence: rank-veteran-2
+		Palette: effect
+		Position: TopLeft
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-money == 1
+	WithDecoration@RANK-2:
+		Image: barrank
+		Sequence: rank-veteran-3
+		Palette: effect
+		Position: TopLeft
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-money == 2
+	WithDecoration@RANK-3:
+		Image: barrank
+		Sequence: rank-veteran-4
+		Palette: effect
+		Position: TopLeft
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-money == 3
+	WithDecoration@RANK-4:
+		Image: barrank
+		Sequence: rank-veteran-5
+		Palette: effect
+		Position: TopLeft
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-money == 4
+	WithDecoration@RANK-5:
+		Image: barrank
+		Sequence: rank-veteran-6
+		Palette: effect
+		Position: TopLeft
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-money == 5
+	WithDecoration@RANK-6:
+		Image: barrank
+		Sequence: rank-veteran-7
+		Palette: effect
+		Position: TopLeft
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-money == 6
+	WithDecoration@RANK-7:
+		Image: barrank
+		Sequence: rank-veteran-8
+		Palette: effect
+		Position: TopLeft
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-money == 7
+	WithDecoration@RANK-8:
+		Image: barrank
+		Sequence: rank-veteran-9
+		Palette: effect
+		Position: TopLeft
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-money == 8
+	WithDecoration@RANK-9:
+		Image: barrank
+		Sequence: rank-veteran-10
+		Palette: effect
+		Position: TopLeft
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-money >= 9
+    GrantConditionOnPlayerResources:
+        Condition: HasMoney
+        Threshold: 100
+    CashTrickler:
+        Interval: 100
+		Amount: -100
+        UseResourceStorage: True
+        PauseOnCondition: !HasMoney
+    ExperienceTrickler:
+        Amount: 2
+        Interval: 100
+        PauseOnCondition: !deploy
+	Power:
+		Amount: -10
+	Explodes:
+		Weapon: SmallBuildingExplode
+		EmptyWeapon: SmallBuildingExplode
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 5
+		FullSequence: pip-yellow
+    StoresResources:
+        Capacity: 0
+    RenderSprites:
+        Image: DISP
 HPAD:
 	Inherits: ^Building
 	Inherits@shape: ^2x2Shape
@@ -2038,6 +2328,9 @@ BARR:
 	ProvidesPrerequisite@newsoviets:
 		Factions: armored, navy, command
 		Prerequisite: infantry.newsoviets
+	ProvidesPrerequisite@allsoviets:
+		Factions: soviet, russia, ukraine, armored, navy, command
+		Prerequisite: infantry.allsoviets
 	ProvidesPrerequisite@sovietvanilla:
 		Factions: soviet
 		Prerequisite: infantry.sovietvanilla
@@ -2059,12 +2352,15 @@ BARR:
 	ProvidesPrerequisite@england-navy:
 		Factions: england, navy
 		Prerequisite: infantry.england-navy
-	ProvidesPrerequisite@soviet-meme:
-		Factions: soviet, russia, ukraine, meme
-		Prerequisite: infantry.soviet-meme
-    ProvidesPrerequisite@any-meme:
-		Factions: allies, england, france, germany, soviet, russia, ukraine, meme
-		Prerequisite: infantry.any-meme
+	ProvidesPrerequisite@soviet-techno:
+		Factions: soviet, russia, ukraine, techno
+		Prerequisite: infantry.soviet-techno
+	ProvidesPrerequisite@soviet-airforce:
+		Factions: soviet, russia, ukraine, airforce
+		Prerequisite: infantry.soviet-airforce
+    ProvidesPrerequisite@any-techno:
+		Factions: allies, england, france, germany, soviet, russia, ukraine, techno
+		Prerequisite: infantry.any-techno
 	ProvidesPrerequisite@russia-support:
 		Factions: russia, support
 		Prerequisite: infantry.russia-support
@@ -2074,9 +2370,6 @@ BARR:
 	ProvidesPrerequisite@sovietstructure:
 		RequiresPrerequisites: structures.soviet
 		Prerequisite: infantry.soviet
-	ProvidesPrerequisite@newsovietsstructure:
-		RequiresPrerequisites: structures.newsoviets
-		Prerequisite: infantry.newsoviets
 	ProvidesPrerequisite@sovietvanillastructure:
 		RequiresPrerequisites: structures.sovietvanilla
 		Prerequisite: infantry.sovietvanilla
@@ -2112,7 +2405,7 @@ KENN:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 175
-		Prerequisites: anypower, ~structures.soviet-support, ~techlevel.infonly
+		Prerequisites: anypower, ~techlevel.infonly, ~!structures.allies, ~!structures.armored, ~!structures.navy, ~!structures.airforce
 		Description: Trains Attack Dogs.
 	Valued:
 		Cost: 200
@@ -2236,10 +2529,10 @@ TENT:
 		Factions: allies, england, france, germany
 		Prerequisite: infantry.allies
 	ProvidesPrerequisite@newallies:
-		Factions: support, airforce, meme
+		Factions: support, airforce, techno
 		Prerequisite: infantry.newallies
 	ProvidesPrerequisite@allallies:
-		Factions: allies, england, france, germany, support, airforce, meme
+		Factions: allies, england, france, germany, support, airforce, techno
 		Prerequisite: infantry.allallies
 	ProvidesPrerequisite@alliesvanilla:
 		Factions: allies
@@ -2259,39 +2552,33 @@ TENT:
     ProvidesPrerequisite@airforce:
 		Factions: airforce
 		Prerequisite: infantry.airforce
-    ProvidesPrerequisite@meme:
-		Factions: meme
-		Prerequisite: infantry.meme
+    ProvidesPrerequisite@techno:
+		Factions: techno
+		Prerequisite: infantry.techno
 	ProvidesPrerequisite@russia-support:
 		Factions: russia, support
 		Prerequisite: infantry.russia-support
 	ProvidesPrerequisite@england-navy:
 		Factions: england, navy
 		Prerequisite: infantry.england-navy
-    ProvidesPrerequisite@allies-meme:
-		Factions: allies, england, france, germany, meme
-		Prerequisite: infantry.allies-meme
-    ProvidesPrerequisite@soviet-meme:
-		Factions: soviet, russia, ukraine, meme
-		Prerequisite: infantry.soviet-meme
-    ProvidesPrerequisite@any-meme:
-		Factions: allies, england, france, germany, soviet, russia, ukraine, meme
-		Prerequisite: infantry.any-meme
+    ProvidesPrerequisite@allies-techno:
+		Factions: allies, england, france, germany, techno
+		Prerequisite: infantry.allies-techno
+    ProvidesPrerequisite@any-techno:
+		Factions: allies, england, france, germany, soviet, russia, ukraine, techno
+		Prerequisite: infantry.any-techno
     ProvidesPrerequisite@any-support:
 		Factions: allies, england, france, germany, soviet, russia, ukraine, support
 		Prerequisite: infantry.any-support
     ProvidesPrerequisite@allies-support:
 		Factions: allies, england, france, germany, support
 		Prerequisite: infantry.allies-support
-    ProvidesPrerequisite@allies-meme-support:
-		Factions: allies, england, france, germany, support, meme
-		Prerequisite: infantry.allies-meme-support
+    ProvidesPrerequisite@allies-techno-support:
+		Factions: allies, england, france, germany, support, techno
+		Prerequisite: infantry.allies-techno-support
 	ProvidesPrerequisite@alliedstructure:
 		RequiresPrerequisites: structures.allies
 		Prerequisite: infantry.allies
-    ProvidesPrerequisite@newalliesstructure:
-		RequiresPrerequisites: structures.newallies
-		Prerequisite: infantry.newallies
 	ProvidesPrerequisite@alliedvanillastructure:
 		RequiresPrerequisites: structures.alliesvanilla
 		Prerequisite: infantry.alliesvanilla
@@ -2310,9 +2597,9 @@ TENT:
     ProvidesPrerequisite@airforcestructure:
 		RequiresPrerequisites: structures.airforce
 		Prerequisite: infantry.airforce
-    ProvidesPrerequisite@memestructure:
-		RequiresPrerequisites: structures.meme
-		Prerequisite: infantry.meme
+    ProvidesPrerequisite@technostructure:
+		RequiresPrerequisites: structures.techno
+		Prerequisite: infantry.techno
 	Power:
 		Amount: -20
 	ProvidesPrerequisite@buildingname:
@@ -2327,7 +2614,7 @@ FIX:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 100
-		Prerequisites: weap, ~techlevel.medium, ~!structures.airforce, ~!structures.navy
+		Prerequisites: weap, ~techlevel.medium, ~!structures.airforce
 		Description: Repairs vehicles for credits.
 	Valued:
 		Cost: 1200

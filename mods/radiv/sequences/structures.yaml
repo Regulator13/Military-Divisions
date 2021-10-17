@@ -103,6 +103,26 @@ proc:
 	icon: procicon
 
 silo:
+	idle: silonum
+		Offset: 0,-1
+	damaged-idle: silonum
+		Offset: 0,-1
+	stages: silonum
+		Length: 50
+		Offset: 0,-1
+	damaged-stages: silonum
+        Start: 0
+		Length: 50
+		Offset: 0,-1
+	make: silomake
+		Length: *
+		Offset: 0,-1
+	bib: mbSILO
+		Length: *
+		UseTilesetExtension: true
+	icon: siloicon
+    
+disp:
 	idle: silo2
 		Offset: 0,-1
 	damaged-idle: silo2
@@ -121,7 +141,7 @@ silo:
 	bib: mbSILO
 		Length: *
 		UseTilesetExtension: true
-	icon: siloicon
+	icon: dispicon
 
 powr:
 	idle:
