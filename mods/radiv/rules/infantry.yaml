@@ -71,7 +71,7 @@ E1:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 10
-		Prerequisites: ~barracks, ~techlevel.infonly
+		Prerequisites: ~barracks, ~techlevel.infonly, ~!infantry.techno
 		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Selectable:
 		Class: E1
@@ -116,7 +116,7 @@ E2:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 40
-		Prerequisites: ~barr, ~techlevel.infonly
+		Prerequisites: ~barr, ~techlevel.infonly, ~!infantry.command
 		Description: Infantry armed with grenades.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
 		Cost: 160
@@ -158,7 +158,7 @@ E3:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 30
-		Prerequisites: ~barracks, ~techlevel.infonly
+		Prerequisites: ~barracks, ~techlevel.infonly, ~!infantry.techno
 		Description: Anti-tank/Anti-aircraft infantry.\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
 	Selectable:
 		Class: E3
@@ -211,7 +211,7 @@ E4:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 70
-		Prerequisites: ~barr, ~techlevel.low
+		Prerequisites: ~barracks, ~techlevel.low, ~!infantry.allies, ~!infantry.newsoviets, ~!infantry.techno, ~!infantry.airforce
 		Description: Advanced anti-structure unit.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
 	Valued:
 		Cost: 300
@@ -295,7 +295,7 @@ SPY:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 90
-		Prerequisites: dome, ~tent, ~techlevel.medium, ~infantry.allallies, ~!infantry.england
+		Prerequisites: dome, ~tent, ~techlevel.medium, ~!infantry.soviets, ~!infantry.england, ~!infantry.command, ~!infantry.techno, ~!infantry.armored, ~!infantry.support, ~!infantry.navy
 		Description: Infiltrates enemy structures for intel or\nsabotage. Exact effect depends on the\nbuilding infiltrated.\nLoses disguise when attacking.\nCan detect spies.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft\n  Special Ability: Disguised
 	Valued:
 		Cost: 500
@@ -346,7 +346,7 @@ SPY:
 SPY.England:
 	Inherits: SPY
 	Buildable:
-		Prerequisites: ~infantry.england-navy, dome, ~tent, ~techlevel.medium
+		Prerequisites: ~barracks, ~techlevel.medium, dome, ~infantry.england-navy
 	Valued:
 		Cost: 250
 	GivesExperience:
@@ -363,7 +363,7 @@ E7:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 120
-		Prerequisites: ~tent, atek, ~techlevel.high, ~infantry.allies-meme-support
+		Prerequisites: ~tent, atek, ~techlevel.high, ~infantry.allies-techno-support
 		BuildLimit: 1
 		Description: Elite commando infantry. Armed with\ndual pistols and C4.\nMaximum 1 can be trained.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4
 	Valued:
@@ -476,7 +476,7 @@ MEDI:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 40
-		Prerequisites: ~tent, ~techlevel.infonly, ~infantry.any-support
+		Prerequisites: ~tent, ~techlevel.infonly, ~infantry.allies-support
 		Description: Heals nearby infantry.\n  Unarmed
 	Valued:
 		Cost: 200
@@ -514,7 +514,7 @@ MECH:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 100
-		Prerequisites: ~tent, fix, ~techlevel.medium, ~infantry.any-support
+		Prerequisites: ~tent, fix, ~techlevel.medium, ~infantry.allies-support
 		Description: Repairs nearby vehicles and restores\nhusks to working condition by capturing them.\n  Unarmed
 	Valued:
 		Cost: 500
@@ -620,7 +620,7 @@ THF:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 110
-		Prerequisites: ~barracks, dome, ~techlevel.medium, ~infantry.soviet-meme
+		Prerequisites: ~barracks, dome, ~techlevel.medium, ~infantry.soviet-airforce
 		Description: Steals enemy credits.\nHijacks enemy vehicles.\n  Unarmed
 	Valued:
 		Cost: 500
@@ -733,8 +733,8 @@ SNIPER:
 	RevealsShroud:
 		Range: 6c0
 	AutoTarget:
-		InitialStance: HoldFire
-		InitialStanceAI: ReturnFire
+		InitialStance: Defend
+		InitialStanceAI: Defend
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: Infantry
 	Armament@PRIMARY:
@@ -773,7 +773,7 @@ Zombie:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 200
-		Prerequisites: ~barracks, ~infantry.meme
+		Prerequisites: ~barracks, ~bio
 		Description: Slow undead. Attacks in close combat.
 	Health:
 		HP: 25000
@@ -804,7 +804,7 @@ Ant:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 1954
-		Prerequisites: ~barracks, ~infantry.meme
+		Prerequisites: ~barracks, ~bio
 		Description: Irradiated insect that grew oversize.
 	Selectable:
 		Bounds: 24,24,0,-5
@@ -847,7 +847,7 @@ FireAnt:
 	Armor:
 		Type: Heavy
 	Buildable:
-		Prerequisites: ~barracks, atek, ~infantry.meme
+		Prerequisites: ~barracks, atek, ~disabled
 
 ScoutAnt:
 	Inherits: Ant
@@ -861,7 +861,7 @@ ScoutAnt:
 	AutoTarget:
 		ScanRadius: 7
 	Buildable:
-		Prerequisites: ~barracks, ~infantry.support
+		Prerequisites: ~barracks, ~disabled
 
 WarriorAnt:
 	Inherits: Ant
@@ -877,6 +877,6 @@ WarriorAnt:
 	Armament:
 		Weapon: MandibleHeavy
 	Buildable:
-		Prerequisites: ~barracks, stek, ~infantry.armored
+		Prerequisites: ~barracks, stek, ~disabled
 	RenderSprites:
 		Image: Ant

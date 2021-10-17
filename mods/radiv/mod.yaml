@@ -64,6 +64,7 @@ Rules:
     radiv|rules/vehicles.yaml
     radiv|rules/world.yaml
     radiv|rules/civilian.yaml
+    radiv|rules/defaults.yaml
 
 Sequences:
 	ra|sequences/ships.yaml
@@ -76,6 +77,7 @@ Sequences:
     radiv|sequences/infantry.yaml
     radiv|sequences/vehicles.yaml
     radiv|sequences/aircraft.yaml
+    radiv|sequences/misc.yaml
 
 TileSets:
 	ra|tilesets/snow.yaml
