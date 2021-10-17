@@ -295,7 +295,7 @@ SPY:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 90
-		Prerequisites: dome, ~tent, ~techlevel.medium, ~!infantry.soviets, ~!infantry.england, ~!infantry.command, ~!infantry.techno, ~!infantry.armored, ~!infantry.support, ~!infantry.navy
+		Prerequisites: dome, ~tent, ~techlevel.medium, ~!infantry.soviet, ~!infantry.england, ~!infantry.command, ~!infantry.techno, ~!infantry.armored, ~!infantry.support, ~!infantry.navy
 		Description: Infiltrates enemy structures for intel or\nsabotage. Exact effect depends on the\nbuilding infiltrated.\nLoses disguise when attacking.\nCan detect spies.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft\n  Special Ability: Disguised
 	Valued:
 		Cost: 500

@@ -1647,7 +1647,7 @@ DISP:
 		Prerequisites: ~techlevel.infonly, ~structures.command
 		Description: Gives money to allies
     Building:
-		Footprint: === =_= ===
+		Footprint: =x= =_= ===
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	Valued:
