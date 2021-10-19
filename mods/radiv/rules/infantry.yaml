@@ -63,6 +63,8 @@ DOG:
 	Voiced:
 		VoiceSet: DogVoice
 	-TakeCover:
+    -ExperienceTrickler:
+    -ExternalCondition@Teach:
 
 E1:
 	Inherits: ^Soldier
