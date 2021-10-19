@@ -946,7 +946,7 @@ SAM:
 
 EYE:
 	Inherits: ^ScienceBuilding
-		Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+    Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
 	Selectable:
 		Bounds: 48,48

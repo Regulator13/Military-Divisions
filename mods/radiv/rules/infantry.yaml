@@ -820,7 +820,7 @@ Bombie:
 	GrantConditionOnDeploy:
 		DeployedCondition: triggered
 	KillsSelf:
-		RequiresCondition: invulnerability || triggered
+		RequiresCondition: triggered
 	Chronoshiftable:
 		ExplodeInstead: true
 	Voiced:
