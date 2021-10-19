@@ -291,6 +291,102 @@ commando:
 		Facings: 8
 	icon: e7icon
     
+commander:
+	stand:
+		Facings: 8
+	stand2:
+		Start: 8
+		Facings: 8
+	run:
+		Start: 16
+		Length: 6
+		Facings: 8
+		Tick: 100
+	shoot:
+		Start: 64
+		Length: 4
+		Facings: 8
+	# stand -> prone transition
+	liedown:
+		Start: 96
+		Length: 2
+		Facings: 8
+	# prone -> stand transition
+	standup:
+		Start: 144
+		Length: 2
+		Facings: 8
+	prone-stand:
+		Start: 112
+		Stride: 4
+		Facings: 8
+	prone-stand2:
+		Start: 112
+		Stride: 4
+		Facings: 8
+	prone-run:
+		Start: 112
+		Length: 4
+		Facings: 8
+		Tick: 100
+	prone-shoot:
+		Start: 160
+		Length: 4
+		Facings: 8
+	idle1:
+		Start: 192
+		Length: 16
+		Tick: 120
+	idle2:
+		Start: 208
+		Length: 16
+		Tick: 120
+	idle3:
+		Start: 224
+		Length: 15
+		Tick: 120
+	cheer:
+		Start: 396
+		Length: 3
+		Facings: 8
+		Tick: 120
+	# Shot
+	die1:
+		Start: 318
+		Length: 8
+		Tick: 80
+	# Explode
+	die2:
+		Start: 326
+		Length: 8
+		Tick: 80
+	# Fly and explode in air
+	die3:
+		Start: 334
+		Length: 8
+		Tick: 80
+	# Fly through air squish on ground
+	die4:
+		Start: 342
+		Length: 12
+		Tick: 80
+	# Burn
+	die5:
+		Start: 354
+		Length: 18
+		Tick: 80
+	# Tib
+	die6:
+		Start: 308
+		Length: 4
+		Tick: 80
+	die-crushed: e1rot
+		Start: 16
+		Length: 4
+		Tick: 1600
+		ZOffset: -511
+	icon: commandericon
+    
 e3:
 	stand:
 		Facings: 8
@@ -1530,6 +1626,7 @@ chan:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+    icon: e1icon
 
 zombie:
 	stand:
@@ -1587,6 +1684,63 @@ zombie:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 	icon: zombicon
+    
+bombie:
+	stand: zombie
+		Facings: 8
+	stand2: zombie
+		Start: 8
+		Facings: 8
+	run: zombie
+		Start: 16
+		Length: 6
+		Facings: 8
+		Tick: 100
+	bite: zombie
+		Start: 64
+		Length: 4
+		Facings: 8
+	idle1: zombie
+		Start: 96
+		Length: 10
+		Tick: 120
+	die1: zombie
+		Start: 106
+		Length: 8
+		Tick: 80
+	die2: zombie
+		Start: 106
+		Length: 8
+		Tick: 80
+	die3: zombie
+		Start: 106
+		Length: 8
+		Tick: 80
+	die4: zombie
+		Start: 106
+		Length: 8
+		Tick: 80
+	die5: zombie
+		Start: 114
+		Length: 19
+		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	icon: bombieicon
 
 ant:
 	stand: ant1

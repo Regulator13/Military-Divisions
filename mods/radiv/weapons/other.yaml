@@ -129,7 +129,31 @@ TTankZap:
 	Inherits: ^TeslaWeapon
 	ReloadDelay: 120
 	Range: 7c0
-
+    
+TankLaser:
+    ReloadDelay: 100
+    Range: 7c0
+    Projectile: Railgun
+        DamageActorsInLine: True
+        BeamWidth: 240
+        BeamColor: 0099FF80
+        BeamAlphaDeltaPerTick: -4
+        HelixThickness: 96
+        HelixAlphaDeltaPerTick: -4
+        HelixColor: FF006F80
+    ValidTargets: Ground, Water, GroundActor, WaterActor
+    Warhead@1Dam: SpreadDamage
+        Spread: 50 
+        Damage: 40000
+        Versus:
+            None: 150
+            Wood: 70
+            Light: 80
+            Heavy: 60
+            Concrete: 40
+        DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath
+        ValidTargets: Ground, Water, GroundActor, WaterActor
+        
 DogJaw:
 	ValidTargets: Infantry
 	ReloadDelay: 10
@@ -244,6 +268,13 @@ DemoTruckTargeting:
 	Projectile: InstantHit
 	Warhead@1Dam: TargetDamage
 		ValidTargets: DetonateAttack
+        
+BombieTargeting:
+    ValidTargets: Ground, GroundActor
+	Range: 2c0
+	Projectile: InstantHit
+	Warhead@1Dam: TargetDamage
+		ValidTargets: Ground, GroundActor
 
 MADTankThump:
 	ValidTargets: GroundActor, WaterActor

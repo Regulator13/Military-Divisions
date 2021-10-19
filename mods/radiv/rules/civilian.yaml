@@ -10,6 +10,7 @@ MoneyHolder:
         Range: 0c0
     DamageMultiplier:
         Modifier: 0
+    -Targetable:
     StoresResources: 
         Capacity: 50000
     CashTrickler@Decrease:

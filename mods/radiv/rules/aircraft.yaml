@@ -309,7 +309,7 @@ FireBomber:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
 	AmmoPool:
-		Ammo: 50
+		Ammo: 75
 		ReloadDelay: 5
 		AmmoCondition: ammo
 	WithMuzzleOverlay:
@@ -335,8 +335,6 @@ FireBomber:
 		PipCount: 6
     EjectOnDeath:
         PilotActor: e4
-    RenderSprites:
-        Image: firebomber
         
 
 TRAN:

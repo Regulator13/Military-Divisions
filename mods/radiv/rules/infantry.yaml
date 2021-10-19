@@ -467,8 +467,6 @@ Commander:
 		VoiceSet: TanyaVoice
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
-    RenderSprites:
-        Image: commando
 
 MEDI:
 	Inherits: ^Soldier
@@ -557,7 +555,7 @@ MECH:
 		VoiceSet: MechanicVoice
 	AutoTarget:
 	AutoTargetPriority@DEFAULT:
-		ValidTargets: Vehicle, Ship
+		ValidTargets: Vehicle, Ship    
 
 EINSTEIN:
 	Inherits: ^CivInfantry
@@ -788,6 +786,48 @@ Zombie:
 		Weapon: claw
 	Voiced:
 		VoiceSet: AntVoice
+	-TakeCover:
+    
+Bombie:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Bombie
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 200
+		Prerequisites: ~barracks, ~infantry.navy
+		Description: Best way to get rid of zombies.
+	Health:
+		HP: 4000
+	Mobile:
+		Speed: 72
+	Explodes:
+		Weapon: BombieExplode   
+        EmptyWeapon: BombieExplode
+		DamageSource: Killer
+	AttackFrontal:
+		FacingTolerance: 512
+	Armament@PRIMARY:
+		Weapon: BombieTargeting
+	GrantConditionOnAttack:
+		Condition: triggered
+	GrantConditionOnDeploy:
+		DeployedCondition: triggered
+	KillsSelf:
+		RequiresCondition: invulnerability || triggered
+	Chronoshiftable:
+		ExplodeInstead: true
+	Voiced:
+		VoiceSet: AntVoice
+	WithInfantryBody:
+		DefaultAttackSequence: bite
+		IdleSequences: idle1
 	-TakeCover:
 
 Ant:

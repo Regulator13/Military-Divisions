@@ -397,6 +397,25 @@ fix:
 		UseTilesetExtension: true
 	icon: fixicon
 	fake-icon: fixficon
+    
+eye:
+	idle:
+		Length: 16
+		Tick: 100
+	damaged-idle:
+		Start: 16
+		Length: 16
+		Tick: 100
+	dead:
+		Start: 32
+		Tick: 800
+	make: eyemake
+		Length: *
+		Tick: 80
+	bib: bib3
+		UseTilesetExtension: true
+		Length: *
+	icon: eyeicon
 
 gun:
 	idle: gunmake # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work

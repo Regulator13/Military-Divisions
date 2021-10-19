@@ -520,7 +520,7 @@ JEEP:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
         
-BUGG:
+BGGY:
 	Inherits: ^Vehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -560,8 +560,6 @@ BUGG:
 	WithSpriteTurret:
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
-    RenderSprites:
-        Image: Jeep
 
 APC:
 	Inherits: ^TrackedVehicle
@@ -845,6 +843,53 @@ TTNK:
 		Prerequisites: vehicles.upgraded
 	Selectable:
 		DecorationBounds: 30,30
+        
+LaserTank:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    Inherits@DISABLE: ^DisableOnLowPower
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 340
+		Prerequisites: atek, ~vehicles.techno, ~techlevel.high
+		Description: Heavy tank with mounted railgun.
+	Valued:
+		Cost: 2500
+    Power:
+        Amount: -30
+	Tooltip:
+		Name: Ion Tank
+		GenericName: Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 60000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 65
+        RequiresCondition: !lowpower
+	RevealsShroud:
+		MinRange: 6c0
+		Range: 7c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 6c0
+	Armament:
+		Weapon: TankLaser
+		LocalOffset: 0, 0, 340
+        PauseOnCondition: moving
+        RequiresCondition: !lowpower
+	AttackTurreted:
+	Turreted:
+        TurnSpeed: 8
+    WithSpriteTurret:
+    WithMuzzleOverlay:
+    GrantConditionOnMovement:
+        Condition: moving
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
 
 FTRK:
 	Inherits: ^Vehicle
@@ -984,7 +1029,7 @@ QTNK:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 420
-		Prerequisites: fix, stek, ~vehicles.soviet-techno, ~techlevel.high
+		Prerequisites: fix, stek, ~vehicles.soviet-armored, ~techlevel.high
 		Description: Deals seismic damage to nearby vehicles\nand structures.\n  Strong vs Vehicles, Buildings\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 2000

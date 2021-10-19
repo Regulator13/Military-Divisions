@@ -944,6 +944,47 @@ SAM:
 	-BodyOrientation:
 	ClassicFacingBodyOrientation:
 
+EYE:
+	Inherits: ^ScienceBuilding
+		Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@shape: ^2x2Shape
+	Selectable:
+		Bounds: 48,48
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 140
+		Prerequisites: dome, atek, ~structures.techno, ~techlevel.high
+		Description: Trains infantry further, giving them EXP
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Communication Tower
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 60000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	WithBuildingBib:
+	Targetable:
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure
+	Power:
+		Amount: -80
+	ProvidesPrerequisite@buildingname:
+    ProximityExternalCondition@Teach:
+        Condition: teach
+        Range: 2c0
+    WithRangeCircle:
+        Range: 2c0
+
 ATEK:
 	Inherits: ^ScienceBuilding
 	Inherits@IDISABLE: ^DisableOnLowPower
@@ -1670,9 +1711,6 @@ DISP:
 		InfiltratedNotification: CreditsStolen
 	WithBuildingBib:
 		HasMinibib: true
-	-WithSpriteBody:
-	WithResourceLevelSpriteBody:
-		Sequence: stages
 	-SpawnActorsOnSell:
     GrantConditionOnDeploy:
         DeployedCondition: deploy
@@ -1854,12 +1892,6 @@ DISP:
 	Explodes:
 		Weapon: SmallBuildingExplode
 		EmptyWeapon: SmallBuildingExplode
-	WithResourceStoragePipsDecoration:
-		Position: BottomLeft
-		Margin: 4, 3
-		RequiresSelection: true
-		PipCount: 5
-		FullSequence: pip-yellow
     StoresResources:
         Capacity: 0
     RenderSprites:
@@ -2709,7 +2741,7 @@ BRIK:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 30
-		Prerequisites: fact, ~techlevel.medium
+		Prerequisites: fact, ~techlevel.medium, ~!structures.command
 		Description: Stop units and blocks enemy fire.
 	Valued:
 		Cost: 200
@@ -2733,6 +2765,44 @@ BRIK:
 		Types: concrete
 	WithWallSpriteBody:
 		Type: concrete
+        
+BRIKCOM:
+	Inherits: ^Wall
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 30
+		Prerequisites: fact, ~techlevel.medium, ~structures.command
+		Description: A stronger, better wall.
+        BuildDurationModifier: 20
+	Valued:
+		Cost: 200
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Command Wall
+	SoundOnDamageTransition:
+		DamagedSounds: crmble2.aud
+		DestroyedSounds: kaboom30.aud
+	Health:
+		HP: 60000
+	Armor:
+		Type: Concrete
+	Crushable:
+		CrushClasses: heavywall
+    RequiresBuildableArea:
+		AreaTypes: building
+		Adjacent: 10
+	LineBuild:
+		Range: 12
+		NodeTypes: concrete
+	BlocksProjectiles:
+	LineBuildNode:
+		Types: concrete
+	WithWallSpriteBody:
+		Type: concrete
+    RenderSprites:
+        Image: BRIK
+
 
 CYCL:
 	Inherits: ^Wall

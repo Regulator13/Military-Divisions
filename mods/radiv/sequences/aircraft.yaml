@@ -12,8 +12,9 @@ yak:
 	icon: yakicon
     
 firebomber:
-	idle: yak
-		Facings: 16
+	idle: firebomber
+		Facings: 32
+        UseClassicFacings: True
 	muzzle: minigun
 		Length: 6
 		Facings: 8
