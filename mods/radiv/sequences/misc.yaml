@@ -55,8 +55,14 @@ explosion:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
             
-magnum:
-    icon: magnumicon
+internmagnum:
+    icon: internmagnumicon
+    
+internarmor:
+    icon: internarmoricon
+    
+internheal:
+    icon: internhealicon
 
 burn-l:
 	idle:

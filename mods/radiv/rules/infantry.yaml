@@ -80,25 +80,81 @@ Intern:
 	Tooltip:
 		Name: Intern
     -ScaredyCat:
+    -Wanders:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
 		HP: 3000
-    GrantConditionOnPrerequisite@Magnum:
-        Condition: magnum
-        Prerequisites: magnum
+    Armor:
+        Type: Light
+        RequiresCondition: internarmor
+    DamageMultiplier:
+        Modifier: 50
+        RequiresCondition: internarmor
+    ChangesHealth:
+        Step: 100
+        Delay: 5
+        StartIfBelow: 100
+        DamageCooldown: 100
+        RequiresCondition: internheal
+    GrantConditionOnPrerequisite@InternMagnum:
+        Condition: internmagnum
+        Prerequisites: internmagnum
+    GrantConditionOnPrerequisite@InternArmor:
+        Condition: internarmor
+        Prerequisites: internarmor
+    GrantConditionOnPrerequisite@InternHeal:
+        Condition: internheal
+        Prerequisites: internheal
 	Armament@PISTOL:
 		Weapon: Pistol
-        RequiresCondition: !magnum
+        RequiresCondition: !internmagnum
     Armament@MAGNUM:
-        Weapon: Magnum
-        RequiresCondition: magnum
+        Weapon: magnum
+        RequiresCondition: internmagnum
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: Pistol
 		MuzzleSequence: garrison-muzzle
     RenderSprites:
         Image: C1
+        
+Brute:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 70
+		Prerequisites: ~barr, ~techlevel.low, ~infantry.armored
+		Description: Armored melee units
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Brute
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 20000
+	Mobile:
+		Speed: 70
+		AlwaysTurnInPlace: true
+		Locomotor: foot
+	RevealsShroud:
+		Range: 4c0
+    Crushable:
+        CrushClasses: heavywall
+    -TakeCover:
+	Armament@PRIMARY:
+		Weapon: Fist
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
 
 E1:
 	Inherits: ^Soldier

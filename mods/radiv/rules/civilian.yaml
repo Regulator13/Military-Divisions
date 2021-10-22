@@ -4,6 +4,8 @@ C1:
     
 MoneyHolder:
     Inherits@1: ^CivInfantry
+    Selectable:
+        Class: MoneyHolder
     Tooltip:
         Name: Cash Dude
     RevealsShroud:
