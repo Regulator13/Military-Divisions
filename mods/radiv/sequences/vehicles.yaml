@@ -150,6 +150,7 @@ mkii:
     walk:
         Facings: 8
         Length: 12
+        Tick: 150
         UseClassicFacings: False
 	turret:
 		Start: 96

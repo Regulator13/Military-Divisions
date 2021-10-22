@@ -358,7 +358,7 @@ powerproxy.paratroopers:
 		ClockSequence: clock
 		CircleSequence: circles
         
-upgrade.magnum:
+upgrade.internmagnum:
 	Tooltip:
 		Name: Magnum Upgrade
 	Buildable:
@@ -370,9 +370,45 @@ upgrade.magnum:
 	Valued:
 		Cost: 1000
 	RenderSprites:
-		Image: magnum
+		Image: internmagnum
 	ProvidesPrerequisite:
-		Prerequisite: magnum
+		Prerequisite: internmagnum
+	Interactable:
+	AlwaysVisible:
+    
+upgrade.internarmor:
+	Tooltip:
+		Name: Body Armor
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: barracks, weap, ~rlab, ~techlevel.medium
+		Queue: Defense
+		BuildLimit: 1
+		Description: Something to slow the bullets down.
+	Valued:
+		Cost: 900
+	RenderSprites:
+		Image: internarmor
+	ProvidesPrerequisite:
+		Prerequisite: internarmor
+	Interactable:
+	AlwaysVisible:
+    
+upgrade.internheal:
+	Tooltip:
+		Name: Med Kit
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: barracks, atek, ~rlab, ~techlevel.medium
+		Queue: Defense
+		BuildLimit: 1
+		Description: Interns learn to patch their own wounds.\nIncrease intern health
+	Valued:
+		Cost: 1200
+	RenderSprites:
+		Image: internheal
+	ProvidesPrerequisite:
+		Prerequisite: internheal
 	Interactable:
 	AlwaysVisible:
 

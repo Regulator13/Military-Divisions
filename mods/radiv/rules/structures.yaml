@@ -1682,7 +1682,54 @@ SILO:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 35
-		Prerequisites: ~techlevel.infonly, ~!structures.command
+		Prerequisites: fact, ~techlevel.infonly, ~!structures.techno, ~!structures.armored, ~!structures.support, ~!structures.airforce, ~!structures.navy
+		Description: Stores excess refined\nOre and Gems.
+	Valued:
+		Cost: 150
+	Targetable:
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, ThiefInfiltrate
+	Tooltip:
+		Name: Silo
+	-GivesBuildableArea:
+	-MustBeDestroyed:
+	Health:
+		HP: 30000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	InfiltrateForCash:
+		Percentage: 50
+		Types: ThiefInfiltrate
+		InfiltratedNotification: CreditsStolen
+	WithBuildingBib:
+		HasMinibib: true
+	-WithSpriteBody:
+	WithResourceLevelSpriteBody:
+		Sequence: stages
+	StoresResources:
+		Capacity: 3000
+	-SpawnActorsOnSell:
+	Power:
+		Amount: -10
+	Explodes:
+		Weapon: SmallBuildingExplode
+		EmptyWeapon: SmallBuildingExplode
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 5
+		FullSequence: pip-yellow
+        
+STORE:
+	Inherits: ^Building
+	Selectable:
+		Bounds: 24,24
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 35
+		Prerequisites: ~techlevel.infonly, ~structures.newteams, ~!structures.command
 		Description: Used to receive funds
 	Valued:
 		Cost: 150
@@ -1773,6 +1820,8 @@ SILO:
 		FullSequence: pip-yellow
     StoresResources:
         Capacity: 0
+    RenderSprites:
+        Image: SILO
 
 DISP:
 	Inherits: ^Building
@@ -1783,12 +1832,15 @@ DISP:
 		BuildPaletteOrder: 35
 		Prerequisites: ~techlevel.infonly, ~structures.command
 		Description: Gives money to allies
+        BuildDurationModifier: 50
     Building:
 		Footprint: =x= =_= ===
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	Valued:
-		Cost: 0
+		Cost: 200
+    CustomSellValue:
+        Value: 0
 	Targetable:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, ThiefInfiltrate
 	Tooltip:
@@ -1990,8 +2042,7 @@ DISP:
 		EmptyWeapon: SmallBuildingExplode
     StoresResources:
         Capacity: 0
-    RenderSprites:
-        Image: DISP
+        
 HPAD:
 	Inherits: ^Building
 	Inherits@shape: ^2x2Shape
