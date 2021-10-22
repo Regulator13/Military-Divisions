@@ -16,8 +16,8 @@
 		TerrainSpeeds:
 			Clear: 90
 			Rough: 80
-			Road: 100
-			Bridge: 100
+			Road: 120
+			Bridge: 120
 			Ore: 80
 			Gems: 80
 			Beach: 80
@@ -27,8 +27,8 @@
 		TerrainSpeeds:
 			Clear: 80
 			Rough: 40
-			Road: 100
-			Bridge: 100
+			Road: 130
+			Bridge: 130
 			Ore: 70
 			Gems: 70
 			Beach: 40
@@ -38,8 +38,8 @@
 		TerrainSpeeds:
 			Clear: 80
 			Rough: 40
-			Road: 100
-			Bridge: 100
+			Road: 120
+			Bridge: 120
 			Ore: 70
 			Gems: 70
 			Beach: 40
@@ -49,8 +49,8 @@
 		TerrainSpeeds:
 			Clear: 80
 			Rough: 70
-			Road: 100
-			Bridge: 100
+			Road: 130
+			Bridge: 130
 			Ore: 70
 			Gems: 70
 			Beach: 70
@@ -60,8 +60,8 @@
 		TerrainSpeeds:
 			Clear: 80
 			Rough: 70
-			Road: 100
-			Bridge: 100
+			Road: 110
+			Bridge: 110
 			Ore: 70
 			Gems: 70
 			Beach: 70
@@ -71,8 +71,8 @@
 		TerrainSpeeds:
 			Clear: 80
 			Rough: 70
-			Road: 100
-			Bridge: 100
+			Road: 110
+			Bridge: 110
 			Ore: 70
 			Gems: 70
 			Beach: 70

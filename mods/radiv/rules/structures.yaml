@@ -673,6 +673,65 @@ DOME:
 	ExternalCondition@JAMMED:
 		Condition: jammed
 
+CommCenter:
+	Inherits: ^Building
+	Inherits@shape: ^3x2Shape
+    Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 100
+		Prerequisites: dome, ~techlevel.medium, ~structures.command
+		Description: Provides a large radius of vision to allies\n Enables Emergency Assistance
+    Valued:
+        Cost: 900
+    Power:
+        Amount: -50
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 840,0,0, 840,-1024,0, 420,768,0, -840,0,0, -840,-1024,0, -840,1024,0
+	Selectable:
+		Priority: 0
+		Bounds: 72,48
+	OwnerLostAction:
+		Action: ChangeOwner
+	Building:
+		Footprint: xxx xxx ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	RevealsShroud:
+		MinRange: 6c0
+		Range: 10c0
+		RevealGeneratedShroud: False
+        RequiresCondition: !disabled
+	RevealsShroud@Offline:
+		Range: 5c0
+		RequiresCondition: disabled
+	RevealsShroud@GAPGEN:
+		Range: 6c0
+		RequiresCondition: !disabled
+	Health:
+		HP: 60000
+	Armor:
+		Type: Wood
+	Tooltip:
+		Name: Communications Center
+	TooltipDescription@ally:
+		Description: Provides range of vision.
+		ValidRelationships: Ally
+	TooltipDescription@other:
+		Description: Capture to give visual range.
+		ValidRelationships: Neutral, Enemy
+	WithBuildingBib:
+	CaptureManager:
+	EngineerRepairable:
+	WithDeathAnimation:
+		DeathSequence: dead
+		UseDeathTypeSuffix: false
+	ProvidesPrerequisite@buildingname:
+	AppearsOnMapPreview:
+	GpsDot:
+		String: Communications
+
 PBOX:
 	Inherits: ^Defense
 	Inherits@AUTOTARGET: ^AutoTargetAll
@@ -943,6 +1002,84 @@ SAM:
 		Amount: -40
 	-BodyOrientation:
 	ClassicFacingBodyOrientation:
+
+EYE:
+	Inherits: ^ScienceBuilding
+    Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@shape: ^2x2Shape
+	Selectable:
+		Bounds: 48,48
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 150
+		Prerequisites: dome, atek, ~structures.techno, ~techlevel.high
+		Description: Trains infantry further, giving them EXP
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Communication Tower
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 60000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	WithBuildingBib:
+	Targetable:
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure
+	Power:
+		Amount: -80
+	ProvidesPrerequisite@buildingname:
+    ProximityExternalCondition@Teach:
+        Condition: teach
+        Range: 2c0
+    WithRangeCircle:
+        Range: 2c0
+        
+RLAB:
+	Inherits: ^ScienceBuilding
+	Inherits@IDISABLE: ^DisableOnLowPower
+	Inherits@shape: ^2x2Shape
+	Selectable:
+		Bounds: 48,48
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 130
+		Prerequisites: dome, ~structures.techno, ~techlevel.medium
+		Description: Allows for research on\nspecial upgrades
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Research Lab
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 45000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Targetable:
+		TargetTypes: GroundActor, C4, DetonateAttack, Structure
+	Power:
+		Amount: -150
+	ProvidesPrerequisite@buildingname:
+    RenderSprites:
+        Image: BIO
 
 ATEK:
 	Inherits: ^ScienceBuilding
@@ -1670,9 +1807,6 @@ DISP:
 		InfiltratedNotification: CreditsStolen
 	WithBuildingBib:
 		HasMinibib: true
-	-WithSpriteBody:
-	WithResourceLevelSpriteBody:
-		Sequence: stages
 	-SpawnActorsOnSell:
     GrantConditionOnDeploy:
         DeployedCondition: deploy
@@ -1854,12 +1988,6 @@ DISP:
 	Explodes:
 		Weapon: SmallBuildingExplode
 		EmptyWeapon: SmallBuildingExplode
-	WithResourceStoragePipsDecoration:
-		Position: BottomLeft
-		Margin: 4, 3
-		RequiresSelection: true
-		PipCount: 5
-		FullSequence: pip-yellow
     StoresResources:
         Capacity: 0
     RenderSprites:
@@ -2232,6 +2360,50 @@ APWR:
 	WithDeathAnimation:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
+        
+NUK2:
+	Inherits: ^Building
+	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
+	Inherits@shape: ^2x2Shape
+	Selectable:
+		Bounds: 48,48
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 150
+		Prerequisites: ~techlevel.infonly, atek, ~structures.techno
+		Description: Provides tremendous power.\nDon't shoot it though.
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Nuclear Power Plant
+	ProvidesPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 75000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	WithBuildingBib:
+	Power:
+		Amount: 500
+	Targetable:
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack, SpyInfiltrate
+	ScalePowerWithHealth:
+	WithDeathAnimation:
+		DeathSequence: dead
+		UseDeathTypeSuffix: false
+    Explodes:
+		Weapon: MiniNuke
+		EmptyWeapon: MiniNuke
+		DamageSource: Killer
 
 STEK:
 	Inherits: ^ScienceBuilding
@@ -2358,12 +2530,18 @@ BARR:
 	ProvidesPrerequisite@soviet-airforce:
 		Factions: soviet, russia, ukraine, airforce
 		Prerequisite: infantry.soviet-airforce
+	ProvidesPrerequisite@soviet-navy:
+		Factions: soviet, russia, ukraine, navy
+		Prerequisite: infantry.soviet-navy
     ProvidesPrerequisite@any-techno:
 		Factions: allies, england, france, germany, soviet, russia, ukraine, techno
 		Prerequisite: infantry.any-techno
 	ProvidesPrerequisite@russia-support:
 		Factions: russia, support
 		Prerequisite: infantry.russia-support
+	ProvidesPrerequisite@russia-techno:
+		Factions: russia, techno
+		Prerequisite: infantry.russia-techno
     ProvidesPrerequisite@any-support:
 		Factions: allies, england, france, germany, soviet, russia, ukraine, support
 		Prerequisite: infantry.any-support     
@@ -2709,7 +2887,7 @@ BRIK:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 30
-		Prerequisites: fact, ~techlevel.medium
+		Prerequisites: fact, ~techlevel.medium, ~!structures.command
 		Description: Stop units and blocks enemy fire.
 	Valued:
 		Cost: 200
@@ -2733,7 +2911,44 @@ BRIK:
 		Types: concrete
 	WithWallSpriteBody:
 		Type: concrete
-
+        
+BRIKCOM:
+	Inherits: ^Wall
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 30
+		Prerequisites: fact, ~techlevel.medium, ~structures.command
+		Description: A stronger, better wall.
+        BuildDurationModifier: 20
+	Valued:
+		Cost: 200
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Command Wall
+	SoundOnDamageTransition:
+		DamagedSounds: crmble2.aud
+		DestroyedSounds: kaboom30.aud
+	Health:
+		HP: 60000
+	Armor:
+		Type: Concrete
+	Crushable:
+		CrushClasses: heavywall
+    RequiresBuildableArea:
+		AreaTypes: building
+		Adjacent: 10
+	LineBuild:
+		Range: 12
+		NodeTypes: concrete
+	BlocksProjectiles:
+	LineBuildNode:
+		Types: concrete
+	WithWallSpriteBody:
+		Type: concrete
+    RenderSprites:
+        Image: BRIK
+    
 CYCL:
 	Inherits: ^Wall
 	Tooltip:

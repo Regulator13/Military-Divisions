@@ -435,6 +435,12 @@
 	DetectCloaked:
 		CloakTypes: Cloak
 		Range: 1c0
+    ExternalCondition@Teach:
+        Condition: teach
+    ExperienceTrickler:
+        Interval: 100
+        Amount: 5000
+        RequiresCondition: teach
 
 ^Soldier:
 	Inherits: ^Infantry

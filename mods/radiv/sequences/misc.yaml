@@ -54,6 +54,9 @@ explosion:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+            
+magnum:
+    icon: magnumicon
 
 burn-l:
 	idle:

@@ -170,6 +170,21 @@ mkii.destroyed:
 		UseClassicFacings: True
 		ZOffset: -512
 
+lasertank:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+    active:
+        Start: 64
+        Length: 9
+        Tick: 100
+        Offset: 0,-13
+	icon: lasertankicon
+
 v2rl:
 	idle:
 		Facings: 32
@@ -200,7 +215,25 @@ jeep:
 		Length: 6
 		Facings: 8
 	icon: jeepicon
-
+    
+bggy:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	icon: bggyicon
+    
+ftnk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	icon: ftnkicon
 apc:
 	idle:
 		Facings: 32
@@ -220,6 +253,12 @@ mnly:
 		Facings: 32
 		UseClassicFacings: True
 	icon: mnlyicon
+    
+barrellayer:
+	idle: mnly
+		Facings: 32
+		UseClassicFacings: True
+	icon: barrellayericon
 
 mrj:
 	idle:

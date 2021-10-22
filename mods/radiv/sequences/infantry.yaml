@@ -114,6 +114,119 @@ e1:
 				Frames: 42,43,44,45,46,47,42,43,44,45,46,47
 	icon: e1icon
 
+gatl:
+	stand:
+		Facings: 8
+	stand2:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 10
+		Facings: 8
+		Tick: 100
+	shoot:
+		Start: 88
+		Length: 10
+		Facings: 8
+	prone-stand:
+		Start: 168
+		Facings: 8
+	prone-stand2:
+		Start: 168
+		Facings: 8
+	prone-run:
+		Start: 176
+		Length: 10
+		Facings: 8
+		Tick: 100
+	liedown:
+		Start: 352
+		Length: 2
+		Facings: 8
+	standup:
+		Start: 336
+		Length: 2
+		Facings: 8
+	prone-shoot:
+		Start: 256
+		Length: 10
+		Facings: 8
+	parachute:
+		Start: 377
+	idle1:
+		Start: 368
+		Length: 20
+		Tick: 120
+	idle2:
+		Start: 448
+		Length: 20
+		Tick: 120
+	die1:
+		Start: 408
+		Length: 10
+		Tick: 80
+	die2:
+		Start: 428
+		Length: 10
+		Tick: 80
+	die3:
+		Start: 408
+		Length: 10
+		Tick: 80
+	die4:
+		Start: 428
+		Length: 10
+		Tick: 80
+	die5:
+		Start: 408
+		Length: 10
+		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: *
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	garrison-muzzle: minigun
+		Length: 12
+		Facings: 8
+		Combine:
+			minigun:
+				Length: 12
+				Frames: 0,1,2,3,4,5,0,1,2,3,4,5
+			minigun:
+				Length: 12
+				Frames: 6,7,8,9,10,11,6,7,8,9,10,11
+			minigun:
+				Length: 12
+				Frames: 12,13,14,15,16,17,12,13,14,15,16,17
+			minigun:
+				Length: 12
+				Frames: 18,19,20,21,22,23,18,19,20,21,22,23
+			minigun:
+				Length: 12
+				Frames: 24,25,26,27,28,29,24,25,26,27,28,29
+			minigun:
+				Length: 12
+				Frames: 30,31,32,33,34,35,30,31,32,33,34,35
+			minigun:
+				Length: 12
+				Frames: 36,37,38,39,40,41,36,37,38,39,40,41
+			minigun:
+				Length: 12
+				Frames: 42,43,44,45,46,47,42,43,44,45,46,47
+	icon: gatlicon
+    
 sniper:
 	stand:
 		Facings: 8
@@ -203,93 +316,106 @@ sniper:
 		Stride: 6
 		Facings: 8
 	icon: snipericon
-
-commando:
+    
+commander:
 	stand:
 		Facings: 8
 	stand2:
+		Start: 8
 		Facings: 8
 	run:
-		Start: 8
-		Length: 10
+		Start: 16
+		Length: 6
 		Facings: 8
 		Tick: 100
 	shoot:
-		Start: 129
-		Length: 10
+		Start: 64
+		Length: 4
+		Facings: 8
+	# stand -> prone transition
+	liedown:
+		Start: 96
+		Length: 2
+		Facings: 8
+	# prone -> stand transition
+	standup:
+		Start: 144
+		Length: 2
 		Facings: 8
 	prone-stand:
-		Start: 208
+		Start: 112
 		Stride: 4
 		Facings: 8
 	prone-stand2:
-		Start: 208
+		Start: 112
 		Stride: 4
 		Facings: 8
 	prone-run:
-		Start: 208
+		Start: 112
 		Length: 4
 		Facings: 8
 		Tick: 100
-	liedown:
-		Start: 192
-		Length: 2
-		Facings: 8
-	standup:
-		Start: 240
-		Length: 2
-		Facings: 8
 	prone-shoot:
-		Start: 256
-		Length: 16
+		Start: 160
+		Length: 4
 		Facings: 8
 	idle1:
-		Length: 4
+		Start: 192
+		Length: 16
 		Tick: 120
 	idle2:
-		Length: 4
+		Start: 208
+		Length: 16
 		Tick: 120
+	idle3:
+		Start: 224
+		Length: 15
+		Tick: 120
+	cheer:
+		Start: 396
+		Length: 3
+		Facings: 8
+		Tick: 120
+	# Shot
 	die1:
-		Start: 208
-		Length: 20
+		Start: 318
+		Length: 8
 		Tick: 80
+	# Explode
 	die2:
-		Start: 208
-		Length: 20
+		Start: 326
+		Length: 8
 		Tick: 80
+	# Fly and explode in air
 	die3:
-		Start: 208
-		Length: 20
+		Start: 334
+		Length: 8
 		Tick: 80
+	# Fly through air squish on ground
 	die4:
-		Start: 208
-		Length: 20
+		Start: 342
+		Length: 12
 		Tick: 80
+	# Burn
 	die5:
-		Start: 208
-		Length: 20
+		Start: 354
+		Length: 18
 		Tick: 80
-	die6: electro
-		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
-		Length: *
+	# Tib
+	die6:
+		Start: 308
+		Length: 4
 		Tick: 80
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
-	die-crushed: corpse1
-		Length: 6
+	die-crushed: e1rot
+		Start: 16
+		Length: 4
 		Tick: 1600
 		ZOffset: -511
-		UseTilesetExtension: true
-		TilesetOverrides:
-			DESERT: TEMPERAT
-			INTERIOR: TEMPERAT
 	garrison-muzzle: minigun
 		Length: 3
 		Stride: 6
 		Facings: 8
-	icon: e7icon
+	icon: commandericon
     
 e3:
 	stand:
@@ -1262,11 +1388,16 @@ c1:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+	garrison-muzzle: minigun
+		Length: 3
+		Stride: 6
+		Facings: 8
 	run:
 		Start: 56
 		Length: 6
 		Facings: 8
 		Tick: 80
+    icon: internicon
 
 c2:
 	stand:
@@ -1530,6 +1661,7 @@ chan:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+    icon: e1icon
 
 zombie:
 	stand:
@@ -1587,6 +1719,63 @@ zombie:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 	icon: zombicon
+    
+bombie:
+	stand: zombie
+		Facings: 8
+	stand2: zombie
+		Start: 8
+		Facings: 8
+	run: zombie
+		Start: 16
+		Length: 6
+		Facings: 8
+		Tick: 100
+	bite: zombie
+		Start: 64
+		Length: 4
+		Facings: 8
+	idle1: zombie
+		Start: 96
+		Length: 10
+		Tick: 120
+	die1: zombie
+		Start: 106
+		Length: 8
+		Tick: 80
+	die2: zombie
+		Start: 106
+		Length: 8
+		Tick: 80
+	die3: zombie
+		Start: 106
+		Length: 8
+		Tick: 80
+	die4: zombie
+		Start: 106
+		Length: 8
+		Tick: 80
+	die5: zombie
+		Start: 114
+		Length: 19
+		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	icon: bombieicon
 
 ant:
 	stand: ant1
