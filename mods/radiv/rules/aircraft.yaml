@@ -58,7 +58,7 @@ Bomber:
 		Prerequisites: ~afld, techcenter, ~techlevel.high, ~aircraft.airforce
 		Description: Slow air strike plane\n Drops parabombs.
 	Valued:
-		Cost: 3000
+		Cost: 2200
 	Tooltip:
 		Name: Badger
 	UpdatesPlayerStatistics:

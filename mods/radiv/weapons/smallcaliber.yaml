@@ -255,6 +255,24 @@ Pistol:
 		Inaccuracy: 128
 	Warhead@3EffWater: CreateEffect
 		Inaccuracy: 128
+        
+Magnum:
+	Inherits: ^LightMG
+	ReloadDelay: 12
+	Range: 3c0
+	Report: gun27.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 800
+		Versus:
+			None: 100
+            Wood: 50
+            Light: 80
+            Heavy: 50
+            Concrete: 50
+	Warhead@2Eff: CreateEffect
+		Inaccuracy: 128
+	Warhead@3EffWater: CreateEffect
+		Inaccuracy: 128
 
 M1Carbine:
 	Inherits: ^LightMG
@@ -264,6 +282,45 @@ M1Carbine:
 	Warhead@1Dam: SpreadDamage
 		Versus:
 			Wood: 30
+	Warhead@2Eff2: CreateEffect
+		Delay: 2
+		Explosions: piff
+		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		Inaccuracy: 171
+	Warhead@3EffWater2: CreateEffect
+		Delay: 2
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Explosions: water_piff
+		Inaccuracy: 171
+	Warhead@2Eff3: CreateEffect
+		Delay: 4
+		Explosions: piff
+		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		Inaccuracy: 171
+	Warhead@3EffWater3: CreateEffect
+		Delay: 4
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Explosions: water_piff
+		Inaccuracy: 171
+        
+Gatling:
+	Inherits: ^LightMG
+	ReloadDelay: 30
+	Range: 5c0
+    Projectile: Bullet
+        Speed: 0c25
+        Inaccuracy: 200
+	Report: gun11.aud
+	Warhead@1Dam: SpreadDamage
+    	Damage: 1500
+		Versus:
+			None: 100
+            Wood: 30
+            Light: 70
+            Heavy: 40
+            Concrete: 30
 	Warhead@2Eff2: CreateEffect
 		Delay: 2
 		Explosions: piff

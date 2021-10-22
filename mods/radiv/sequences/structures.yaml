@@ -36,6 +36,7 @@ bio:
 		Tick: 800
 	make: biomake
 		Length: *
+    icon: bioicon
 
 oilb:
 	Defaults:
@@ -178,6 +179,45 @@ apwr:
 			INTERIOR: TEMPERAT
 	icon: apwricon
 	fake-icon: fapwicon
+    
+nuk2:
+	idle:
+		Length: 4
+		Tick: 1000
+	damaged-idle:
+		Start: 4
+		Length: 4
+		Tick: 1000
+	dead:
+		Start: 8
+		Tick: 800
+	make: nuk2make
+		Length: *
+		Tick: 80
+	bib: bib3
+		UseTilesetExtension: true
+		Length: *
+	icon: nuk2icon
+    
+hq:
+	idle:
+		Length: 16
+		Tick: 100
+	damaged-idle:
+		Start: 16
+		Length: 16
+		Tick: 100
+	dead:
+		Start: 32
+		Tick: 800
+	make: hqmake
+		Length: *
+		Tick: 80
+	bib: bib3
+		UseTilesetExtension: true
+		Length: *
+	icon: hqicon
+
 
 barr:
 	idle:
@@ -662,6 +702,23 @@ miss:
 		UseTilesetExtension: true
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
+    icon: missicon
+    
+commcenter:
+	idle: miss
+	damaged-idle: miss
+		Start: 1
+	dead: miss
+		Start: 2
+		Tick: 800
+	make: missmake
+		Length: *
+	bib: bib2
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+    icon: missicon
 
 brik:
 	idle:
@@ -673,6 +730,10 @@ brik:
 		Start: 32
 		Length: 16
 	icon: brikicon
+    
+conc:
+    idle:
+    icon: concicon
 
 sbag:
 	idle:

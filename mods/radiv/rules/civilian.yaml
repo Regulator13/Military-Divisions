@@ -478,7 +478,7 @@ AMMOBOX2:
 
 AMMOBOX3:
 	Inherits: ^AmmoBox
-
+    
 MISS:
 	Inherits: ^TechBuilding
 	Inherits@shape: ^3x2Shape

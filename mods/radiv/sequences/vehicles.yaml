@@ -178,10 +178,11 @@ lasertank:
 		Start: 32
 		Facings: 32
 		UseClassicFacings: True
-    charge:
+    active:
         Start: 64
         Length: 9
-        Tick: 5
+        Tick: 100
+        Offset: 0,-13
 	icon: lasertankicon
 
 v2rl:
@@ -227,7 +228,12 @@ bggy:
 		Length: 6
 		Facings: 8
 	icon: bggyicon
-
+    
+ftnk:
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	icon: ftnkicon
 apc:
 	idle:
 		Facings: 32
@@ -247,6 +253,12 @@ mnly:
 		Facings: 32
 		UseClassicFacings: True
 	icon: mnlyicon
+    
+barrellayer:
+	idle: mnly
+		Facings: 32
+		UseClassicFacings: True
+	icon: barrellayericon
 
 mrj:
 	idle:
