@@ -80,6 +80,7 @@ Intern:
 	Tooltip:
 		Name: Intern
     -ScaredyCat:
+    -Wanders:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -144,7 +145,6 @@ Brute:
     Crushable:
         CrushClasses: heavywall
     -TakeCover:
-    -Wander:
 	Armament@PRIMARY:
 		Weapon: Fist
 	WithInfantryBody:
