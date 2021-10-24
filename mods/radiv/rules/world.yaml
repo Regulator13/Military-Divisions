@@ -256,6 +256,8 @@ World:
 		ClassName: MCV Only
 		Factions: allies, england, france, germany, soviet, russia, ukraine, armored, support, airforce, navy, command, techno
         SupportActors: MoneyHolder
+        InnerSupportRadius: 5
+        OuterSupportRadius: 6
 		BaseActor: mcv
 	MPStartUnits@lightallies:
 		Class: light

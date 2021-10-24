@@ -309,7 +309,7 @@ FireBomber:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
 	AmmoPool:
-		Ammo: 75
+		Ammo: 100
 		ReloadDelay: 5
 		AmmoCondition: ammo
 	WithMuzzleOverlay:

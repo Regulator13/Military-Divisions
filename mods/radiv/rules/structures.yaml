@@ -1845,7 +1845,6 @@ DISP:
 		TargetTypes: GroundActor, Structure, C4, DetonateAttack, ThiefInfiltrate
 	Tooltip:
 		Name: Cash Dispenser
-	-GivesBuildableArea:
 	-MustBeDestroyed:
 	Health:
 		HP: 100000
@@ -1878,31 +1877,31 @@ DISP:
         ExperienceModifier: 1
 	CashTricklerMultiplier@RANK-1:
 		RequiresCondition: rank-money == 1
-		Modifier: 200
+		Modifier: 100
 	CashTricklerMultiplier@RANK-2:
 		RequiresCondition: rank-money == 2
-		Modifier: 300
+		Modifier: 150
 	CashTricklerMultiplier@RANK-3:
 		RequiresCondition: rank-money == 3
-		Modifier: 400
+		Modifier: 200
 	CashTricklerMultiplier@RANK-4:
 		RequiresCondition: rank-money == 4
-		Modifier: 500
+		Modifier: 250
 	CashTricklerMultiplier@RANK-5:
 		RequiresCondition: rank-money == 5
-		Modifier: 600
+		Modifier: 300
 	CashTricklerMultiplier@RANK-6:
 		RequiresCondition: rank-money == 6
-		Modifier: 700
+		Modifier: 350
 	CashTricklerMultiplier@RANK-7:
 		RequiresCondition: rank-money == 7
-		Modifier: 800
+		Modifier: 400
 	CashTricklerMultiplier@RANK-8:
 		RequiresCondition: rank-money == 8
-		Modifier: 900
+		Modifier: 450
 	CashTricklerMultiplier@RANK-9:
 		RequiresCondition: rank-money == 9
-		Modifier: 1000
+		Modifier: 500
     ProximityExternalCondition@RANK-0:
         RequiresCondition: HasMoney
         Condition: Funded
@@ -2025,18 +2024,16 @@ DISP:
 		RequiresCondition: rank-money >= 9
     GrantConditionOnPlayerResources:
         Condition: HasMoney
-        Threshold: 100
+        Threshold: 50
     CashTrickler:
         Interval: 100
-		Amount: -100
+		Amount: -50
         UseResourceStorage: True
         PauseOnCondition: !HasMoney
     ExperienceTrickler:
         Amount: 2
         Interval: 100
         PauseOnCondition: !deploy
-	Power:
-		Amount: -10
 	Explodes:
 		Weapon: SmallBuildingExplode
 		EmptyWeapon: SmallBuildingExplode
@@ -2424,7 +2421,7 @@ NUK2:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 150
-		Prerequisites: ~techlevel.infonly, atek, ~structures.techno
+		Prerequisites: ~techlevel.infonly, rlab, ~structures.techno
 		Description: Provides tremendous power.\nDon't shoot it though.
 	Valued:
 		Cost: 700
