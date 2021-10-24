@@ -86,7 +86,7 @@ TankFlame:
 AirFlame:
 	Inherits: ^FireWeapon
 	ReloadDelay: 25
-	Burst: 25
+	Burst: 50
 	BurstDelays: 1
 	Projectile: Bullet
 		Speed: 220
@@ -96,7 +96,7 @@ AirFlame:
 		Inaccuracy: 2000
 	Warhead@1Dam: SpreadDamage
 		Spread: 356
-		Damage: 1000
+		Damage: 1500
 		Versus:
 			Tree: 80
 			Light: 40
@@ -156,7 +156,7 @@ TTankZap:
 	Range: 7c0
     
 TankLaser:
-    ReloadDelay: 100
+    ReloadDelay: 60
     Range: 7c0
     Projectile: Railgun
         DamageActorsInLine: True

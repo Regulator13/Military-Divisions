@@ -68,7 +68,7 @@ DOG:
     
 Intern:
 	Inherits@1: ^CivInfantry
-	Inherits@2: ^ArmedCivilian
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Infantry 
 		BuildAtProductionType: Soldier
@@ -116,6 +116,9 @@ Intern:
 		Name: garrisoned
 		Weapon: Pistol
 		MuzzleSequence: garrison-muzzle
+	AttackFrontal:
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
     RenderSprites:
         Image: C1
         

@@ -259,7 +259,7 @@ Pistol:
 Magnum:
 	Inherits: ^LightMG
 	ReloadDelay: 12
-	Range: 3c0
+	Range: 4c512
 	Report: gun27.aud
 	Warhead@1Dam: SpreadDamage
 		Damage: 800
@@ -307,11 +307,10 @@ M1Carbine:
         
 Gatling:
 	Inherits: ^LightMG
-	ReloadDelay: 30
-	Range: 5c0
-    Projectile: Bullet
-        Speed: 0c25
-        Inaccuracy: 200
+	ReloadDelay: 20
+	Range: 6c0
+    Projectile: InstantHit
+        Inaccuracy: 300
 	Report: gun11.aud
 	Warhead@1Dam: SpreadDamage
     	Damage: 1500
