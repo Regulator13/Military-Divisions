@@ -1803,7 +1803,7 @@ STORE:
 		Modifier: 1000
     CashTrickler:
         Interval: 100
-		Amount: 100
+		Amount: 50
 		RequiresCondition: Funded
         UseResourceStorage: True
 	-SpawnActorsOnSell:
@@ -1877,31 +1877,31 @@ DISP:
         ExperienceModifier: 1
 	CashTricklerMultiplier@RANK-1:
 		RequiresCondition: rank-money == 1
-		Modifier: 100
+		Modifier: 200
 	CashTricklerMultiplier@RANK-2:
 		RequiresCondition: rank-money == 2
-		Modifier: 150
+		Modifier: 300
 	CashTricklerMultiplier@RANK-3:
 		RequiresCondition: rank-money == 3
-		Modifier: 200
+		Modifier: 400
 	CashTricklerMultiplier@RANK-4:
 		RequiresCondition: rank-money == 4
-		Modifier: 250
+		Modifier: 500
 	CashTricklerMultiplier@RANK-5:
 		RequiresCondition: rank-money == 5
-		Modifier: 300
+		Modifier: 600
 	CashTricklerMultiplier@RANK-6:
 		RequiresCondition: rank-money == 6
-		Modifier: 350
+		Modifier: 700
 	CashTricklerMultiplier@RANK-7:
 		RequiresCondition: rank-money == 7
-		Modifier: 400
+		Modifier: 800
 	CashTricklerMultiplier@RANK-8:
 		RequiresCondition: rank-money == 8
-		Modifier: 450
+		Modifier: 900
 	CashTricklerMultiplier@RANK-9:
 		RequiresCondition: rank-money == 9
-		Modifier: 500
+		Modifier: 1000
     ProximityExternalCondition@RANK-0:
         RequiresCondition: HasMoney
         Condition: Funded
