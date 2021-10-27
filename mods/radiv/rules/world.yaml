@@ -21,6 +21,20 @@
 			Ore: 80
 			Gems: 80
 			Beach: 80
+	Locomotor@FOOT_AMPHIBIOUS:
+		Name: foot-amphibious
+		Crushes: mine, crate
+		SharesCell: true
+		TerrainSpeeds:
+			Clear: 90
+			Rough: 80
+			Road: 120
+			Bridge: 120
+			Ore: 80
+			Gems: 80
+			Beach: 80
+            Water: 50
+            River: 50
 	Locomotor@WHEELED:
 		Name: wheeled
 		Crushes: mine, crate
@@ -65,6 +79,19 @@
 			Ore: 70
 			Gems: 70
 			Beach: 70
+	Locomotor@TRACKED_AMPHIBIOUS:
+		Name: tracked-amphibious
+		Crushes: wall, infantry, mine, crate
+		TerrainSpeeds:
+			Clear: 80
+			Rough: 70
+			Road: 110
+			Bridge: 110
+			Ore: 70
+			Gems: 70
+			Beach: 70
+            Water: 50
+            River: 50
 	Locomotor@HEAVYTRACKED:
 		Name: heavytracked
 		Crushes: wall, infantry, mine, crate, heavywall

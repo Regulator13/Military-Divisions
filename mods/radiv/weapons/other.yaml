@@ -62,7 +62,7 @@ TankFlame:
 	Inherits: ^FireWeapon
 	ReloadDelay: 75
     Range: 7c0
-	Burst: 30
+	Burst: 50
 	BurstDelays: 2
 	Projectile: Bullet
 		Speed: 170
@@ -167,6 +167,7 @@ TankLaser:
         HelixAlphaDeltaPerTick: -4
         HelixColor: FF006F80
     ValidTargets: Ground, Water, GroundActor, WaterActor
+    InvalidTargets: Bridge
     Warhead@1Dam: SpreadDamage
         Spread: 50 
         Damage: 40000

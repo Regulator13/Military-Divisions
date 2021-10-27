@@ -134,6 +134,68 @@ V2RL:
 		Prerequisites: vehicles.upgraded
 	Selectable:
 		DecorationBounds: 28,28
+        
+WATERTNK:
+	Inherits: ^TrackedVehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 220
+		Prerequisites: Ships, fix, ~vehicles.navy, ~techlevel.medium
+		Description: Amphibious Tank\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+	Valued:
+		Cost: 850
+	Tooltip:
+		Name: AAV7
+		GenericName: Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 46000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 85
+        Locomotor: tracked-amphibious
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 6c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 20
+	Armament:
+		Weapon: 90mm
+		Recoil: 128
+		RecoilRecovery: 38
+		LocalOffset: 720,0,80
+		MuzzleSequence: muzzle
+	AttackTurreted:
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	SpawnActorOnDeath:
+		Actor: 2TNK.Husk
+        RequiresCondition: !floating
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	Selectable:
+		DecorationBounds: 28,28
+    Targetable:
+        RequiresCondition: !floating
+    Targetable@WATER:
+        RequiresCondition: floating
+        TargetTypes: Ground, Water, Ship, C4, Repair, Tank, WaterActor, Ship
+    WithFacingSpriteBody:
+        RequiresCondition: !floating
+    WithFacingSpriteBody@WATER:
+        RequiresCondition: floating
+        Name: floating
+        Sequence: idle-float
+    GrantConditionOnTerrain:
+        Condition: floating
+        TerrainTypes: Water, River
 
 3TNK:
 	Inherits: ^TrackedVehicle
@@ -536,7 +598,7 @@ BGGY:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 10000
+		HP: 15000
 	Armor:
 		Type: Light
 	Mobile:
