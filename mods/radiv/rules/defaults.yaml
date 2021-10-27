@@ -229,6 +229,8 @@
 		AssaultMoveCondition: assault-move
         
 ^AutoTargetInfantryThenVehicles:
+	AutoTarget:
+		AttackAnythingCondition: stance-attackanything
     AutoTargetPriority@DEFAULTHIGH:
 		RequiresCondition: !stance-attackanything
 		ValidTargets: Infantry
@@ -908,6 +910,7 @@
 	-Capturable:
 	-CapturableProgressBar:
 	-CapturableProgressBlink:
+    -CaptureManager:
 	-GivesBuildableArea:
 	-MustBeDestroyed:
 	-WithMakeAnimation:

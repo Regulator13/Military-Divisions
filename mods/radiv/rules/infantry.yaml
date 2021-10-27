@@ -482,7 +482,7 @@ E6:
     
 CommandEngineer:
     Inherits: ^Soldier
-    Inherits: ^AutoTargetInfantryThenVehicles
+    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
@@ -657,12 +657,12 @@ E7:
         
 Commander:
 	Inherits: ^Soldier
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits: ^AutoTargetInfantryThenVehicles
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 120
-		Prerequisites: ~barracks, ~techlevel.high, ~infantry.command
+		Prerequisites: ~barracks, stek, ~techlevel.high, ~infantry.command
 		BuildLimit: 1
 		Description: The boss. Kills infantry and tanks alike.
 	Valued:

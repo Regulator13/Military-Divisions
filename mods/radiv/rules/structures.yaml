@@ -2619,6 +2619,7 @@ NUK2:
 
 STEK:
 	Inherits: ^ScienceBuilding
+    Inherits@IDISABLE: ^DisableOnLowPower
 	Inherits@shape: ^3x2Shape
 	Selectable:
 		Bounds: 72,48

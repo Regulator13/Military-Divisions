@@ -621,6 +621,11 @@ e6:
 		Length: 6
 		Facings: 8
 		Tick: 100
+    shoot:
+        Start: 66
+        Length: 2
+        Facings: 8
+        Tick: 100
 	parachute:
 		Start: 210
 	idle1:
