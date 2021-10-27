@@ -96,7 +96,18 @@ Intern:
         Delay: 5
         StartIfBelow: 100
         DamageCooldown: 100
-        RequiresCondition: internheal
+        RequiresCondition: internheal && damaged
+	GrantConditionOnDamageState@HOSPITAL:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	WithDecoration@REDCROSSMED:
+		Image: pips
+		Sequence: medic
+		Position: BottomRight
+		Margin: 17, 4
+		BlinkInterval: 32
+		BlinkPattern: Off, On
+        RequiresCondition: internheal && damaged
     GrantConditionOnPrerequisite@InternMagnum:
         Condition: internmagnum
         Prerequisites: internmagnum
@@ -192,6 +203,12 @@ E1:
 		RequiresCondition: parachute
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
+    GrantConditionOnPrerequisite@E1RANGE:
+        Condition: e1range
+        Prerequisites: e1range
+    RangeMultiplier:
+        Modifier: 500
+        RequiresCondition: e1range
         
 GATL:
 	Inherits: ^Soldier
@@ -425,7 +442,7 @@ E6:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 60
-		Prerequisites: ~barracks, ~techlevel.infonly
+		Prerequisites: ~barracks, ~techlevel.infonly, ~!infantry.command
 		Description: Infiltrates and captures\nenemy structures.\n  Unarmed
 	Valued:
 		Cost: 400
@@ -462,6 +479,57 @@ E6:
 	Voiced:
 		VoiceSet: EngineerVoice
 	-AttackFrontal:
+    
+CommandEngineer:
+    Inherits: ^Soldier
+    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 60
+        Prerequisites: ~barracks, ~techlevel.infonly, ~infantry.command
+        Description: Infiltrates and captures\nenemy structures.\n  Carries a shotgun.
+	Valued:
+		Cost: 400
+    Health:
+        HP: 5000
+	Tooltip:
+		Name: Engineer
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+    Armament:
+        Weapon: Shotgun
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+    Passenger:
+		CustomPipType: yellow
+	EngineerRepair:
+	RepairsBridges:
+	CaptureManager:
+	GrantConditionOnPrerequisite@GLOBALREUSABLEENGINEER:
+		Condition: global-reusable-engineers
+		Prerequisites: global-reusable-engineers
+	Captures:
+		RequiresCondition: !global-reusable-engineers
+		CaptureTypes: building
+		PlayerExperience: 25
+		CaptureDelay: 200
+	Captures@REUSABLE:
+		RequiresCondition: global-reusable-engineers
+		CaptureTypes: building
+		PlayerExperience: 25
+		CaptureDelay: 375
+		ConsumedByCapture: False
+		EnterCursor: ability
+		EnterBlockedCursor: move-blocked
+	Voiced:
+		VoiceSet: EngineerVoice
+    RenderSprites:
+        Image: E6
 
 SPY:
 	Inherits: ^Soldier
@@ -589,12 +657,12 @@ E7:
         
 Commander:
 	Inherits: ^Soldier
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits: ^AutoTargetInfantryThenVehicles
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 120
-		Prerequisites: ~barracks, ~techlevel.high, ~infantry.command
+		Prerequisites: ~barracks, stek, ~techlevel.high, ~infantry.command
 		BuildLimit: 1
 		Description: The boss. Kills infantry and tanks alike.
 	Valued:
@@ -898,7 +966,7 @@ SHOK.Techno:
     Power:
         Amount: -5
     RenderSprites:
-        Image: SHOK
+        Image: SHOK2
 
 SNIPER:
 	Inherits: ^Soldier

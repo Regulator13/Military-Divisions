@@ -362,7 +362,7 @@ upgrade.internmagnum:
 	Tooltip:
 		Name: Magnum Upgrade
 	Buildable:
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 200
 		Prerequisites: barracks, ~rlab, ~techlevel.medium
 		Queue: Defense
 		BuildLimit: 1
@@ -380,7 +380,7 @@ upgrade.internarmor:
 	Tooltip:
 		Name: Body Armor
 	Buildable:
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 210
 		Prerequisites: barracks, weap, ~rlab, ~techlevel.medium
 		Queue: Defense
 		BuildLimit: 1
@@ -398,7 +398,7 @@ upgrade.internheal:
 	Tooltip:
 		Name: Med Kit
 	Buildable:
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 220
 		Prerequisites: barracks, atek, ~rlab, ~techlevel.medium
 		Queue: Defense
 		BuildLimit: 1
@@ -409,6 +409,24 @@ upgrade.internheal:
 		Image: internheal
 	ProvidesPrerequisite:
 		Prerequisite: internheal
+	Interactable:
+	AlwaysVisible:
+    
+upgrade.e1range:
+	Tooltip:
+		Name: Scopes
+	Buildable:
+		BuildPaletteOrder: 230
+		Prerequisites: barracks, ~rlab, ~techlevel.medium
+		Queue: Defense
+		BuildLimit: 1
+		Description: Your allies Rifle Infantry\n shoot 15% further
+	Valued:
+		Cost: 700
+	RenderSprites:
+		Image: internheal
+	ProvidesPrerequisite:
+		Prerequisite: e1range
 	Interactable:
 	AlwaysVisible:
 

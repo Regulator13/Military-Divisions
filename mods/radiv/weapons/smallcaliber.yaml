@@ -80,6 +80,23 @@ FLAK-23-AG:
 		Explosions: water_piffs
 		ValidTargets: Water, Underwater
 		InvalidTargets: Bridge
+        
+Shotgun:
+    Inherits: ^HeavyMG
+    ReloadDelay: 50
+    Range: 3c512
+    Report: cannon2.aud
+	Warhead@1Dam: SpreadDamage
+		Spread: 350
+		Damage: 6000
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 120
+			Wood: 40
+			Light: 70
+			Heavy: 50
+			Concrete: 30
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 
 ^LightMG:
 	Inherits: ^HeavyMG
@@ -313,13 +330,13 @@ Gatling:
         Inaccuracy: 300
 	Report: gun11.aud
 	Warhead@1Dam: SpreadDamage
-    	Damage: 1500
+    	Damage: 1000
 		Versus:
 			None: 100
             Wood: 30
-            Light: 70
-            Heavy: 40
-            Concrete: 30
+            Light: 60
+            Heavy: 20
+            Concrete: 15
 	Warhead@2Eff2: CreateEffect
 		Delay: 2
 		Explosions: piff

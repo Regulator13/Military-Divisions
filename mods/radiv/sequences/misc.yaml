@@ -63,6 +63,9 @@ internarmor:
     
 internheal:
     icon: internhealicon
+    
+pluscash:
+    idle:
 
 burn-l:
 	idle:

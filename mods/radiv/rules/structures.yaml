@@ -216,6 +216,8 @@ SPEN:
 		CloakTypes: Underwater
 		Range: 10c0
 	RenderDetectionCircle:
+    ProvidesPrerequisite@SHIPS:
+        Prerequisite: Ships
 	ProvidesPrerequisite@soviet:
 		Factions: soviet, russia, ukraine
 		Prerequisite: ships.soviet
@@ -330,6 +332,8 @@ SYRD:
 		CloakTypes: Underwater
 		Range: 10c0
 	RenderDetectionCircle:
+    ProvidesPrerequisite@SHIPS:
+        Prerequisite: Ships
 	ProvidesPrerequisite@allies:
 		Factions: allies, england, france, germany
 		Prerequisite: ships.allies
@@ -699,8 +703,8 @@ CommCenter:
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	RevealsShroud:
-		MinRange: 6c0
-		Range: 10c0
+		MinRange: 8c0
+		Range: 12c0
 		RevealGeneratedShroud: False
         RequiresCondition: !disabled
 	RevealsShroud@Offline:
@@ -731,6 +735,56 @@ CommCenter:
 	AppearsOnMapPreview:
 	GpsDot:
 		String: Communications
+        
+MedCenter:
+	Inherits: ^Building
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@shape: ^2x2Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 110
+		Prerequisites: barr, ~techlevel.medium, ~structures.command
+		Description: Heals nearby infantry.
+    Valued:
+        Cost: 1000
+    Power:
+        Amount: -80
+	OwnerLostAction:
+		Action: ChangeOwner
+	Selectable:
+		Priority: 0
+		Bounds: 48,48
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 80000
+	CaptureManager:
+	Capturable:
+		Types: building
+	CapturableProgressBar:
+	CapturableProgressBlink:
+	EngineerRepairable:
+	Tooltip:
+		Name: Medical Center
+	RevealsShroud:
+		Range: 4c0
+	WithBuildingBib:
+		HasMinibib: true
+	WithDeathAnimation:
+		DeathSequence: dead
+		UseDeathTypeSuffix: false
+	ProximityExternalCondition@MedCenter:
+        Condition: medcenter
+        Range: 6c0
+        RequiresCondition: !disabled
+	AppearsOnMapPreview:
+	GpsDot:
+		String: Hospital
+    WithRangeCircle:
+        Range: 6c0
+    RenderSprites:
+        Image: HOSP
 
 PBOX:
 	Inherits: ^Defense
@@ -785,6 +839,8 @@ PBOX:
 		FallbackRange: 6c0
 	Power:
 		Amount: -20
+    Replacement:
+        ReplaceableTypes: Wall
 	DetectCloaked:
 		Range: 6c0
 
@@ -849,6 +905,8 @@ HBOX:
 		PortCones: 88, 88, 88, 88, 88, 88
 	Power:
 		Amount: -20
+    Replacement:
+        ReplaceableTypes: Wall
 	-MustBeDestroyed:
 
 GUN:
@@ -857,7 +915,7 @@ GUN:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 70
-		Prerequisites: barracks, ~structures.allies-armored, ~techlevel.medium
+		Prerequisites: barracks, ~structures.allies-armored-command, ~techlevel.medium
 		Description: Anti-Armor base defense.\nCan detect cloaked units.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 800
@@ -895,6 +953,8 @@ GUN:
 	WithMuzzleOverlay:
 	Power:
 		Amount: -40
+    Replacement:
+        ReplaceableTypes: Wall
 	DetectCloaked:
 		Range: 6c0
 	-BodyOrientation:
@@ -938,6 +998,8 @@ FTUR:
 		QuantizedFacings: 8
 	Power:
 		Amount: -20
+    Replacement:
+        ReplaceableTypes: Wall
 	DetectCloaked:
 		Range: 6c0
 	ProvidesPrerequisite@buildingname:
@@ -1012,12 +1074,12 @@ EYE:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 150
-		Prerequisites: dome, atek, ~structures.techno, ~techlevel.high
+		Prerequisites: dome, stek, ~structures.command, ~techlevel.high
 		Description: Trains infantry further, giving them EXP
 	Valued:
 		Cost: 1200
 	Tooltip:
-		Name: Communication Tower
+		Name: Service Academy
 	Building:
 		Footprint: xx xx ==
 		Dimensions: 2,3
@@ -1132,6 +1194,84 @@ ATEK:
 	Power:
 		Amount: -200
 	ProvidesPrerequisite@buildingname:
+    GrantConditionOnFaction@TECHNO:
+        Condition: techfaction
+        Factions: techno
+    GrantConditionOnFaction@SUPPORT:
+        Condition: supportfaction
+        Factions: support
+    GrantConditionOnFaction@AIRFORCE:
+        Condition: airforcefaction
+        Factions: airforce
+    GrantConditionOnDeploy@TECHNO:
+        DeployedCondition: techmoney
+        RequiresCondition: techfaction
+        SkipMakeAnimation: True
+    GrantConditionOnDeploy@SUPPORT:
+        DeployedCondition: supportmoney
+        RequiresCondition: supportfaction
+        SkipMakeAnimation: True
+    GrantConditionOnDeploy@AIRFORCE:
+        DeployedCondition: airforcemoney
+        RequiresCondition: airforcefaction
+        SkipMakeAnimation: True
+    ProvidesPrerequisite@TECHNO:
+        Prerequisite: techmoney
+        Factions: techno
+        RequiresCondition: techmoney && techfaction
+    ProvidesPrerequisite@SUPPORT:
+        Prerequisite: supportmoney
+        Factions: support
+        RequiresCondition: supportmoney && supportfaction
+    ProvidesPrerequisite@AIRFORCE:
+        Prerequisite: airforcemoney
+        Factions: airforce
+        RequiresCondition: airforcemoney && airforcefaction
+    TooltipDescription@TECHNO:
+        Description: Deploy to dedicate power to mining bitcoin. Reduces power plant effeciency by 50%
+        RequiresCondition: techfaction
+    TooltipDescription@SUPPORT:
+        Description: Deploy to sell fuel for cash. Reduces vehicle speed by 30%
+        RequiresCondition: supportfaction
+    TooltipDescription@AIRFORCE:
+        Description: Deploy to sell weapons. Reduces plane firepower by 20%
+        RequiresCondition: airforcefaction
+    WithDecoration@TECHNO:
+        Image: pluscash
+        Sequence: idle
+        Position: BottomRight
+        RequiresCondition: techmoney && techfaction
+    WithDecoration@SUPPORT:
+        Image: pluscash
+        Sequence: idle
+        Position: BottomRight
+        RequiresCondition: supportmoney && supportfaction
+    WithDecoration@AIRFORCE:
+        Image: pluscash
+        Sequence: idle
+        Position: BottomRight
+        RequiresCondition: airforcemoney && airforcefaction
+    CashTrickler@TECHNO:
+        InitialDelay: 500
+        Interval: 150
+		Amount: 100
+        UseResourceStorage: True
+        RequiresCondition: techmoney && techfaction
+        PauseOnCondition: disabled
+    CashTrickler@SUPPORT:
+        InitialDelay: 500
+        Interval: 150
+		Amount: 100
+        UseResourceStorage: True
+        RequiresCondition: supportmoney && supportfaction
+        PauseOnCondition: disabled
+    CashTrickler@AIRFORCE:
+        InitialDelay: 500
+        Interval: 150
+		Amount: 100
+        UseResourceStorage: True
+        RequiresCondition: airforcemoney && airforcefaction
+        PauseOnCondition: disabled
 
 WEAP:
 	Inherits: ^Building
@@ -1411,6 +1551,9 @@ FACT:
     ProvidesPrerequisite@allies-armored:
         Factions: allies, england, germany, france, armored
         Prerequisite: structures.allies-armored
+    ProvidesPrerequisite@allies-armored-command:
+        Factions: allies, england, germany, france, armored, command
+        Prerequisite: structures.allies-armored-command
     ProvidesPrerequisite@soviet-techno:
         Factions: soviet, russia, ukraine, techno
         Prerequisite: structures.soviet-techno
@@ -1619,6 +1762,7 @@ PROCCOM:
 
 OILCOM:
 	Inherits: ^Building
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Inherits@shape: ^2x2Shape
     Buildable:
         Queue: Building
@@ -1667,6 +1811,8 @@ OILCOM:
 	GpsDot:
 		String: Oil
 	AppearsOnMapPreview:
+    Power:
+        Amount: -30
 	GivesCashOnCapture:
 		Amount: 100
 	UpdatesDerrickCount:
@@ -2368,6 +2514,12 @@ POWR:
 	WithDeathAnimation:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
+    GrantConditionOnPrerequisite@TECHNO:
+        Condition: techmoney
+        Prerequisites: techmoney
+    PowerMultiplier@TECHNO:
+        Modifier: 50
+        RequiresCondition: techmoney
 
 APWR:
 	Inherits: ^Building
@@ -2408,6 +2560,12 @@ APWR:
 	WithDeathAnimation:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
+    GrantConditionOnPrerequisite@TECHNO:
+        Condition: techmoney
+        Prerequisites: techmoney
+    PowerMultiplier@TECHNO:
+        Modifier: 50
+        RequiresCondition: techmoney
         
 NUK2:
 	Inherits: ^Building
@@ -2449,12 +2607,19 @@ NUK2:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
     Explodes:
-		Weapon: MiniNuke
-		EmptyWeapon: MiniNuke
+		Weapon: FriendlyNuke
+		EmptyWeapon: FriendlyNuke
 		DamageSource: Killer
+    GrantConditionOnPrerequisite@TECHNO:
+        Condition: techmoney
+        Prerequisites: techmoney
+    PowerMultiplier@TECHNO:
+        Modifier: 50
+        RequiresCondition: techmoney
 
 STEK:
 	Inherits: ^ScienceBuilding
+    Inherits@IDISABLE: ^DisableOnLowPower
 	Inherits@shape: ^3x2Shape
 	Selectable:
 		Bounds: 72,48
@@ -2489,6 +2654,58 @@ STEK:
 	Power:
 		Amount: -100
 	ProvidesPrerequisite@buildingname:
+    GrantConditionOnFaction@ARMORED:
+        Condition: armoredfaction
+        Factions: armored
+    GrantConditionOnFaction@NAVY:
+        Condition: navyfaction
+        Factions: navy
+    GrantConditionOnDeploy@ARMORED:
+        DeployedCondition: armoredmoney
+        RequiresCondition: armoredfaction
+        SkipMakeAnimation: True
+    GrantConditionOnDeploy@NAVY:
+        DeployedCondition: navymoney
+        RequiresCondition: navyfaction
+        SkipMakeAnimation: True
+    ProvidesPrerequisite@ARMORED:
+        Prerequisite: armoredmoney
+        Factions: armored
+        RequiresCondition: armoredmoney && armoredfaction
+    ProvidesPrerequisite@NAVY:
+        Prerequisite: navymoney
+        Factions: navy
+        RequiresCondition: navymoney && navyfaction
+    TooltipDescription@ARMORED:
+        Description: Deploy to sell tank parts. Reduces vehicle health by 20%
+        RequiresCondition: armoredfaction
+    TooltipDescription@NAVY:
+        Description: Deploy to sell ship tech. Reduces ship range by 40%
+        RequiresCondition: navyfaction
+    WithDecoration@ARMORED:
+        Image: pluscash
+        Sequence: idle
+        Position: BottomRight
+        RequiresCondition: armoredmoney && armoredfaction
+    WithDecoration@NAVY:
+        Image: pluscash
+        Sequence: idle
+        Position: BottomRight
+        RequiresCondition: navymoney && navyfaction
+    CashTrickler@ARMORED:
+        InitialDelay: 500
+        Interval: 150
+		Amount: 100
+        UseResourceStorage: True
+        RequiresCondition: armoredmoney && armoredfaction
+        PauseOnCondition: disabled
+    CashTrickler@NAVY:
+        InitialDelay: 500
+        Interval: 150
+		Amount: 100
+        UseResourceStorage: True
+        RequiresCondition: navymoney && navyfaction
+        PauseOnCondition: disabled
 
 BARR:
 	Inherits: ^Building
@@ -2959,6 +3176,8 @@ BRIK:
 		Types: concrete
 	WithWallSpriteBody:
 		Type: concrete
+    Replaceable:
+        Types: Gate
         
 BRIKCOM:
 	Inherits: ^Wall
@@ -2967,9 +3186,9 @@ BRIKCOM:
 		BuildPaletteOrder: 30
 		Prerequisites: fact, ~techlevel.medium, ~structures.command
 		Description: A stronger, better wall.
-        BuildDurationModifier: 20
+        BuildDurationModifier: 15
 	Valued:
-		Cost: 200
+		Cost: 300
 	CustomSellValue:
 		Value: 0
 	Tooltip:
@@ -2994,8 +3213,32 @@ BRIKCOM:
 		Types: concrete
 	WithWallSpriteBody:
 		Type: concrete
+    Replaceable:
+        Types: Wall
     RenderSprites:
         Image: BRIK
+        
+HGATE:
+	Inherits: ^Gate_A
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 30
+		Prerequisites: fact, ~techlevel.medium, ~structures.command
+	Tooltip:
+		Name: Gate
+    Replacement:
+        ReplaceableTypes: Wall
+        
+VGATE:
+	Inherits: ^Gate_B
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 30
+		Prerequisites: fact, ~techlevel.medium, ~structures.command
+	Tooltip:
+		Name: Gate
+    Replacement:
+        ReplaceableTypes: Wall
     
 CYCL:
 	Inherits: ^Wall

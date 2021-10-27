@@ -734,6 +734,38 @@ brik:
 conc:
     idle:
     icon: concicon
+    
+hgate:
+	idle:
+        Length: 7
+    begin:
+        Length: 7
+    open:
+        Start: 6
+        ZRamp: 1
+	damaged-idle:
+		Start: 7
+        Length: 7
+	damaged-open:
+		Start: 13
+        ZRamp: 1
+	icon: hgateicon
+    
+vgate:
+	idle:
+        Length: 7
+    begin:
+        Length: 7
+    open:
+        Start: 6
+        ZRamp: 1
+	damaged-idle:
+		Start: 7
+        Length: 7
+	damaged-open:
+		Start: 13
+        ZRamp: 1
+	icon: vgateicon
 
 sbag:
 	idle:
