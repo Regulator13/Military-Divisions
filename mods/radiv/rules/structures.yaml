@@ -11,7 +11,7 @@ MSLO:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 140
-		Prerequisites: techcenter, ~techlevel.unrestricted, ~!structures.command, ~!structures.armored, ~!structures.support, ~!structures.navy, ~!structures.airforce
+		Prerequisites: techcenter, ~techlevel.unrestricted, ~!structures.command, ~!structures.armored, ~!structures.support, ~!structures.navy, ~!structures.airforce, ~!structures.biolo
 		BuildLimit: 1
 		Description: Provides an atomic bomb.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Atom Bomb
 	Building:
@@ -583,7 +583,7 @@ AGUN:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 90
-		Prerequisites: dome, ~techlevel.medium, ~!structures.soviet, ~!structures.command, ~!structures.navy
+		Prerequisites: dome, ~techlevel.medium, ~!structures.soviet, ~!structures.command, ~!structures.navy, ~!structures.biolo
 		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
 	Valued:
 		Cost: 800
@@ -639,7 +639,7 @@ DOME:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 90
-		Prerequisites: anypower, ~techlevel.medium
+		Prerequisites: anypower, ~techlevel.medium, ~!structures.biolo
 		Description: Provides an overview\nof the battlefield.\nRequires power to operate.
 	Valued:
 		Cost: 1800
@@ -796,7 +796,7 @@ PBOX:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 40
-		Prerequisites: barracks, ~techlevel.low, ~!structures.soviet, ~!structures.command, ~!structures.techno, ~!structures.support, ~!structures.navy
+		Prerequisites: barracks, ~techlevel.low, ~!structures.soviet, ~!structures.command, ~!structures.techno, ~!structures.support, ~!structures.navy, ~!structures.biolo
 		Description: Static defense with a fireport for\na garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 600
@@ -854,7 +854,7 @@ HBOX:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 50
-		Prerequisites: barracks, ~techlevel.medium, ~!structures.soviet, ~!structures.command, ~!structures.support, ~!structures.navy, ~!structures.airforce
+		Prerequisites: barracks, ~techlevel.medium, ~!structures.soviet, ~!structures.command, ~!structures.support, ~!structures.navy, ~!structures.airforce, ~!structures.biolo
 		Description: Camouflaged static defense with a fireport\nfor a garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 750
@@ -1282,7 +1282,7 @@ WEAP:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 80
-		Prerequisites: anypower, ~techlevel.low, ~!structures.airforce
+		Prerequisites: anypower, ~techlevel.low, ~!structures.airforce, ~!structures.biolo
 		Description: Produces vehicles.
 	Valued:
 		Cost: 2000
@@ -1536,6 +1536,9 @@ FACT:
     ProvidesPrerequisite@techno:
 		Factions: techno
 		Prerequisite: structures.techno
+    ProvidesPrerequisite@biolo:
+		Factions: biolo
+		Prerequisite: structures.biolo
     ProvidesPrerequisite@newteams:
         Factions: armored, support, airforce, navy, command, techno
         Prerequisite: structures.newteams
@@ -1828,7 +1831,7 @@ SILO:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 35
-		Prerequisites: fact, ~techlevel.infonly, ~!structures.techno, ~!structures.armored, ~!structures.support, ~!structures.airforce, ~!structures.navy
+		Prerequisites: fact, ~techlevel.infonly, ~!structures.techno, ~!structures.armored, ~!structures.support, ~!structures.airforce, ~!structures.navy, ~!structures.biolo
 		Description: Stores excess refined\nOre and Gems.
 	Valued:
 		Cost: 150
@@ -2487,7 +2490,7 @@ POWR:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 10
-		Prerequisites: ~techlevel.infonly
+		Prerequisites: ~techlevel.infonly, ~!structures.biolo
 		Description: Provides power for other structures.
 	Valued:
 		Cost: 300
@@ -2530,7 +2533,7 @@ APWR:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 110
-		Prerequisites: dome, ~techlevel.medium
+		Prerequisites: dome, ~techlevel.medium, ~!structures.biolo
 		Description: Provides double the power of\na standard Power Plant.
 	Valued:
 		Cost: 500
@@ -2839,6 +2842,83 @@ BARR:
 		Types: SpyInfiltrate
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
+        
+BIOBARR:
+	Inherits: ^Building
+	Inherits@shape: ^2x2Shape
+	Inherits@PRIMARY: ^PrimaryBuilding
+	Selectable:
+		Bounds: 48,48
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Prerequisites: ~structures.biolo, ~techlevel.infonly
+		Description: Trains Horrors.
+        BuildLimit: 1
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Biological Lab
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 10000000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		MinRange: 4c0
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	RallyPoint:
+	Exit@1:
+		RequiresCondition: !being-captured
+		SpawnOffset: -170,810,0
+		ExitCell: 1,2
+		ProductionTypes: Soldier, Infantry
+	Exit@2:
+		RequiresCondition: !being-captured
+		SpawnOffset: -725,640,0
+		ExitCell: 0,2
+		ProductionTypes: Soldier, Infantry
+	Production:
+		Produces: Infantry, Soldier
+	GrantExternalConditionToProduced:
+		Condition: produced
+	ProductionBar:
+		ProductionType: Infantry
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@biolo:
+		Factions: biolo
+		Prerequisite: infantry.biolo
+	InfiltrateForSupportPower:
+		Proxy: barracks.upgraded
+		Types: SpyInfiltrate
+	Targetable:
+		TargetTypes: GroundActor, DetonateAttack, Structure, SpyInfiltrate
+	ProvidesRadar:
+    GpsPower:
+		Icon: gps
+		OneShot: true
+		ChargeInterval: 40000
+		Description: GPS Satellite
+		LongDesc: Reveals map terrain and provides tactical\ninformation. Requires power and active radar.
+		RevealDelay: 375
+		LaunchSpeechNotification: SatelliteLaunched
+		DisplayTimerRelationships: Ally, Neutral, Enemy
+		SupportPowerPaletteOrder: 90
+        RequiresActiveRadar: False
+	SupportPowerChargeBar:
+    ProvidesPrerequisite:
+		Prerequisite: anypower
+    Power:
+        Amount: 100
 
 KENN:
 	Inherits: ^Building
@@ -3057,7 +3137,7 @@ FIX:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 100
-		Prerequisites: weap, ~techlevel.medium, ~!structures.airforce
+		Prerequisites: weap, ~techlevel.medium, ~!structures.airforce, ~!structures.biolo
 		Description: Repairs vehicles for credits.
 	Valued:
 		Cost: 1200
@@ -3152,7 +3232,7 @@ BRIK:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 30
-		Prerequisites: fact, ~techlevel.medium, ~!structures.command
+		Prerequisites: fact, ~techlevel.medium, ~!structures.command, ~!structures.biolo
 		Description: Stop units and blocks enemy fire.
 	Valued:
 		Cost: 200

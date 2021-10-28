@@ -10,6 +10,7 @@ GenericVoice:
         navy: .v01,.v03
         command: .v01,.v03
         techno: .v01,.v03
+        biolo: .v01,.v03
 		soviet: .r01,.r03
 		russia: .r01,.r03
 		ukraine: .r01,.r03
@@ -33,6 +34,7 @@ VehicleVoice:
         navy: .v00,.v02
         command: .v00,.v02
         techno: .v00,.v02
+        biolo: .v00,.v02
 		soviet: .r00,.r02
 		russia: .r00,.r02
 		ukraine: .r00,.r02
