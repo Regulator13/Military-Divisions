@@ -1982,6 +1982,61 @@ bombie:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
 	icon: bombieicon
+    
+godzilla:
+	stand:
+		Facings: 8
+	stand2:
+		Start: 8
+		Facings: 8
+	run:
+		Start: 16
+		Length: 8
+		Facings: 8
+		Tick: 200
+	bite:
+		Start: 80
+		Length: 8
+		Facings: 8
+	idle:
+        Facings: 8
+    piston:
+        Frames: 0,8
+        Length: *
+        Tick: 500
+	die1:
+		Start: 144
+		Length: 40
+		Tick: 80
+	die2:
+		Start: 144
+		Length: 40
+		Tick: 80
+	die3:
+		Start: 144
+		Length: 40
+		Tick: 80
+	die4:
+		Start: 144
+		Length: 40
+		Tick: 80
+	die5:
+		Start: 144
+		Length: 40
+		Tick: 80
+	die6:
+		Start: 144
+		Length: 40
+		Tick: 80
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	icon: godzillaicon
 
 ant:
 	stand: ant1

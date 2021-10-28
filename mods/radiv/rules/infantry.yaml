@@ -4,7 +4,7 @@ DOG:
 		Queue: Infantry
 		BuildAtProductionType: Dog
 		BuildPaletteOrder: 50
-		Prerequisites: ~kenn, ~techlevel.infonly
+		Prerequisites: ~kenn, ~techlevel.infonly, ~!infantry.biolo
 		Description: Anti-infantry unit.\nCan detect spies.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
 		Cost: 200
@@ -66,6 +66,25 @@ DOG:
     -ExperienceTrickler:
     -ExternalCondition@Teach:
     
+BIODOG:
+    Inherits: DOG
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Dog
+		BuildPaletteOrder: 50
+		Prerequisites: ~kenn, ~techlevel.infonly, ~infantry.biolo
+		Description: Anti-infantry unit.\nCan detect spies.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+        BuildDurationModifier: 40
+	Tooltip:
+		Name: Blood Hound
+	RevealsShroud:
+		Range: 10c0
+    Mobile:
+		Speed: 150
+		Voice: Move
+		PauseOnCondition: attack-cooldown || eating
+    RenderSprites:
+        Image: DOG
 Intern:
 	Inherits@1: ^CivInfantry
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -208,6 +227,9 @@ E1:
         Prerequisites: e1range
     RangeMultiplier:
         Modifier: 500
+        RequiresCondition: e1range
+    DamageMultiplier:
+        Modifier: 0
         RequiresCondition: e1range
         
 GATL:
@@ -1087,6 +1109,84 @@ Bombie:
 		DefaultAttackSequence: bite
 		IdleSequences: idle1
 	-TakeCover:
+    
+Godzilla:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 15000
+	Tooltip:
+		Name: Godzilla
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 2000
+		Prerequisites: ~biobarr, ~infantry.biolo
+		Description: Let them fight! Only one will rule.
+        BuildLimit: 1
+        BuildDurationModifier: 40
+	Selectable:
+        Bounds: 56,56
+        DecorationBounds: 72,72
+    RevealsShroud:
+		Range: 9c0
+	Health:
+		HP: 8000000
+	Mobile:
+		Speed: 70
+		TurnSpeed: 20
+        Locomotor: heavy-foot-amphibious
+        RequiresCondition: !stomping
+	AutoTarget:
+		ScanRadius: 5
+	AttackFrontal:
+    WithInfantryBody:
+		AttackSequences:
+            primary: stand
+            secondary: bite
+            tertiary: piston
+    Armament@Fire:
+        Name: primary
+        Weapon: GodzillaFlame
+		LocalOffset: 1400,0,400
+        TargetRelationships: Neutral
+		FireDelay: 8
+        RequiresCondition: !stomping
+	Armament@Melee:
+        Name: secondary
+		Weapon: GodzillaJaw
+        ForceTargetRelationships: Ally
+        RequiresCondition: !stomping && !flaming
+    Armament@Stomp:
+        Weapon: GodzillaThump
+        RequiresCondition: stomping
+    ChangesHealth:
+        Step: 4000
+        Delay: 10
+        StartIfBelow: 100
+        DamageCooldown: 100
+	Targetable:
+		TargetTypes: GroundActor, Infantry, Vehicle
+	Voiced:
+		VoiceSet: AntVoice
+	HitShape:
+		Type: Circle
+			Radius: 1000
+    GrantConditionOnDeploy@Stomp:
+        DeployedCondition: stomping
+        CanDeployOnRamps: True
+        UndeployOnMove: True
+        SkipMakeAnimation: True
+    GrantConditionOnAttack@Flaming:
+        Condition: flaming
+        ArmamentNames: primary
+        RevokeDelay: 50
+	-Crushable:
+    -EdibleByLeap:
+    MustBeDestroyed:
+        RequiredForShortGame: True
 
 Ant:
 	Inherits: ^Infantry

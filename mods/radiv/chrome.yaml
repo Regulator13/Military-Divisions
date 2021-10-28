@@ -378,12 +378,13 @@ flags:
 		greece: 226, 129, 30, 15
 		ukraine: 226, 145, 30, 15
 		russia: 226, 161, 30, 15
-        armored: 226, 193, 30, 15
-        support: 226, 177, 30, 15
-        airforce: 226, 177, 30, 15
-        navy: 226, 193, 30, 15
-        command: 226, 193, 30, 15
-        techno: 226, 177, 30, 15
+        armored: 195, 161, 30, 15
+        support: 195, 177, 30, 15
+        airforce: 195, 193, 30, 15
+        navy: 164, 177, 30, 15
+        command: 195, 129, 30, 15
+        techno: 195, 145, 30, 15
+        biolo: 226, 241, 30, 15
 		allies: 226, 177, 30, 15
 		soviet: 226, 193, 30, 15
 		RandomSoviet: 226, 209, 30, 15

@@ -19,6 +19,7 @@ Metrics:
     FactionSuffix-navy: soviet
     FactionSuffix-command: soviet
     FactionSuffix-techno: allies
+    FactionSuffix-biolo: soviet
 	IncompatibleProtectedGameColor: B22222
 	IncompatibleVersionColor: D3D3D3
 	TextfieldColorHighlight: 562020

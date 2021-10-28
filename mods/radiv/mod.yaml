@@ -36,6 +36,7 @@ Packages:
 	ra|bits/scripts
 	ra|uibits
     radiv|bits
+    radiv|uibits
 
 MapFolders:
 	ra|maps: System

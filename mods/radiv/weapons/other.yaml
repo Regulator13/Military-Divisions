@@ -104,6 +104,30 @@ AirFlame:
 			Concrete: 10
 	Warhead@3Eff: CreateEffect
 		Explosions: small_napalm
+        
+GodzillaFlame:
+	Inherits: ^FireWeapon
+	ReloadDelay: 250
+	Burst: 200
+	BurstDelays: 1
+    Range: 7c0
+	Projectile: Bullet
+		Speed: 220
+		TrailImage: fb4
+		Image: fb3
+		LaunchAngle: 62
+		Inaccuracy: 3c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 356
+		Damage: 1500
+		Versus:
+			Tree: 80
+			Light: 40
+			Heavy: 20
+			Concrete: 10
+	Warhead@3Eff: CreateEffect
+		Explosions: small_napalm
+
 
 Napalm:
 	Inherits: ^FireWeapon
@@ -286,6 +310,25 @@ MandibleHeavy:
 			Heavy: 35
 			Concrete: 20
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+        
+GodzillaJaw:
+	ReloadDelay: 50
+    Range: 2c0
+	Projectile: Bullet
+		Speed: 1c682
+	ValidTargets: GroundActor, WaterActor, AirborneActor
+	StartBurstReport: antbite.aud
+	Warhead@1Dam: SpreadDamage
+        Spread: 213
+		Damage: 60000
+        ValidTargets: GroundActor, WaterActor, AirborneActor
+		Versus:
+			None: 100
+            Wood: 60
+			Light: 90
+			Heavy: 80
+			Concrete: 60
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 
 AntFireball:
 	Inherits: FireballLauncher
@@ -331,6 +374,21 @@ MADTankThump:
 	Warhead@Shake: ShakeScreen
 		Duration: 10
 		Intensity: 3
+		Multiplier: 1,0
+
+GodzillaThump:
+	ValidTargets: Ground, Water, GroundActor, WaterActor
+    Range: 5c0
+	InvalidTargets: Infantry
+    Projectile: InstantHit
+	Warhead@1Dam: TargetDamage
+		Spread: 4c0
+		Damage: 500
+		ValidTargets: Ground, Water, GroundActor, WaterActor
+		InvalidTargets: Infantry
+	Warhead@Shake: ShakeScreen
+		Duration: 5
+		Intensity: 1
 		Multiplier: 1,0
 
 MADTankDetonate:

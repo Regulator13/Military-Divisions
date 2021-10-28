@@ -35,6 +35,20 @@
 			Beach: 80
             Water: 50
             River: 50
+	Locomotor@HEAVY_FOOT_AMPHIBIOUS:
+		Name: heavy-foot-amphibious
+		Crushes: wall, heavywall, mine, crate, infantry, vehicles
+		SharesCell: true
+		TerrainSpeeds:
+			Clear: 90
+			Rough: 80
+			Road: 120
+			Bridge: 120
+			Ore: 80
+			Gems: 80
+			Beach: 80
+            Water: 50
+            River: 50
 	Locomotor@WHEELED:
 		Name: wheeled
 		Crushes: mine, crate
@@ -122,71 +136,81 @@
 		FogVariants: shroud
 		Index: 255, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 20, 40, 56, 65, 97, 130, 148, 194, 24, 33, 66, 132, 28, 41, 67, 134, 1, 2, 4, 8, 3, 6, 12, 9, 7, 14, 13, 11, 5, 10, 15, 255
 		UseExtendedIndex: true
-	Faction@0:
+    Faction@0:
+        Name: Divisions
+        InternalName: divisions
+        Side: divisions
+        Selectable: False
+    Faction@1:
+		Name: Command
+		InternalName: command
+		Side: Divisions
+		Description: Command\nFocuses on money and management.\nStrenghts: Harvesting, Base Construction\nWeaknesses: Few offensive units
+    Faction@2:
+		Name: Tech
+		InternalName: techno
+		Side: Divisions
+		Description: Technology Division\nFocuses on research and unique units.\nStrengths: Technology, Powers, Superweapons\nWeaknesses: Expensive, Nerds not fighters.
+    Faction@3:
+		Name: Armored
+		InternalName: armored
+		Side: Divisions
+		Description: Armored Division\nFocuses on armored vehicles.\nStrengths: Tanks, Defences\nWeaknesses: Infantry, Speed
+	Faction@4:
 		Name: Allies
 		InternalName: allies
 		Side: Allies
 		Selectable: False
-	Faction@1:
+    Faction@5:
+		Name: Support
+		InternalName: support
+		Side: Divisions
+		Description: Support Division\nFocuses on light units and artillery.\nStrengths: Anti-Infantry, Anti-Air, Speed\nWeaknesses: Tanks, Few Defences
+    Faction@6:
+		Name: Airforce
+		InternalName: airforce
+		Side: Divisions
+		Description: Airforce Division\nFocuses on the aircraft and espionage.\nStrengths: Intelligence, Anti-Artillery, AOE Bombing\nWeaknesses: Anti-Air, Defences
+    Faction@7:
+		Name: Navy
+		InternalName: navy
+		Side: Divisions
+		Description: Navy Division\nFocuses on the seas and explosives.\nStrengths: Anti-Ship, Traps, Kamikaze\nWeaknesses: Few land units
+	Faction@8:
 		Name: England
 		InternalName: england
 		Side: Allies
 		Description: England: Counterintelligence\nSpecial Unit: British Spy\nSpecial Unit: Mobile Gap Generator
-	Faction@2:
+	Faction@9:
 		Name: France
 		InternalName: france
 		Side: Allies
 		Description: France: Deception\nSpecial Ability: Can build fake structures\nSpecial Unit: Phase Transport
-	Faction@3:
+	Faction@10:
 		Name: Germany
 		InternalName: germany
 		Side: Allies
 		Description: Germany: Technology\nSpecial Ability: Advanced Chronoshift\nSpecial Unit: Chrono Tank
-	Faction@4:
+	Faction@11:
 		Name: Soviet
 		InternalName: soviet
 		Side: Soviet
 		Selectable: False
-	Faction@5:
+	Faction@12:
 		Name: Russia
 		InternalName: russia
 		Side: Soviet
 		Description: Russia: Tesla Weapons\nSpecial Unit: Tesla Tank\nSpecial Unit: Shock Trooper
-	Faction@6:
+	Faction@13:
 		Name: Ukraine
 		InternalName: ukraine
 		Side: Soviet
 		Description: Ukraine: Demolitions\nSpecial Ability: Parabombs\nSpecial Unit: Demolition Truck
-    Faction@7:
-		Name: Armored
-		InternalName: armored
-		Side: Soviet
-		Description: Armored Division\nFocuses on armored vehicles.\nStrengths: Tanks, Defences\nWeaknesses: Infantry, Speed
-    Faction@8:
-		Name: Support
-		InternalName: support
-		Side: Allies
-		Description: Support Division\nFocuses on light units and artillery.\nStrengths: Anti-Infantry, Anti-Air, Speed\nWeaknesses: Tanks, Few Defences
-    Faction@9:
-		Name: Airforce
-		InternalName: airforce
-		Side: Allies
-		Description: Airforce Division\nFocuses on the aircraft and espionage.\nStrengths: Intelligence, Anti-Artillery, AOE Bombing\nWeaknesses: Anti-Air, Defences
-    Faction@10:
-		Name: Navy
-		InternalName: navy
-		Side: Soviet
-		Description: Navy Division\nFocuses on the seas and explosives.\nStrengths: Anti-Ship, Traps, Kamikaze\nWeaknesses: Few land units
-    Faction@11:
-		Name: Command
-		InternalName: command
-		Side: Soviet
-		Description: Command\nFocuses on money and management.\nStrenghts: Harvesting, Base Construction, Capturing\nWeaknesses: Few offensive units
-    Faction@12:
-		Name: Tech
-		InternalName: techno
-		Side: Allies
-		Description: Technology Division\nFocuses on research and unique units.\nStrengths: Technology, Powers, Superweapons\nWeaknesses: Expensive, Nerds not fighters.
+    Faction@14:
+        Name: Biological
+        InternalName: biolo
+        Side: Other
+        Description: Biological: The horrors...
 	Faction@random:
 		Name: Any
 		InternalName: Random
@@ -281,7 +305,7 @@ World:
 	MPStartUnits@mcvonly:
 		Class: none
 		ClassName: MCV Only
-		Factions: allies, england, france, germany, soviet, russia, ukraine, armored, support, airforce, navy, command, techno
+		Factions: allies, england, france, germany, soviet, russia, ukraine, armored, support, airforce, navy, command, techno, biolo
         SupportActors: MoneyHolder
         InnerSupportRadius: 5
         OuterSupportRadius: 6

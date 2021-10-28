@@ -417,7 +417,7 @@ upgrade.e1range:
 		Name: Scopes
 	Buildable:
 		BuildPaletteOrder: 230
-		Prerequisites: barracks, ~rlab, ~techlevel.medium
+		Prerequisites: barracks, ~rlab, ~techlevel.medium, ~disabled
 		Queue: Defense
 		BuildLimit: 1
 		Description: Your allies Rifle Infantry\n shoot 15% further

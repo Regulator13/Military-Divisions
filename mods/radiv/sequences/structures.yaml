@@ -37,6 +37,17 @@ bio:
 	make: biomake
 		Length: *
     icon: bioicon
+    
+biobarr:
+	idle: bio
+	damaged-idle: bio
+		Start: 1
+	dead: bio
+		Start: 2
+		Tick: 800
+	make: biomake
+		Length: *
+    icon: biobarricon
 
 oilb:
 	Defaults:
