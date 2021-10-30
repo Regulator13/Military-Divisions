@@ -37,8 +37,7 @@
             River: 50
 	Locomotor@HEAVY_FOOT_AMPHIBIOUS:
 		Name: heavy-foot-amphibious
-		Crushes: wall, heavywall, mine, crate, infantry, vehicles
-		SharesCell: true
+		Crushes: wall, heavywall, mine, crate, infantry
 		TerrainSpeeds:
 			Clear: 90
 			Rough: 80

@@ -70,9 +70,9 @@ BIODOG:
     Inherits: DOG
 	Buildable:
 		Queue: Infantry
-		BuildAtProductionType: Dog
+		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 50
-		Prerequisites: ~kenn, ~techlevel.infonly, ~infantry.biolo
+		Prerequisites: ~biobarr, ~techlevel.infonly, ~infantry.biolo
 		Description: Anti-infantry unit.\nCan detect spies.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
         BuildDurationModifier: 40
 	Tooltip:
@@ -1120,8 +1120,8 @@ Godzilla:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
+		Queue: Vehicle
+		BuildAtProductionType: Vehicle
 		BuildPaletteOrder: 2000
 		Prerequisites: ~biobarr, ~infantry.biolo
 		Description: Let them fight! Only one will rule.
@@ -1136,32 +1136,40 @@ Godzilla:
 		HP: 8000000
 	Mobile:
 		Speed: 70
-		TurnSpeed: 20
+		TurnSpeed: 40
         Locomotor: heavy-foot-amphibious
         RequiresCondition: !stomping
 	AutoTarget:
 		ScanRadius: 5
 	AttackFrontal:
+        Armaments: primary, secondary, tertiary, TailSweep
     WithInfantryBody:
 		AttackSequences:
             primary: stand
             secondary: bite
-            tertiary: piston
+            TailSweep: tailsweep
     Armament@Fire:
         Name: primary
         Weapon: GodzillaFlame
 		LocalOffset: 1400,0,400
         TargetRelationships: Neutral
 		FireDelay: 8
-        RequiresCondition: !stomping
+        RequiresCondition: !stomping && !tailsweep
 	Armament@Melee:
         Name: secondary
 		Weapon: GodzillaJaw
         ForceTargetRelationships: Ally
-        RequiresCondition: !stomping && !flaming
+        RequiresCondition: !stomping && !flaming && !tailsweep
     Armament@Stomp:
+        Name: tertiary
         Weapon: GodzillaThump
-        RequiresCondition: stomping
+        RequiresCondition: stomping && !tailsweep
+    Armament@TailSweep:
+        Name: TailSweep
+        Weapon: GodzillaTailSweep
+        RequiresCondition: tailsweep
+    ReloadArmamentsBar:
+        Armaments: primary, tertiary
     ChangesHealth:
         Step: 4000
         Delay: 10
@@ -1179,10 +1187,63 @@ Godzilla:
         CanDeployOnRamps: True
         UndeployOnMove: True
         SkipMakeAnimation: True
+        RequiresCondition: !tailsweep
     GrantConditionOnAttack@Flaming:
         Condition: flaming
         ArmamentNames: primary
         RevokeDelay: 50
+    GrantExternalConditionPower@TAILSWEEP:
+        Condition: tailsweep
+        Duration: 100
+        ChargeInterval: 750
+		Description: Tail Sweep
+		LongDesc: Sweep tail damaging all nearby units and structures. Strong vs. Infantry
+        SelectTargetSpeechNotification: SelectTarget
+        Dimensions: 3,3
+        Footprint: xxx xxx xxx
+        Sequence: tailsweep
+        Icon: tailsweep
+        OrderName: TailSweepOrder
+        StartFullyCharged: True
+        SupportPowerPaletteOrder: 1000
+    ExternalCondition@TAILSWEEP:
+        Condition: tailsweep
+	TimedConditionBar@TAILSWEEP:
+		Condition: tailsweep
+    GrantExternalConditionPower@CHARGE:
+        Condition: charge
+        Duration: 375
+        ChargeInterval: 1500
+		Description: Charge
+		LongDesc: Run at double speed for 15 seconds.
+        SelectTargetSpeechNotification: SelectTarget
+        Dimensions: 3,3
+        Footprint: xxx xxx xxx
+        Sequence: run
+        Icon: charge
+        OrderName: ChargeOrder
+        StartFullyCharged: True
+        SupportPowerPaletteOrder: 900
+    ExternalCondition@CHARGE:
+        Condition: charge
+	TimedConditionBar@CHARGE:
+		Condition: charge
+    SpeedMultiplier:
+        Modifier: 230
+        RequiresCondition: charge
+    ProvidesRadar:
+    GpsPower:
+		Icon: gps
+		OneShot: true
+		ChargeInterval: 12000
+		Description: GPS Satellite
+		LongDesc: Reveals map terrain and provides tactical\ninformation. Requires power and active radar.
+		RevealDelay: 375
+		LaunchSpeechNotification: SatelliteLaunched
+		DisplayTimerRelationships: Ally, Neutral, Enemy
+		SupportPowerPaletteOrder: 90
+        RequiresActiveRadar: False
+	SupportPowerChargeBar:
 	-Crushable:
     -EdibleByLeap:
     MustBeDestroyed:

@@ -490,7 +490,7 @@ MCV:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 210
-		Prerequisites: fix, ~techlevel.medium, ~!structures.command
+		Prerequisites: fix, ~techlevel.medium, ~!structures.command, ~!structures.biolo
 		BuildDurationModifier: 50
 		Description: Deploys into another Construction Yard.\n  Unarmed
 	Valued:
@@ -773,7 +773,7 @@ TRUK:
 		Queue: Vehicle
 		BuildPaletteOrder: 410
         BuildDurationModifier: 2
-		Prerequisites: ~techlevel.low
+		Prerequisites: ~techlevel.low, ~!infantry.biolo
 		Description: Transports cash to other players.\n  Unarmed
 	Valued:
 		Cost: 2000

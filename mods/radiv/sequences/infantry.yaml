@@ -2003,7 +2003,9 @@ godzilla:
     piston:
         Frames: 0,8
         Length: *
-        Tick: 500
+    tailsweep:
+        Length: 16
+        Tick: 120
 	die1:
 		Start: 144
 		Length: 40

@@ -541,6 +541,8 @@ icon:
 	gps: gpssicon
 	parabombs: pbmbicon
 	sonar: sonricon
+    tailsweep: tailsweepicon
+    charge: chargeicon
 
 quee:
 	idle:
