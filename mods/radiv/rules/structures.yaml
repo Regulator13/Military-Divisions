@@ -676,6 +676,11 @@ DOME:
 	ProvidesPrerequisite@buildingname:
 	ExternalCondition@JAMMED:
 		Condition: jammed
+    ProductionTimeMultiplier@COMMAND:
+        Multiplier: 80
+        Prerequisites: fastbuild
+        Queue: Building
+
 
 CommCenter:
 	Inherits: ^Building
@@ -687,7 +692,7 @@ CommCenter:
 		Prerequisites: dome, ~techlevel.medium, ~structures.command
 		Description: Provides a large radius of vision to allies\n Enables Emergency Assistance
     Valued:
-        Cost: 900
+        Cost: 500
     Power:
         Amount: -50
 	HitShape:
@@ -735,6 +740,11 @@ CommCenter:
 	AppearsOnMapPreview:
 	GpsDot:
 		String: Communications
+    ProductionTimeMultiplier@COMMAND:
+        Multiplier: 80
+        Prerequisites: fastbuild
+        Queue: Building
+
         
 MedCenter:
 	Inherits: ^Building
@@ -746,7 +756,7 @@ MedCenter:
 		Prerequisites: barr, ~techlevel.medium, ~structures.command
 		Description: Heals nearby infantry.
     Valued:
-        Cost: 1000
+        Cost: 750
     Power:
         Amount: -80
 	OwnerLostAction:
@@ -785,6 +795,11 @@ MedCenter:
         Range: 6c0
     RenderSprites:
         Image: HOSP
+    ProductionTimeMultiplier@COMMAND:
+        Multiplier: 80
+        Prerequisites: fastbuild
+        Queue: Building
+
 
 PBOX:
 	Inherits: ^Defense
@@ -1077,7 +1092,7 @@ EYE:
 		Prerequisites: dome, stek, ~structures.command, ~techlevel.high
 		Description: Trains infantry further, giving them EXP
 	Valued:
-		Cost: 1200
+		Cost: 1000
 	Tooltip:
 		Name: Service Academy
 	Building:
@@ -1105,6 +1120,11 @@ EYE:
         Range: 2c0
     WithRangeCircle:
         Range: 2c0
+    ProductionTimeMultiplier@COMMAND:
+        Multiplier: 80
+        Prerequisites: fastbuild
+        Queue: Building
+
         
 RLAB:
 	Inherits: ^ScienceBuilding
@@ -1477,6 +1497,11 @@ WEAP:
 	SequencePlaceBuildingPreview:
 		Sequence: place
 		SequencePalette: placebuilding
+    ProductionTimeMultiplier@COMMAND:
+        Multiplier: 80
+        Prerequisites: fastbuild
+        Queue: Building
+
 
 FACT:
 	Inherits: ^Building
@@ -1596,6 +1621,9 @@ FACT:
     ProvidesPrerequisite@any-normal:
         Factions: soviet, russia, ukraine, allies, england, germany, france
         Prerequisite: structures.any-normal
+    ProvidesPrerequisite@FASTBUILD:
+        Factions: command
+        Prerequisite: fastbuild
 	Health:
 		HP: 150000
 	Armor:
@@ -2523,6 +2551,10 @@ POWR:
     PowerMultiplier@TECHNO:
         Modifier: 50
         RequiresCondition: techmoney
+    ProductionTimeMultiplier@COMMAND:
+        Multiplier: 80
+        Prerequisites: fastbuild
+        Queue: Building
 
 APWR:
 	Inherits: ^Building
@@ -2569,6 +2601,12 @@ APWR:
     PowerMultiplier@TECHNO:
         Modifier: 50
         RequiresCondition: techmoney
+    ProductionTimeMultiplier@COMMAND:
+        Multiplier: 80
+        Prerequisites: fastbuild
+        Queue: Building
+
+
         
 NUK2:
 	Inherits: ^Building
@@ -2709,6 +2747,11 @@ STEK:
         UseResourceStorage: True
         RequiresCondition: navymoney && navyfaction
         PauseOnCondition: disabled
+    ProductionTimeMultiplier@COMMAND:
+        Multiplier: 80
+        Prerequisites: fastbuild
+        Queue: Building
+
 
 BARR:
 	Inherits: ^Building
@@ -2842,6 +2885,11 @@ BARR:
 		Types: SpyInfiltrate
 	Targetable:
 		TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
+    ProductionTimeMultiplier@COMMAND:
+        Multiplier: 80
+        Prerequisites: fastbuild
+        Queue: Building
+
         
 BIOBARR:
 	Inherits: ^Building
@@ -2985,6 +3033,11 @@ KENN:
 	Power:
 		Amount: -10
 	ProvidesPrerequisite@buildingname:
+    ProductionTimeMultiplier@COMMAND:
+        Multiplier: 80
+        Prerequisites: fastbuild
+        Queue: Building
+
 
 TENT:
 	Inherits: ^Building
@@ -3168,6 +3221,11 @@ FIX:
 		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0
 		Type: Polygon
 			Points: -1536,-300, -640,-811, 640,-811, 1536,-300, 1536,555, 640,1110, -640,1110, -1536,555
+    ProductionTimeMultiplier@COMMAND:
+        Multiplier: 80
+        Prerequisites: fastbuild
+        Queue: Building
+
 
 SBAG:
 	Inherits: ^Wall
