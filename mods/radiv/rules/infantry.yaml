@@ -1168,8 +1168,6 @@ Godzilla:
         Name: TailSweep
         Weapon: GodzillaTailSweep
         RequiresCondition: tailsweep
-    ReloadArmamentsBar:
-        Armaments: primary, tertiary
     ChangesHealth:
         Step: 4000
         Delay: 10
@@ -1194,7 +1192,7 @@ Godzilla:
         RevokeDelay: 50
     GrantExternalConditionPower@TAILSWEEP:
         Condition: tailsweep
-        Duration: 100
+        Duration: 150
         ChargeInterval: 750
 		Description: Tail Sweep
 		LongDesc: Sweep tail damaging all nearby units and structures. Strong vs. Infantry

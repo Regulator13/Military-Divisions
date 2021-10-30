@@ -413,7 +413,6 @@ GodzillaTailSweep:
             Light: 80
             Heavy: 60
             Concrete: 70
-        Delay: 15
         DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 
 MADTankDetonate:

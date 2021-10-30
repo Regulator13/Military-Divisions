@@ -334,9 +334,9 @@ Gatling:
 		Versus:
 			None: 100
             Wood: 30
-            Light: 60
-            Heavy: 20
-            Concrete: 15
+            Light: 40
+            Heavy: 10
+            Concrete: 5
 	Warhead@2Eff2: CreateEffect
 		Delay: 2
 		Explosions: piff
