@@ -108,7 +108,7 @@ AirFlame:
 GodzillaFlame:
 	Inherits: ^FireWeapon
 	ReloadDelay: 250
-	Burst: 200
+	Burst: 250
 	BurstDelays: 1
     Range: 7c0
 	Projectile: Bullet
@@ -377,19 +377,44 @@ MADTankThump:
 		Multiplier: 1,0
 
 GodzillaThump:
-	ValidTargets: Ground, Water, GroundActor, WaterActor
-    Range: 5c0
+    Burst: 40
+    ReloadDelay: 100
+	ValidTargets: Ground, Water, GroundActor, WaterActor, AirborneActor
+    Range: 4c0
 	InvalidTargets: Infantry
     Projectile: InstantHit
 	Warhead@1Dam: TargetDamage
-		Spread: 4c0
-		Damage: 500
-		ValidTargets: Ground, Water, GroundActor, WaterActor
+		Spread: 5c0
+		Damage: 3000
+		ValidTargets: Ground, Water, GroundActor, WaterActor, AirborneActor
 		InvalidTargets: Infantry
+        Versus:
+			Wood: 100
+			Light: 85
+			Heavy: 60
+			Concrete: 100
 	Warhead@Shake: ShakeScreen
 		Duration: 5
 		Intensity: 1
 		Multiplier: 1,0
+        
+GodzillaTailSweep:
+    ReloadDelay: 100
+    ValidTargets: Ground, Water, GroundActor, WaterActor, Underwater
+    Projectile: InstantHit
+    Range: 2c0
+    Warhead@1Dam: SpreadDamage
+        Spread: 1c0
+        Falloff: 100, 75, 20, 8, 3 
+        Damage: 80000
+        ValidTargets: Ground, Water, GroundActor, WaterActor, Underwater
+        Versus:
+            Wood: 90
+            Light: 80
+            Heavy: 60
+            Concrete: 70
+        Delay: 15
+        DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 
 MADTankDetonate:
 	ValidTargets: GroundActor, WaterActor

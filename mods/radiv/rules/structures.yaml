@@ -2881,14 +2881,14 @@ BIOBARR:
 		RequiresCondition: !being-captured
 		SpawnOffset: -170,810,0
 		ExitCell: 1,2
-		ProductionTypes: Soldier, Infantry
+		ProductionTypes: Soldier, Infantry, Vehicle
 	Exit@2:
 		RequiresCondition: !being-captured
 		SpawnOffset: -725,640,0
 		ExitCell: 0,2
-		ProductionTypes: Soldier, Infantry
+		ProductionTypes: Soldier, Infantry, Vehicle
 	Production:
-		Produces: Infantry, Soldier
+		Produces: Infantry, Soldier, Vehicle
 	GrantExternalConditionToProduced:
 		Condition: produced
 	ProductionBar:
@@ -2901,20 +2901,10 @@ BIOBARR:
 		Proxy: barracks.upgraded
 		Types: SpyInfiltrate
 	Targetable:
-		TargetTypes: GroundActor, DetonateAttack, Structure, SpyInfiltrate
+		TargetTypes: GroundActor, Structure, SpyInfiltrate
+    -Demolishable:
+    -Sellable:
 	ProvidesRadar:
-    GpsPower:
-		Icon: gps
-		OneShot: true
-		ChargeInterval: 40000
-		Description: GPS Satellite
-		LongDesc: Reveals map terrain and provides tactical\ninformation. Requires power and active radar.
-		RevealDelay: 375
-		LaunchSpeechNotification: SatelliteLaunched
-		DisplayTimerRelationships: Ally, Neutral, Enemy
-		SupportPowerPaletteOrder: 90
-        RequiresActiveRadar: False
-	SupportPowerChargeBar:
     ProvidesPrerequisite:
 		Prerequisite: anypower
     Power:
@@ -2928,7 +2918,7 @@ KENN:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 175
-		Prerequisites: anypower, ~techlevel.infonly, ~!structures.allies, ~!structures.armored, ~!structures.navy, ~!structures.airforce
+		Prerequisites: anypower, ~techlevel.infonly, ~!structures.allies, ~!structures.armored, ~!structures.navy, ~!structures.airforce, ~!structures.biolo
 		Description: Trains Attack Dogs.
 	Valued:
 		Cost: 200
