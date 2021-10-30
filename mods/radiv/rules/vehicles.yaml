@@ -590,7 +590,7 @@ BGGY:
 		Queue: Vehicle
 		BuildPaletteOrder: 130
 		Prerequisites: ~vehicles.support, ~techlevel.low
-		Description: Fast buggy that fires rockets.\nAnti-Tank and Anti-Building.
+		Description: Fast buggy that fires rockets.\nAnti-Tank and Anti-Air.
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -617,6 +617,9 @@ BGGY:
 	Armament:
 		Weapon: BuggyMissiles
 		LocalOffset: 128,0,43
+    Armament@Secondary:
+        Weapon: RedEye
+        LocalOffset: 0,0,555
 	AttackTurreted:
 	WithMuzzleOverlay:
 	WithSpriteTurret:

@@ -1827,7 +1827,7 @@ OILCOM:
 	CashTrickler:
 		Interval: 375
 		Amount: 100
-		RequiresCondition: enabled
+		RequiresCondition: !disabled
         UseResourceStorage: True
 	Tooltip:
 		Name: Oil Derrick
@@ -1847,8 +1847,6 @@ OILCOM:
 	GivesCashOnCapture:
 		Amount: 100
 	UpdatesDerrickCount:
-	GrantConditionOnCombatantOwner:
-		Condition: enabled
     RenderSprites:
         Image: OILB
 
