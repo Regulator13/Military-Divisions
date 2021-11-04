@@ -9,6 +9,18 @@ fcom:
 		UseTilesetExtension: true
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
+            
+atwr:
+	idle:
+	damaged-idle:
+		Start: 1
+	dead:
+		Start: 2
+		Tick: 800
+	make: atwrmake
+		Length: *
+		Tick: 80
+	icon: atwricon
 
 hosp:
 	idle:
@@ -715,7 +727,25 @@ miss:
 			INTERIOR: TEMPERAT
     icon: missicon
     
-commcenter:
+empcannon:
+	idle:
+		ShadowStart: 3
+	damaged-idle:
+		Start: 1
+		ShadowStart: 4
+	dead:
+		Start: 2
+		ShadowStart: 5
+		Tick: 400
+	turret: empturret
+		Facings: 32
+        Offset: 0, -20
+	make: empcannonmake
+		Length: 20
+		ShadowStart: 20
+	icon: empcannonicon
+    
+headquarters:
 	idle: miss
 	damaged-idle: miss
 		Start: 1
@@ -729,7 +759,7 @@ commcenter:
 		UseTilesetExtension: true
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
-    icon: missicon
+    icon: headquartersicon
 
 brik:
 	idle:

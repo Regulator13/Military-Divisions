@@ -50,6 +50,7 @@ BADR.Bomber:
         
 Bomber:
     Inherits: ^Plane
+    Inherits@EMP: ^EMPableAircraft
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Buildable:
 		Queue: Aircraft
@@ -124,6 +125,7 @@ Bomber:
 		Image: badr
 MIG:
 	Inherits: ^Plane
+    Inherits@EMP: ^EMPableAircraft
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Aircraft
@@ -193,6 +195,7 @@ MIG:
 
 YAK:
 	Inherits: ^Plane
+    Inherits@EMP: ^EMPableAircraft
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Aircraft
@@ -268,6 +271,7 @@ YAK:
 
 FireBomber:
 	Inherits: ^Plane
+    Inherits@EMP: ^EMPableAircraft
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Aircraft
@@ -339,6 +343,7 @@ FireBomber:
 
 TRAN:
 	Inherits: ^Helicopter
+    Inherits@EMP: ^EMPableAircraft
 	Inherits@CARGOPIPS: ^CargoPips
 	Buildable:
 		Queue: Aircraft
@@ -395,6 +400,7 @@ TRAN:
 
 HELI:
 	Inherits: ^Helicopter
+    Inherits@EMP: ^EMPableAircraft
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Buildable:
 		Queue: Aircraft
@@ -467,6 +473,7 @@ HELI:
 
 HIND:
 	Inherits: ^Helicopter
+    Inherits@EMP: ^EMPableAircraft
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Aircraft
@@ -540,6 +547,108 @@ HIND:
 		Margin: 4, 3
 		RequiresSelection: true
 		PipCount: 6
+        
+SEAHAWK:
+	Inherits: ^Helicopter
+    Inherits@EMP: ^EMPableAircraft
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CARGOPIPS: ^CargoPips
+	Buildable:
+		Queue: Aircraft
+		BuildAtProductionType: Helicopter
+		BuildPaletteOrder: 30
+		Prerequisites: ~hpad, ~techlevel.medium, ~aircraft.airforce
+		Description: Anti-naval utility helicopter\nArmed with aeriel torpedos and chain gun\nMust be over water to drop torpedo\n  Strong vs Navy and Infantry\n  Can carry an infantry.
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: SH-60 Seahawk
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 10000
+	RevealsShroud:
+		MinRange: 8c0
+		Range: 10c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 8c0
+		Type: GroundPosition
+    GrantConditionOnTerrain:
+        Condition: WaterAttack
+        TerrainTypes: Water
+	Armament@WATER:
+        Name: primary
+		Weapon: AerielTorp
+		LocalOffset: 0,-171,0, 0,171,0
+        PauseOnCondition: !waterammo
+        RequiresCondition: WaterAttack
+    Armament@LAND:
+        Name: secondary
+		Weapon: SHChainGun
+		LocalOffset: 85,-213,-85, 85,213,-85
+		MuzzleSequence: muzzle
+		PauseOnCondition: !landammo
+	AttackAircraft:
+		FacingTolerance: 80
+		PersistentTargeting: false
+		AttackType: Hover
+		OpportunityFire: False
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 112
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	WithIdleOverlay@ROTORAIR:
+		Sequence: rotor
+		RequiresCondition: airborne
+	WithIdleOverlay@ROTORGROUND:
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
+	AmmoPool@WATER:
+        Name: waterammo
+        Armaments: primary
+		Ammo: 5
+		ReloadDelay: 16
+		AmmoCondition: waterammo
+	AmmoPool@Land:
+        Name: landammo
+        Armaments: secondary
+		Ammo: 10
+		ReloadDelay: 8
+		AmmoCondition: landammo
+	WithMuzzleOverlay:
+	SpawnActorOnDeath:
+		Actor: HIND.Husk
+	SmokeTrailWhenDamaged:
+		Offset: -427,0,0
+	ProducibleWithLevel:
+		Prerequisites: aircraft.upgraded
+	Selectable:
+		DecorationBounds: 38,32
+	Rearmable:
+		RearmActors: hpad, hpad.airforce
+        AmmoPools: waterammo, landammo
+    Repairable:
+        RepairActors: hpad, hpad.airforce
+	WithAmmoPipsDecoration@LAND:
+        AmmoPools: landammo
+		Position: BottomLeft
+		Margin: 4, 6
+		RequiresSelection: true
+		PipCount: 10
+	WithAmmoPipsDecoration@WATER:
+        AmmoPools: waterammo
+		Position: BottomLeft
+		Margin: 4, 9
+		RequiresSelection: true
+		PipCount: 5
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		AfterUnloadDelay: 40
 
 U2:
 	Inherits: ^NeutralPlane
@@ -572,12 +681,13 @@ U2:
     
 SpyPlane:
 	Inherits: ^Plane
+    Inherits@EMP: ^EMPableAircraft
 	Buildable:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 30
 		Prerequisites: ~afld, ~techlevel.medium, ~aircraft.airforce
-		Description: Very fast but unarmed plane\nPiloted by a spy.
+		Description: Very fast but unarmed plane\nPiloted by a spy.\nDeploy to crash land spy.
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -620,11 +730,17 @@ SpyPlane:
     EjectOnDeath:
         PilotActor: SPY
         SuccessRate: 100
+    GrantConditionOnDeploy:
+        DeployedCondition: suicide
+    KillsSelf:
+        DamageTypes: DefaultDeath
+        RequiresCondition: suicide || empdisable
     RenderSprites:
         Image: U2
 
 MH60:
 	Inherits: ^Helicopter
+    Inherits@EMP: ^EMPableAircraft
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Aircraft

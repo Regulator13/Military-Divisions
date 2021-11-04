@@ -1,4 +1,11 @@
+^VehicleOverlays:
+    emp-overlay: emp_fx01
+		Offset: 0, 0, 24
+		Length: *
+		BlendMode: Additive
+
 mcv:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -11,12 +18,14 @@ mcvhusk:
 		ZOffset: -1023
 
 truk:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
 	icon: trukicon
 
 harv:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -52,6 +61,7 @@ hhusk2:
 		ZOffset: -1023
 
 1tnk:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -75,6 +85,7 @@ hhusk2:
 		ZOffset: -512
 
 2tnk:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -87,6 +98,7 @@ hhusk2:
 	icon: 2tnkicon
     
 watertnk:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -115,6 +127,7 @@ watertnk:
 		ZOffset: -512
 
 3tnk:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -138,6 +151,7 @@ watertnk:
 		ZOffset: -512
 
 4tnk:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -161,6 +175,7 @@ watertnk:
 		ZOffset: -512
 
 mkii:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 8
 		UseClassicFacings: False
@@ -189,6 +204,7 @@ mkii.destroyed:
 		ZOffset: -512
 
 lasertank:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -204,6 +220,7 @@ lasertank:
 	icon: lasertankicon
 
 v2rl:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -214,6 +231,7 @@ v2rl:
 	icon: v2rlicon
 
 arty:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -222,6 +240,7 @@ arty:
 	icon: artyicon
 
 jeep:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -235,6 +254,7 @@ jeep:
 	icon: jeepicon
     
 bggy:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -248,11 +268,14 @@ bggy:
 	icon: bggyicon
     
 ftnk:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
 	icon: ftnkicon
+    
 apc:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -267,18 +290,21 @@ apc:
 	icon: apcicon
 
 mnly:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
 	icon: mnlyicon
     
 barrellayer:
+    Inherits: ^VehicleOverlays
 	idle: mnly
 		Facings: 32
 		UseClassicFacings: True
 	icon: barrellayericon
 
 mrj:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -288,6 +314,7 @@ mrj:
 	icon: mrjicon
 
 mgg:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -312,6 +339,7 @@ mgg.destroyed:
 		Start: 32
 
 ttnk:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -321,6 +349,7 @@ ttnk:
 	icon: ttnkicon
 
 ftrk:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -333,12 +362,14 @@ ftrk:
 	icon: ftrkicon
 
 dtrk:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
 	icon: dtrkicon
 
 ctnk:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -347,6 +378,7 @@ ctnk:
 	icon: ctnkicon
 
 qtnk:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -357,6 +389,7 @@ qtnk:
 	icon: qtnkicon
 
 stnk:
+    Inherits: ^VehicleOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True

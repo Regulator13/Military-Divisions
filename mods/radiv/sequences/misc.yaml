@@ -54,6 +54,8 @@ explosion:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+    pulse_effect1: pulse_effect1
+        Length: *
             
 internmagnum:
     icon: internmagnumicon
@@ -543,6 +545,18 @@ icon:
 	sonar: sonricon
     tailsweep: tailsweepicon
     charge: chargeicon
+    hqcharge: hqchargeicon
+    hqentrench: hqentrenchicon
+    hqretreat: hqretreaticon
+    hqsuicide: hqsuicideicon
+    empulse: empulseicon
+    
+pulsball:
+	idle:
+		Length: *
+		BlendMode: Additive
+		ZOffset: 1023
+		Offset: 0, 0, 24
 
 quee:
 	idle:

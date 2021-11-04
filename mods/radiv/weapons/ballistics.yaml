@@ -82,7 +82,7 @@ CommandoCannon:
 	ReloadDelay: 25
 	InvalidTargets: Air, Infantry
 	Warhead@1Dam: SpreadDamage
-		Damage: 6000
+		Damage: 10000
 		Versus:
 			Heavy: 115
 		InvalidTargets: Air

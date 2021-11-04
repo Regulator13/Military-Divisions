@@ -21,6 +21,22 @@
 			Ore: 80
 			Gems: 80
 			Beach: 80
+	JumpjetLocomotor@JUMPJET:
+		Name: jumpjet
+		Crushes: crate
+		SharesCell: true
+		JumpjetTransitionCost: 100
+        WaitAverage: 0
+        WaitSpread: 10
+		TerrainSpeeds:
+			Clear: 90
+			Rough: 80
+			Road: 120
+			Bridge: 120
+			Ore: 80
+			Gems: 80
+			Beach: 80
+			Jumpjet: 130
 	Locomotor@FOOT_AMPHIBIOUS:
 		Name: foot-amphibious
 		Crushes: mine, crate
@@ -252,6 +268,7 @@
 		AllowUnderActors: true
 	ResourceRenderer:
 		RenderTypes: Ore, Gems
+	JumpjetActorLayer:
 
 World:
 	Inherits: ^BaseWorld

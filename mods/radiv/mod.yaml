@@ -80,13 +80,14 @@ Sequences:
     radiv|sequences/vehicles.yaml
     radiv|sequences/aircraft.yaml
     radiv|sequences/misc.yaml
+    radiv|sequences/ships.yaml
 
 TileSets:
-	ra|tilesets/snow.yaml
-	ra|tilesets/interior.yaml
-	ra|tilesets/temperat.yaml
-	ra|tilesets/desert.yaml
-
+	radiv|tilesets/snow.yaml
+	radiv|tilesets/interior.yaml
+	radiv|tilesets/temperat.yaml
+	radiv|tilesets/desert.yaml
+    
 Cursors:
 	ra|cursors.yaml
 

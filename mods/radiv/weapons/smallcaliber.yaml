@@ -54,6 +54,33 @@ FLAK-23-AG:
 		Explosions: small_splash
 		ValidTargets: Water, Underwater
 		InvalidTargets: Bridge
+        
+^MG:
+	ReloadDelay: 20
+	Range: 4c0
+    ValidTargets: Ground, Water, GroundActor, WaterActor, AirborneActor
+	Projectile: InstantHit
+        Blockable: True
+	Warhead@1Dam: SpreadDamage
+		Spread: 108
+		Falloff: 100, 50, 25, 12, 6, 3, 0
+		Damage: 1500
+        ValidTargets: GroundActor, AirborneActor
+		Versus:
+			None: 100
+			Wood: 60
+			Light: 40
+			Heavy: 25
+			Concrete: 10
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: piffs
+		ValidTargets: Ground, Air
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piffs
+		ExplosionPalette: ra
+		ValidTargets: Water
+		InvalidTargets: Vehicle
 
 ^HeavyMG:
 	ReloadDelay: 30
@@ -115,6 +142,15 @@ Shotgun:
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piff
 		Inaccuracy: 171
+        
+JumpCannon:
+	Inherits: ^MG
+	ReloadDelay: 40
+	Burst: 2
+	Range: 5c0
+	Report: gun13.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 1500
 
 Vulcan:
 	Inherits: ^HeavyMG
@@ -237,6 +273,18 @@ ChainGun:
 	ReloadDelay: 10
 	Range: 5c0
 	MinRange: 0c768
+	Projectile: InstantHit
+		Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			None: 144
+            
+SHChainGun:
+	Inherits: ^HeavyMG
+	ReloadDelay: 10
+	Range: 5c0
+	MinRange: 0c768
+    ValidTargets: Ground, GroundActor
 	Projectile: InstantHit
 		Blockable: false
 	Warhead@1Dam: SpreadDamage

@@ -1,9 +1,17 @@
+^AircraftOverlays:
+    emp-overlay: emp_fx01
+		Offset: 0, 0, 24
+		Length: *
+		BlendMode: Additive
+
 mig:
+    Inherits: ^AircraftOverlays
 	idle:
 		Facings: 16
 	icon: migicon
 
 yak:
+    Inherits: ^AircraftOverlays
 	idle:
 		Facings: 16
 	muzzle: minigun
@@ -12,6 +20,7 @@ yak:
 	icon: yakicon
     
 firebomber:
+    Inherits: ^AircraftOverlays
 	idle: firebomber
 		Facings: 32
         UseClassicFacings: True
@@ -21,6 +30,7 @@ firebomber:
 	icon: firebombericon
 
 heli:
+    Inherits: ^AircraftOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -32,6 +42,7 @@ heli:
 	icon: heliicon
 
 hind:
+    Inherits: ^AircraftOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
@@ -44,8 +55,24 @@ hind:
 		Length: 6
 		Facings: 8
 	icon: hindicon
+    
+seahawk:
+    Inherits: ^AircraftOverlays
+	idle: hind
+		Facings: 32
+		UseClassicFacings: True
+	rotor: lrotorlg
+		Length: 4
+	slow-rotor: lrotorlg
+		Start: 4
+		Length: 8
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	icon: seahawkicon
 
 tran:
+    Inherits: ^AircraftOverlays
 	idle: tran2
 		Facings: 32
 		UseClassicFacings: True
@@ -73,16 +100,19 @@ tran2husk:
 	idle:
 
 u2:
+    Inherits: ^AircraftOverlays
 	idle:
 		Facings: 16
     icon: u2icon
 
 badr:
+    Inherits: ^AircraftOverlays
 	idle:
 		Facings: 16
     icon: badricon
 
 mh60:
+    Inherits: ^AircraftOverlays
 	idle:
 		Facings: 32
 		UseClassicFacings: True
