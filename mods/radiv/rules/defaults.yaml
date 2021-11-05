@@ -43,6 +43,13 @@
 		Type: Rectangle
 			TopLeft: -1536, -1024
 			BottomRight: 1536, 1024
+            
+^2x3Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -1024, -1536
+			BottomRight: 1024, 1536
 
 ^1x3Shape:
 	HitShape@1:
@@ -177,6 +184,42 @@
 		Margin: 5, 6
 		ValidRelationships: Ally, Enemy, Neutral
 		RequiresCondition: rank-elite
+        
+^EmpVisualEffects:
+	WithColoredOverlay@EMPDISABLE:
+		Palette: disabled
+	WithIdleOverlay@EMPDISABLE:
+		Sequence: emp-overlay
+		Palette: effect
+
+^EmpDisable:
+	Inherits: ^EmpVisualEffects
+	WithColoredOverlay@EMPDISABLE:
+		RequiresCondition: empdisable
+	TimedConditionBar@EMPDISABLE:
+		Condition: empdisable
+		Color: FFFFFF
+	WithIdleOverlay@EMPDISABLE:
+		RequiresCondition: empdisable
+	PowerMultiplier@EMPDISABLE:
+		RequiresCondition: empdisable
+		Modifier: 0
+	ExternalCondition@EMPDISABLE:
+		Condition: empdisable
+        
+^EMPDisableBuilding:
+	WithColoredOverlay@EMPDISABLE:
+		Palette: disabled
+	WithColoredOverlay@EMPDISABLE:
+		RequiresCondition: empdisable
+	TimedConditionBar@EMPDISABLE:
+		Condition: empdisable
+		Color: FFFFFF
+	PowerMultiplier@EMPDISABLE:
+		RequiresCondition: empdisable
+		Modifier: 0
+	ExternalCondition@EMPDISABLE:
+		Condition: empdisable
 
 ^InfantryExperienceHospitalOverrides:
 	WithDecoration@RANK-1:
@@ -300,6 +343,7 @@
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^IronCurtainable
 	Inherits@3: ^ClassicFacingSpriteActor
+    Inherits@EMP: ^EmpDisable
 	Inherits@bounty: ^GlobalBounty
 	Inherits@selection: ^SelectableCombatUnit
 	Inherits@handicaps: ^PlayerHandicaps
@@ -308,7 +352,7 @@
 		Action: Kill
 	UpdatesPlayerStatistics:
 	Mobile:
-		PauseOnCondition: being-captured
+		PauseOnCondition: being-captured || empdisable
 		Locomotor: wheeled
 		TurnSpeed: 20
 	Selectable:
@@ -381,6 +425,53 @@
     SpeedMultiplier@SUPPORT:
         Modifier: 70
         RequiresCondition: supportmoney
+    ExternalCondition@HQCHARGE:
+        Condition: hqcharge
+	TimedConditionBar@HQCHARGE:
+		Condition: hqcharge
+    FirepowerMultiplier@HQCHARGE:
+        Modifier: 150
+        RequiresCondition: hqcharge
+    SpeedMultiplier@HQCHARGE:
+        Modifier: 150
+        RequiresCondition: hqcharge
+    ChangesHealth@HQCHARGE:
+        Step: 0
+        PercentageStep: -10
+        Delay: 100
+        StartIfBelow: 110
+        DamageTypes: DefaultDeath
+        RequiresCondition: hqcharge
+    ExternalCondition@HQRETREAT:
+        Condition: hqretreat
+	TimedConditionBar@HQRETREAT:
+		Condition: hqretreat
+    FirepowerMultiplier@HQRETREAT:
+        Modifier: 0
+        RequiresCondition: hqretreat
+    SpeedMultiplier@HQRETREAT:
+        Modifier: 200
+        RequiresCondition: hqretreat
+    ExternalCondition@HQSUICIDE:
+        Condition: hqsuicide
+	TimedConditionBar@HQSUICIDE:
+		Condition: hqsuicide
+    DamageMultiplier@HQSUICIDE:
+        Modifier: 50
+        RequiresCondition: hqsuicide
+    FirepowerMultiplier@HQSUICIDE:
+        Modifier: 200
+        RequiresCondition: hqsuicide
+    ReloadDelayMultiplier@HQSUICIDE:
+        Modifier: 50
+        RequiresCondition: hqsuicide
+    SpeedMultiplier@HQSUICIDE:
+        Modifier: 150
+        RequiresCondition: hqsuicide
+    KillsSelf@HQSUICIDE:
+        Delay: 250
+        DamageTypes: DefaultDeath
+        RequiresCondition: hqsuicide
 
 ^TrackedVehicle:
 	Inherits: ^Vehicle
@@ -524,6 +615,63 @@
         Interval: 100
         Amount: 5000
         RequiresCondition: teach
+    ExternalCondition@HQCHARGE:
+        Condition: hqcharge
+	TimedConditionBar@HQCHARGE:
+		Condition: hqcharge
+    FirepowerMultiplier@HQCHARGE:
+        Modifier: 150
+        RequiresCondition: hqcharge
+    SpeedMultiplier@HQCHARGE:
+        Modifier: 150
+        RequiresCondition: hqcharge
+    ChangesHealth@HQCHARGE:
+        Step: 0
+        PercentageStep: -10
+        Delay: 100
+        StartIfBelow: 110
+        DamageTypes: DefaultDeath
+        RequiresCondition: hqcharge
+    ExternalCondition@HQRETREAT:
+        Condition: hqretreat
+	TimedConditionBar@HQRETREAT:
+		Condition: hqretreat
+    FirepowerMultiplier@HQRETREAT:
+        Modifier: 0
+        RequiresCondition: hqretreat
+    SpeedMultiplier@HQRETREAT:
+        Modifier: 200
+        RequiresCondition: hqretreat
+    ExternalCondition@HQENTRENCH:
+        Condition: hqentrench
+	TimedConditionBar@HQENTRENCH:
+		Condition: hqentrench
+    DamageMultiplier@HQENTRENCH:
+        Modifier: 50
+        RequiresCondition: hqentrench
+    SpeedMultiplier@HQENTRENCH:
+        Modifier: 5
+        RequiresCondition: hqentrench
+    ExternalCondition@HQSUICIDE:
+        Condition: hqsuicide
+	TimedConditionBar@HQSUICIDE:
+		Condition: hqsuicide
+    DamageMultiplier@HQSUICIDE:
+        Modifier: 50
+        RequiresCondition: hqsuicide
+    FirepowerMultiplier@HQSUICIDE:
+        Modifier: 200
+        RequiresCondition: hqsuicide
+    ReloadDelayMultiplier@HQSUICIDE:
+        Modifier: 50
+        RequiresCondition: hqsuicide
+    SpeedMultiplier@HQSUICIDE:
+        Modifier: 150
+        RequiresCondition: hqsuicide
+    KillsSelf@HQSUICIDE:
+        Delay: 250
+        DamageTypes: DefaultDeath
+        RequiresCondition: hqsuicide
 
 ^Soldier:
 	Inherits: ^Infantry
@@ -535,6 +683,7 @@
 		DamageModifiers:
 			Prone50Percent: 50
 		DamageTriggers: TriggerProne
+        PauseOnCondition: hqsuicide
 	WithInfantryBody:
 		IdleSequences: idle1,idle2
 		StandSequences: stand,stand2
@@ -577,6 +726,7 @@
 	Inherits@2: ^GainsExperience
 	Inherits@3: ^IronCurtainable
 	Inherits@4: ^SpriteActor
+    Inherits@EMP: ^EmpDisable
 	Inherits@bounty: ^GlobalBounty
 	Inherits@selection: ^SelectableCombatUnit
 	Inherits@handicaps: ^PlayerHandicaps
@@ -586,6 +736,7 @@
 	UpdatesPlayerStatistics:
 	Mobile:
 		Locomotor: naval
+        PauseOnCondition: empdisable
 	Selectable:
 		Bounds: 24,24
 	Targetable:
@@ -629,6 +780,53 @@
     RangeMultiplier@NAVY:
         Modifier: 60
         RequiresCondition: navymoney
+    ExternalCondition@HQCHARGE:
+        Condition: hqcharge
+	TimedConditionBar@HQCHARGE:
+		Condition: hqcharge
+    FirepowerMultiplier@HQCHARGE:
+        Modifier: 150
+        RequiresCondition: hqcharge
+    SpeedMultiplier@HQCHARGE:
+        Modifier: 150
+        RequiresCondition: hqcharge
+    ChangesHealth@HQCHARGE:
+        Step: 0
+        PercentageStep: -10
+        Delay: 100
+        StartIfBelow: 110
+        DamageTypes: DefaultDeath
+        RequiresCondition: hqcharge
+    ExternalCondition@HQRETREAT:
+        Condition: hqretreat
+	TimedConditionBar@HQRETREAT:
+		Condition: hqretreat
+    FirepowerMultiplier@HQRETREAT:
+        Modifier: 0
+        RequiresCondition: hqretreat
+    SpeedMultiplier@HQRETREAT:
+        Modifier: 200
+        RequiresCondition: hqretreat
+    ExternalCondition@HQSUICIDE:
+        Condition: hqsuicide
+	TimedConditionBar@HQSUICIDE:
+		Condition: hqsuicide
+    DamageMultiplier@HQSUICIDE:
+        Modifier: 50
+        RequiresCondition: hqsuicide
+    FirepowerMultiplier@HQSUICIDE:
+        Modifier: 200
+        RequiresCondition: hqsuicide
+    ReloadDelayMultiplier@HQSUICIDE:
+        Modifier: 50
+        RequiresCondition: hqsuicide
+    SpeedMultiplier@HQSUICIDE:
+        Modifier: 150
+        RequiresCondition: hqsuicide
+    KillsSelf@HQSUICIDE:
+        Delay: 250
+        DamageTypes: DefaultDeath
+        RequiresCondition: hqsuicide
 
 ^NeutralPlane:
 	Inherits@1: ^ExistsInWorld
@@ -734,6 +932,13 @@
 		RequiresCondition: cruising
 	-BodyOrientation:
 	ClassicFacingBodyOrientation:
+    
+^EMPableAircraft:
+	Inherits@EMP: ^EmpDisable
+	Aircraft:
+		PauseOnCondition: empdisable
+	KillsSelf:
+		RequiresCondition: airborne && empdisable
 
 ^BasicBuilding:
 	Inherits@1: ^ExistsInWorld
@@ -781,6 +986,7 @@
 
 ^Building:
 	Inherits: ^BasicBuilding
+    Inherits@EMP: ^EMPDisableBuilding
 	Huntable:
 	OwnerLostAction:
 		Action: Kill

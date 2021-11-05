@@ -24,16 +24,16 @@ MSLO:
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 6c0
-		RequiresCondition: !disabled
-		RevealGeneratedShroud: False
+		RequiresCondition: !disabled && !empdisable
+		RevealGeneratedShroud: False    
 	RevealsShroud@Offline:
 		Range: 5c0
-		RequiresCondition: disabled
+		RequiresCondition: disabled || empdisable 
 	RevealsShroud@GAPGEN:
 		Range: 5c0
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled && !empdisable
 	NukePower:
-		PauseOnCondition: disabled
+		PauseOnCondition: disabled || empdisable
 		Cursor: nuke
 		Icon: abomb
 		ChargeInterval: 13500
@@ -67,6 +67,57 @@ MSLO:
 		RequiredForShortGame: false
 	WithSupportPowerActivationAnimation:
 		RequiresCondition: !build-incomplete
+        
+EMPCANNON:
+	Inherits: ^Defense
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@shape: ^2x2Shape
+	Selectable:
+        Bounds: 48,48
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: E.M. Pulse Cannon
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 110
+		Prerequisites: dome, rlab, ~techlevel.unrestricted, ~structures.techno
+		Description: Disables mechanical units in an area.\nRequires power to operate.
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 50000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 8c0
+	Turreted:
+		TurnSpeed: 40
+		InitialFacing: 896
+		RealignDelay: -1
+	AttackTurreted:
+		RequiresCondition: !build-incomplete && !empdisable && !disabled
+	Armament:
+		Weapon: EMPulseCannon
+		LocalOffset: 212,0,1768
+		LocalYaw: 0,100
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+		Sequence: turret
+	Power:
+		Amount: -150
+	ProvidesPrerequisite@gdi:
+		ResetOnOwnerChange: true
+	AttackOrderPower:
+		PauseOnCondition: empdisable || disabled
+		#Cursor: emp
+		Icon: empulse
+		ChargeInterval: 3375
+        OrderName: EMPAttackOrder
+		Description: E.M. Pulse
+		LongDesc: Fires a pulse blast which disables\nall mechanical units in the area.
+		SelectTargetSpeechNotification: SelectTarget
 
 GAP:
 	Inherits: ^ScienceBuilding
@@ -84,7 +135,7 @@ GAP:
 		Bounds: 24,24
 		DecorationBounds: 24,48,0,-12
 	WithSpriteBody:
-		PauseOnCondition: disabled
+		PauseOnCondition: disabled || empdisable
 	Health:
 		HP: 50000
 	Armor:
@@ -99,7 +150,7 @@ GAP:
 		HasMinibib: true
 	CreatesShroud:
 		Range: 6c0
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled && !empdisable
 	RenderShroudCircle:
 	Power:
 		Amount: -60
@@ -405,18 +456,18 @@ IRON:
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 6c0
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled && !empdisable
 		RevealGeneratedShroud: False
 	RevealsShroud@Offline:
 		Range: 5c0
-		RequiresCondition: disabled
+		RequiresCondition: disabled || empdisable
 	RevealsShroud@GAPGEN:
 		Range: 5c0
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled  && !empdisable
 	WithBuildingBib:
 		HasMinibib: true
 	GrantExternalConditionPower@IRONCURTAIN:
-		PauseOnCondition: disabled
+		PauseOnCondition: disabled || empdisable
 		Icon: invuln
 		ChargeInterval: 3000
 		Description: Invulnerability
@@ -468,26 +519,26 @@ PDOX:
 	RevealsShroud:
 		MinRange: 5c0
 		Range: 6c0
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled  && !empdisable
 		RevealGeneratedShroud: False
 	RevealsShroud@Offline:
 		Range: 5c0
-		RequiresCondition: disabled
+		RequiresCondition: disabled || empdisable
 	RevealsShroud@GAPGEN:
 		Range: 5c0
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled  && !empdisable
 	WithBuildingBib:
 		HasMinibib: true
-	ProvidesPrerequisite@germany:
-		Factions: germany
-		Prerequisite: pdox.germany
+	ProvidesPrerequisite@germany-techno:
+		Factions: germany, techno
+		Prerequisite: pdox.germany-techno
 	ProvidesPrerequisite@germanstructure:
 		RequiresPrerequisites: structures.germany
 		Prerequisite: pdox.germany
 	ChronoshiftPower@chronoshift:
 		OrderName: Chronoshift
-		PauseOnCondition: disabled
-		Prerequisites: !pdox.germany
+		PauseOnCondition: disabled || empdisable
+		Prerequisites: !pdox.germany-techno
 		Icon: chrono
 		ChargeInterval: 3000
 		Description: Chronoshift
@@ -504,8 +555,8 @@ PDOX:
 		Footprint: _x_ xxx _x_
 	ChronoshiftPower@advancedchronoshift:
 		OrderName: AdvancedChronoshift
-		PauseOnCondition: disabled
-		Prerequisites: pdox.germany
+		PauseOnCondition: disabled || empdisable
+		Prerequisites: pdox.germany-techno
 		Icon: chrono
 		ChargeInterval: 3000
 		Description: Advanced Chronoshift
@@ -565,7 +616,7 @@ TSLA:
 		LocalOffset: 0,0,896
 	AttackTesla:
 		RequiresCondition: !build-incomplete
-		PauseOnCondition: disabled
+		PauseOnCondition: disabled || empdisable
 		ChargeAudio: tslachg2.aud
 		MaxCharges: 3
 		ReloadDelay: 120
@@ -573,7 +624,7 @@ TSLA:
 		Amount: -100
 	DetectCloaked:
 		Range: 6c0
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled  && !empdisable
 	ProvidesPrerequisite@buildingname:
 
 AGUN:
@@ -618,7 +669,7 @@ AGUN:
 		MuzzleSequence: muzzle
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
-		PauseOnCondition: disabled
+		PauseOnCondition: disabled || empdisable
 	WithMuzzleOverlay:
 	RenderRangeCircle:
 		RangeCircleType: aa
@@ -658,17 +709,17 @@ DOME:
 	RevealsShroud:
 		MinRange: 6c0
 		Range: 10c0
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled  && !empdisable
 		RevealGeneratedShroud: False
 	RevealsShroud@Offline:
 		Range: 5c0
-		RequiresCondition: disabled
+		RequiresCondition: disabled || empdisable
 	RevealsShroud@GAPGEN:
 		Range: 6c0
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled  && !empdisable
 	WithBuildingBib:
 	ProvidesRadar:
-		RequiresCondition: !jammed && !disabled
+		RequiresCondition: !jammed && !disabled  && !empdisable
 	InfiltrateForExploration:
 		Types: SpyInfiltrate
 	Power:
@@ -682,69 +733,156 @@ DOME:
         Queue: Building
 
 
-CommCenter:
+CommTower:
 	Inherits: ^Building
-	Inherits@shape: ^3x2Shape
     Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 100
 		Prerequisites: dome, ~techlevel.medium, ~structures.command
-		Description: Provides a large radius of vision to allies\n Enables Emergency Assistance
+		Description: Provides a large radius of vision to allies
     Valued:
         Cost: 500
     Power:
-        Amount: -50
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 840,0,0, 840,-1024,0, 420,768,0, -840,0,0, -840,-1024,0, -840,1024,0
-	Selectable:
-		Priority: 0
-		Bounds: 72,48
-	OwnerLostAction:
-		Action: ChangeOwner
+        Amount: -40
 	Building:
-		Footprint: xxx xxx ===
-		Dimensions: 3,3
-		LocalCenterOffset: 0,-512,0
+		Footprint: x
+		Dimensions: 1,1
 	RevealsShroud:
-		MinRange: 8c0
-		Range: 12c0
+		Range: 10c0
 		RevealGeneratedShroud: False
-        RequiresCondition: !disabled
+        RequiresCondition: !disabled  && !empdisable
 	RevealsShroud@Offline:
 		Range: 5c0
-		RequiresCondition: disabled
+		RequiresCondition: disabled || empdisable
 	RevealsShroud@GAPGEN:
 		Range: 6c0
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled  && !empdisable
 	Health:
-		HP: 60000
+		HP: 40000
 	Armor:
 		Type: Wood
 	Tooltip:
-		Name: Communications Center
+		Name: Communications Tower
 	TooltipDescription@ally:
 		Description: Provides range of vision.
 		ValidRelationships: Ally
-	TooltipDescription@other:
-		Description: Capture to give visual range.
-		ValidRelationships: Neutral, Enemy
-	WithBuildingBib:
-	CaptureManager:
 	EngineerRepairable:
 	WithDeathAnimation:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
 	ProvidesPrerequisite@buildingname:
-	AppearsOnMapPreview:
-	GpsDot:
-		String: Communications
     ProductionTimeMultiplier@COMMAND:
         Multiplier: 80
         Prerequisites: fastbuild
         Queue: Building
+    RenderSprites:
+        Image: atwr
+        
 
+Headquarters:
+	Inherits: ^Building
+	Inherits@shape: ^3x2Shape
+    Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 120
+		Prerequisites: barr, weap, ~techlevel.medium, ~structures.command
+		Description: Allows giving of special orders to allied troops
+        BuildLimit: 1
+    Valued:
+        Cost: 1500
+    Power:
+        Amount: -50
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 840,0,0, 840,-1024,0, 420,768,0, -840,0,0, -840,-1024,0, -840,1024,0
+	Building:
+		Footprint: xxx xxx ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	RevealsShroud:
+		Range: 4c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 3c0
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
+	Tooltip:
+		Name: Headquarters
+	EngineerRepairable:
+	WithDeathAnimation:
+		DeathSequence: dead
+		UseDeathTypeSuffix: false
+	ProvidesPrerequisite@buildingname:
+    GrantExternalConditionPower@HQCHARGE:
+        Condition: hqcharge
+        Duration: 500
+        ChargeInterval: 3000
+        PauseOnCondition: disabled || empdisable
+		Description: Charge!
+		LongDesc: Infantry, vehicles, & ships charge into battle.\n  150% attack damage\n  150% move speed\n  Cost 50% of health\n  Lasts 20s
+        SelectTargetSpeechNotification: SelectTarget
+        Dimensions: 4, 4
+        Footprint: xxxx xxxx xxxx xxxx
+        Sequence:
+        Icon: hqcharge
+        OrderName: HQChargeOrder
+        StartFullyCharged: False
+        SupportPowerPaletteOrder: 1000
+    GrantExternalConditionPower@HQENTRENCH:
+        Condition: hqentrench
+        Duration: 1125
+        ChargeInterval: 3000
+        PauseOnCondition: disabled || empdisable
+		Description: Entrench
+		LongDesc: Infantry dig in to hold the line.\n  Take 50% damage\n  Cannot move\n  Lasts 45s
+        SelectTargetSpeechNotification: SelectTarget
+        Dimensions: 4, 4
+        Footprint: xxxx xxxx xxxx xxxx
+        Sequence:
+        Icon: hqentrench
+        OrderName: HQEntrenchOrder
+        StartFullyCharged: False
+        SupportPowerPaletteOrder: 1100
+    GrantExternalConditionPower@HQRETREAT:
+        Condition: hqretreat
+        Duration: 375
+        ChargeInterval: 2250
+        PauseOnCondition: disabled || empdisable
+		Description: Retreat!
+		LongDesc: Infantry, vehicles, & ships flee from battle.\n  200% move speed\n  0% attack damage\n  Lasts 15s
+        SelectTargetSpeechNotification: SelectTarget
+        Dimensions: 5, 5
+        Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
+        Sequence:
+        Icon: hqretreat
+        OrderName: HQRetreatOrder
+        StartFullyCharged: False
+        SupportPowerPaletteOrder: 1200
+    GrantExternalConditionPower@HQSUICIDE:
+        Condition: hqsuicide
+        Duration: 255
+        ChargeInterval: 4500
+        PauseOnCondition: disabled || empdisable
+		Description: Suicide Mission
+		LongDesc: When there's no other hope.\nTargets infantry, vehicles, & ships.\n  200% attack damage\n  200% attack speed\n  150% move speed\n  Take 50% damage\n  Die in 10s
+        SelectTargetSpeechNotification: SelectTarget
+        Dimensions: 3, 3
+        Footprint: xxx xxx xxx
+        Sequence:
+        Icon: hqsuicide
+        OrderName: HQSuicideOrder
+        StartFullyCharged: False
+        SupportPowerPaletteOrder: 1300
+    ProductionTimeMultiplier@COMMAND:
+        Multiplier: 80
+        Prerequisites: fastbuild
+        Queue: Building
+    RenderSprites:
+        Image: headquarters
         
 MedCenter:
 	Inherits: ^Building
@@ -787,7 +925,7 @@ MedCenter:
 	ProximityExternalCondition@MedCenter:
         Condition: medcenter
         Range: 6c0
-        RequiresCondition: !disabled
+        RequiresCondition: !disabled  && !empdisable
 	AppearsOnMapPreview:
 	GpsDot:
 		String: Hospital
@@ -964,7 +1102,7 @@ GUN:
 		LocalOffset: 512,0,112
 		MuzzleSequence: muzzle
 	AttackTurreted:
-		RequiresCondition: !build-incomplete
+		RequiresCondition: !build-incomplete && !empdisable
 	WithMuzzleOverlay:
 	Power:
 		Amount: -40
@@ -1007,7 +1145,7 @@ FTUR:
 		Weapon: FireballLauncher
 		LocalOffset: 512,0,0
 	AttackTurreted:
-		RequiresCondition: !build-incomplete
+		RequiresCondition: !build-incomplete && !empdisable
 	-QuantizeFacingsFromSequence:
 	BodyOrientation:
 		QuantizedFacings: 8
@@ -1071,7 +1209,7 @@ SAM:
 		MuzzleSequence: muzzle
 	AttackTurreted:
 		RequiresCondition: !build-incomplete
-		PauseOnCondition: disabled
+		PauseOnCondition: disabled || empdisable
 	WithMuzzleOverlay:
 	RenderRangeCircle:
 		RangeCircleType: aa
@@ -1118,6 +1256,7 @@ EYE:
     ProximityExternalCondition@Teach:
         Condition: teach
         Range: 2c0
+        RequiresCondition: !disabled && !empdisable
     WithRangeCircle:
         Range: 2c0
     ProductionTimeMultiplier@COMMAND:
@@ -1196,7 +1335,7 @@ ATEK:
 		Range: 4c0
 	WithBuildingBib:
 	GpsPower:
-		PauseOnCondition: disabled
+		PauseOnCondition: disabled || empdisable
 		Icon: gps
 		OneShot: true
 		ChargeInterval: 12000
@@ -1277,21 +1416,21 @@ ATEK:
 		Amount: 100
         UseResourceStorage: True
         RequiresCondition: techmoney && techfaction
-        PauseOnCondition: disabled
+        PauseOnCondition: disabled || empdisable
     CashTrickler@SUPPORT:
         InitialDelay: 500
         Interval: 150
 		Amount: 100
         UseResourceStorage: True
         RequiresCondition: supportmoney && supportfaction
-        PauseOnCondition: disabled
+        PauseOnCondition: disabled || empdisable
     CashTrickler@AIRFORCE:
         InitialDelay: 500
         Interval: 150
 		Amount: 100
         UseResourceStorage: True
         RequiresCondition: airforcemoney && airforcefaction
-        PauseOnCondition: disabled
+        PauseOnCondition: disabled || empdisable
 
 WEAP:
 	Inherits: ^Building
@@ -1515,7 +1654,7 @@ FACT:
 		Queue: Building
 		BuildPaletteOrder: 1000
 		Prerequisites: ~disabled
-		Description: Produces structures.
+		Description: Produces structures. Refines ore and gems.
 	ProvidesPrerequisite@allies:
 		Factions: allies, england, france, germany
 		Prerequisite: structures.allies
@@ -1645,7 +1784,7 @@ FACT:
 	BaseBuilding:
 	Transforms:
 		RequiresCondition: factundeploy
-		PauseOnCondition: chrono-vortex || being-captured || being-demolished || build-incomplete
+		PauseOnCondition: chrono-vortex || being-captured || being-demolished || build-incomplete || empdisable
 		IntoActor: mcv
 		Offset: 1,1
 		Facing: 384
@@ -1696,6 +1835,11 @@ FACT:
 		Damage: 950
 	TransferTimedExternalConditionOnTransform:
 		Condition: invulnerability
+	Refinery:
+		DockAngle: 256
+		DockOffset: 1,3
+    ProvidesPrerequisite@PROC:
+        Prerequisite: proc
 
 PROC:
 	Inherits: ^Building
@@ -1827,7 +1971,7 @@ OILCOM:
 	CashTrickler:
 		Interval: 375
 		Amount: 100
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled  && !empdisable
         UseResourceStorage: True
 	Tooltip:
 		Name: Oil Derrick
@@ -2308,6 +2452,8 @@ HPAD:
 	InfiltrateForSupportPower:
 		Proxy: aircraft.upgraded
 		Types: SpyInfiltrate
+    ProvidesPrerequisite@ANYAIR:
+        Prerequisite: anyair
         
 HPAD.Airforce:
     Inherits: HPAD
@@ -2324,7 +2470,7 @@ HPAD.Airforce:
 		StartRepairingNotification: Repairing
 		FinishRepairingNotification: UnitRepaired
 		PlayerExperience: 15
-	ProvidesPrerequisite@airforce:
+	ProvidesPrerequisite@HPAD:
 		Factions: airforce
 		Prerequisite: hpad
 
@@ -2479,6 +2625,8 @@ AFLD:
 		Types: SpyInfiltrate
 	WithResupplyAnimation:
 		RequiresCondition: !build-incomplete
+    ProvidesPrerequisite@ANYAIR:
+        Prerequisite: anyair
 
 AFLD.Ukraine:
 	Inherits: AFLD
@@ -2646,8 +2794,8 @@ NUK2:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
     Explodes:
-		Weapon: FriendlyNuke
-		EmptyWeapon: FriendlyNuke
+		Weapon: MiniNuke
+		EmptyWeapon: MiniNuke
 		DamageSource: Killer
     GrantConditionOnPrerequisite@TECHNO:
         Condition: techmoney
@@ -2737,14 +2885,14 @@ STEK:
 		Amount: 100
         UseResourceStorage: True
         RequiresCondition: armoredmoney && armoredfaction
-        PauseOnCondition: disabled
+        PauseOnCondition: disabled || empdisable
     CashTrickler@NAVY:
         InitialDelay: 500
         Interval: 150
 		Amount: 100
         UseResourceStorage: True
         RequiresCondition: navymoney && navyfaction
-        PauseOnCondition: disabled
+        PauseOnCondition: disabled || empdisable
     ProductionTimeMultiplier@COMMAND:
         Multiplier: 80
         Prerequisites: fastbuild
@@ -2842,6 +2990,9 @@ BARR:
 	ProvidesPrerequisite@soviet-navy:
 		Factions: soviet, russia, ukraine, navy
 		Prerequisite: infantry.soviet-navy
+	ProvidesPrerequisite@allies-command:
+		Factions: allies, england, france, germany, command
+		Prerequisite: infantry.allies-command
     ProvidesPrerequisite@any-techno:
 		Factions: allies, england, france, germany, soviet, russia, ukraine, techno
 		Prerequisite: infantry.any-techno
@@ -3137,6 +3288,9 @@ TENT:
     ProvidesPrerequisite@allies-support:
 		Factions: allies, england, france, germany, support
 		Prerequisite: infantry.allies-support
+	ProvidesPrerequisite@allies-command:
+		Factions: allies, england, france, germany, command
+		Prerequisite: infantry.allies-command
     ProvidesPrerequisite@allies-techno-support:
 		Factions: allies, england, france, germany, support, techno
 		Prerequisite: infantry.allies-techno-support
@@ -3208,6 +3362,7 @@ FIX:
 		StartRepairingNotification: Repairing
 		FinishRepairingNotification: UnitRepaired
 		PlayerExperience: 15
+        PauseOnCondition: empdisable
 	WithBuildingBib:
 		HasMinibib: true
 	WithResupplyAnimation:
@@ -3412,6 +3567,14 @@ BARRACKS:
 		Name: Infantry Production
 	Buildable:
 		Description: Infantry Production
+        
+ANYAIR:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: Aircraft Production
+	Buildable:
+		Description: Aircraft Production
 
 TECHCENTER:
 	AlwaysVisible:

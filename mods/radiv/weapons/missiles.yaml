@@ -78,7 +78,7 @@ BuggyMissiles:
 		TrailImage: smokey
     ReloadDelay: 250
     Range: 6c0
-    Burst: 5
+    Burst: 8
     BurstDelays: 7
 
 HellfireAG:
@@ -250,6 +250,41 @@ TorpTube:
 	Warhead@1Dam: SpreadDamage
 		Spread: 426
 		Damage: 18000
+		ValidTargets: WaterActor, Underwater, Bridge
+		Versus:
+			Wood: 75
+			Light: 75
+			Heavy: 100
+			Concrete: 500
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: artillery_explosion
+		ImpactSounds: kaboom15.aud
+		ValidTargets: Ground, WaterActor, Underwater, GroundActor, Bridge
+	Warhead@4EffWater: CreateEffect
+		Explosions: large_splash
+		ImpactSounds: splash9.aud
+		ValidTargets: Water
+		InvalidTargets: Bridge
+        
+AerielTorp:
+	ReloadDelay: 100
+	Range: 9c0
+	Report: torpedo1.aud
+	ValidTargets: Water, WaterActor, Underwater, Bridge
+	Projectile: Missile
+		Image: torpedo
+		Arm: 3
+		Speed: 85
+		TrailImage: bubbles
+		HorizontalRateOfTurn: 4
+		RangeLimit: 10c819
+		Palette: shadow
+		MaximumLaunchAngle: 128
+        BoundToTerrainType: Water
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Damage: 35000
 		ValidTargets: WaterActor, Underwater, Bridge
 		Versus:
 			Wood: 75

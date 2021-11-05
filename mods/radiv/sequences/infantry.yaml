@@ -515,20 +515,143 @@ commander:
 		Length: 18
 		Tick: 80
 	# Tib
-	die6:
-		Start: 308
-		Length: 4
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
 		Tick: 80
-	die-crushed: e1rot
-		Start: 16
-		Length: 4
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
 		Tick: 1600
 		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
 	garrison-muzzle: minigun
 		Length: 3
 		Stride: 6
 		Facings: 8
 	icon: commandericon
+    
+jumpjet:
+	Defaults:
+		Tick: 80
+		Offset: 0, 0, 16
+	stand:
+		Facings: 8
+		ShadowStart: 451
+	stand2:
+		Facings: 8
+		ShadowStart: 451
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 459
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 507
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 522
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 537
+	prone-stand:
+		Facings: 8
+		ShadowStart: 451
+	flying:
+		Facings: 8
+		Length: 6
+		Start: 292
+		ShadowStart: 743
+	# Shot
+	die1:
+		Start: 445
+		Length: 6
+		Tick: 80
+        ShadowStart: 896
+	# Explode
+	die2:
+		Start: 445
+		Length: 6
+		Tick: 80
+        ShadowStart: 896
+	# Fly and explode in air
+	die3:
+		Start: 440
+		Length: 11
+		Tick: 80
+        ShadowStart: 891
+	# Fly through air squish on ground
+	die4:
+		Start: 440
+		Length: 11
+		Tick: 80
+        ShadowStart: 891
+	# Burn
+	die5:
+		Start: 445
+		Length: 6
+		Tick: 80
+        ShadowStart: 896
+	die-twirling: # TODO: animation for falling from sky starts at 436
+		Start: 445
+		Length: 6
+		ShadowStart: 896
+	die-falling:
+		Start: 436
+		Length: 9
+	die-flying: # TODO: animation for falling from sky starts at 436
+		Start: 445
+		Length: 6
+		ShadowStart: 896
+	die-splash: h2o_exp2
+		Length: *
+	die-exploding: s_bang34
+		Length: *
+	die-crushed:
+		Start: 450
+		ShadowStart: 901
+		Tick: 800
+		ZOffset: -511
+	attack:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 615
+	flying-attack:
+		Start: 388
+		Facings: 8
+		Length: 6
+		ShadowStart: 839
+	prone-attack:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 663
+	standup:
+		Start: 260
+		Length: 2
+		Facings: 8
+		ShadowStart: 711
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	icon: jumpjeticon
     
 e3:
 	stand:

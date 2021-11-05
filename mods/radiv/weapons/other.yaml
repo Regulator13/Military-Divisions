@@ -204,6 +204,26 @@ TankLaser:
         DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath
         ValidTargets: Ground, Water, GroundActor, WaterActor
         
+EMPulseCannon:
+	ReloadDelay: 100
+	Range: 25c0
+	Report: plsecan2.aud
+	Projectile: Bullet
+		Speed: 425
+		Blockable: false
+		Shadow: true
+		LaunchAngle: 96
+		Image: pulsball
+	Warhead@1Eff: CreateEffect
+		Explosions: pulse_effect1
+		#ExplosionPalette: effect-ignore-lighting-alpha75
+		ImpactActors: false
+	Warhead@emp: GrantExternalCondition
+		Range: 4c0
+		Duration: 250
+		Condition: empdisable
+		ValidTargets: GroundActor, WaterActor, AirborneActor
+        
 DogJaw:
 	ValidTargets: Infantry
 	ReloadDelay: 10

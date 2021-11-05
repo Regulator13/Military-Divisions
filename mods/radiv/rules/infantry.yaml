@@ -628,7 +628,7 @@ E7:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 120
-		Prerequisites: ~tent, atek, ~techlevel.high, ~infantry.allies-support
+		Prerequisites: ~barracks, techcenter, ~techlevel.high, ~infantry.allies-command
 		BuildLimit: 1
 		Description: Elite commando infantry. Armed with\ndual pistols and C4.\nMaximum 1 can be trained.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4
 	Valued:
@@ -679,18 +679,18 @@ E7:
         
 Commander:
 	Inherits: ^Soldier
-	Inherits: ^AutoTargetInfantryThenVehicles
+	Inherits: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 120
 		Prerequisites: ~barracks, stek, ~techlevel.high, ~infantry.command
 		BuildLimit: 1
-		Description: The boss. Kills infantry and tanks alike.
+		Description: The boss. Kills tanks with his hand cannon.\n  Deploy to toggle cloak/cover mode.
 	Valued:
-		Cost: 4000
+		Cost: 2500
 	Tooltip:
-		Name: Ole Dave
+		Name: Commando
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -705,23 +705,13 @@ Commander:
 	Passenger:
 		CustomPipType: red
 		Voice: Move
-	Armament@PRIMARY:
-		Weapon: Colt45
-		LocalOffset: 0,0,0, 0,0,0
-	Armament@SECONDARY:
-		Weapon: Colt45
-		LocalOffset: 0,0,0, 0,0,0
     Armament:
         Weapon: CommandoCannon
         LocalOffset: 0,0,0, 0,0,0
 	Armament@GARRISONED:
 		Name: garrisoned
-		Weapon: Colt45
+		Weapon: CommandoCannon
 		MuzzleSequence: garrison-muzzle
-	WithInfantryBody:
-		AttackSequences:
-			primary: shoot-left, shoot-right
-		StandSequences: stand
 	ExternalCondition@PRODUCED:
 		Condition: produced
 	VoiceAnnouncement:
@@ -732,6 +722,123 @@ Commander:
 		VoiceSet: TanyaVoice
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
+    GrantConditionOnDeploy@STEALTH:
+        DeployedCondition: stealthy
+        CanDeployOnRamps: True
+        SkipMakeAnimation: True
+    -TakeCover:
+    TakeCover@STEALTH:
+        Duration: -1
+        DamageModifiers:
+            Prone50Percent: 25
+        SpeedModifier: 30
+        RequiresCondition: stealthy
+	Cloak@STEALTH:
+		InitialDelay: 120
+		CloakDelay: 120
+		CloakSound:
+		UncloakSound:
+		UncloakOn: Attack, Unload, Infiltrate, Demolish
+		IsPlayerPalette: true
+        RequiresCondition: stealthy
+        
+JUMPJET:
+	Inherits: ^Soldier
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPHOSPITAL: ^InfantryExperienceHospitalOverrides
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Jumpjet Infantry
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 70
+		Prerequisites: ~tent, anyair, ~techlevel.medium, ~infantry.airforce
+		Description: Airborne soldier.\n  Strong vs Infantry, Aircraft\n  Weak vs Vehicles
+	Mobile:
+		Speed: 71
+		Locomotor: jumpjet
+	Health:
+		HP: 12000
+	Armor:
+		Type: Light
+	Passenger:
+		CustomPipType: green
+	RevealsShroud:
+		Range: 6c0
+	Armament:
+		Weapon: JumpCannon
+	-Crushable:
+	AttackFrontal:
+	WithInfantryBody:
+		RequiresCondition: !airborne
+		DefaultAttackSequence: attack
+	WithInfantryBody@flying:
+		RequiresCondition: airborne
+		DefaultAttackSequence: flying-attack
+		StandSequences: flying
+		MoveSequence: flying
+	-TakeCover:
+	Hovers:
+		RequiresCondition: airborne
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	Targetable:
+		RequiresCondition: !airborne
+	Targetable@AIRBORNE:
+		TargetTypes: AirborneActor
+		RequiresCondition: airborne
+	SpawnActorOnDeath@airborne:
+		Actor: JUMPJET.Husk
+		RequiresCondition: airborne
+	WithDeathAnimation@normal:
+		RequiresCondition: !airborne
+	WithDeathAnimation@explosion:
+		RequiresCondition: !airborne
+	WithDeathAnimation@energy:
+		RequiresCondition: !airborne
+	WithDeathAnimation:
+		RequiresCondition: !airborne
+	WithShadow@airborne:
+		RequiresCondition: airborne
+	GrantConditionOnJumpjetLayer:
+		Condition: airborne
+
+JUMPJET.Husk:
+	RenderSprites:
+	BodyOrientation:
+		QuantizedFacings: 1
+	HiddenUnderFog:
+		Type: GroundPosition
+	ScriptTriggers:
+	Tooltip:
+		Name: Jumpjet Infantry
+	FallsToEarth:
+		Velocity: 86
+		Explosion:
+	Aircraft:
+		Speed: 186
+		CanHover: True
+		VTOL: true
+	RenderSprites:
+		Image: jumpjet
+	WithSpriteBody:
+		Sequence: die-falling
+	Health:
+	HitShape:
+	GrantConditionOnTerrain:
+		TerrainTypes: Water
+		Condition: water-death
+	WithDeathAnimation:
+		RequiresCondition: !water-death
+		FallbackSequence: die-flying
+	WithDeathAnimation@SPLASH:
+		RequiresCondition: water-death
+		FallbackSequence: die-splash
+	Interactable:
 
 MEDI:
 	Inherits: ^Soldier

@@ -49,6 +49,7 @@ SS:
 		LocalOffset: 0,-171,0, 0,171,0
 		FireDelay: 2
 	AttackFrontal:
+        PauseOnCondition: empdisable
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: WaterActor, Underwater
 		InvalidTargets: NoAutoTarget, Structure
@@ -122,6 +123,7 @@ MSUB:
 	AttackFrontal:
 		TargetFrozenActors: True
 		ForceFireIgnoresActors: True
+        PauseOnCondition: empdisable
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: ReturnFire
@@ -180,6 +182,7 @@ DD:
 		LocalOffset: 0,-100,0, 0,100,0
 		LocalYaw: 64, -64
 	AttackTurreted:
+        PauseOnCondition: empdisable
 	WithSpriteTurret:
 	DetectCloaked:
 		CloakTypes: Underwater
@@ -243,6 +246,7 @@ CA:
 		Turrets: primary, secondary
 		TargetFrozenActors: True
 		ForceFireIgnoresActors: True
+        PauseOnCondition: empdisable
 	WithMuzzleOverlay:
 	WithSpriteTurret@PRIMARY:
 		Turret: primary
@@ -330,6 +334,7 @@ PT:
 		Weapon: DepthCharge
 		MuzzleSequence: muzzle
 	AttackTurreted:
+        PauseOnCondition: empdisable
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	DetectCloaked:
