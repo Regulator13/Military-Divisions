@@ -544,6 +544,9 @@ jumpjet:
 	stand:
 		Facings: 8
 		ShadowStart: 451
+	stand2:
+		Facings: 8
+		ShadowStart: 451
 	run:
 		Start: 8
 		Length: 6

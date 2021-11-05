@@ -787,7 +787,7 @@ JUMPJET:
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
 	Targetable:
-		RequiresCondition: !airborne && !inside-tunnel
+		RequiresCondition: !airborne
 	Targetable@AIRBORNE:
 		TargetTypes: AirborneActor
 		RequiresCondition: airborne

@@ -827,6 +827,7 @@ Headquarters:
         SelectTargetSpeechNotification: SelectTarget
         Dimensions: 4, 4
         Footprint: xxxx xxxx xxxx xxxx
+        Sequence:
         Icon: hqcharge
         OrderName: HQChargeOrder
         StartFullyCharged: False
@@ -841,6 +842,7 @@ Headquarters:
         SelectTargetSpeechNotification: SelectTarget
         Dimensions: 4, 4
         Footprint: xxxx xxxx xxxx xxxx
+        Sequence:
         Icon: hqentrench
         OrderName: HQEntrenchOrder
         StartFullyCharged: False
@@ -855,6 +857,7 @@ Headquarters:
         SelectTargetSpeechNotification: SelectTarget
         Dimensions: 5, 5
         Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
+        Sequence:
         Icon: hqretreat
         OrderName: HQRetreatOrder
         StartFullyCharged: False
@@ -869,6 +872,7 @@ Headquarters:
         SelectTargetSpeechNotification: SelectTarget
         Dimensions: 3, 3
         Footprint: xxx xxx xxx
+        Sequence:
         Icon: hqsuicide
         OrderName: HQSuicideOrder
         StartFullyCharged: False
