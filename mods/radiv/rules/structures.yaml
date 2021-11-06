@@ -281,6 +281,9 @@ SPEN:
 	ProvidesPrerequisite@ukraine:
 		Factions: ukraine
 		Prerequisite: ships.ukraine
+	ProvidesPrerequisite@navy:
+		Factions: navy
+		Prerequisite: ships.navy
 	ProvidesPrerequisite@sovietstructure:
 		RequiresPrerequisites: structures.soviet
 		Prerequisite: ships.soviet
@@ -626,6 +629,12 @@ TSLA:
 		Range: 6c0
 		RequiresCondition: !disabled  && !empdisable
 	ProvidesPrerequisite@buildingname:
+    GrantConditionOnFaction@ARMORED:
+        Condition: strongdefense
+        Factions: armored
+    DamageMultiplier@ARMORED:
+        Modifier: 70
+        RequiresCondition: strongdefense
 
 AGUN:
 	Inherits: ^Defense
@@ -634,7 +643,7 @@ AGUN:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 90
-		Prerequisites: dome, ~techlevel.medium, ~!structures.soviet, ~!structures.command, ~!structures.navy, ~!structures.biolo
+		Prerequisites: dome, ~techlevel.medium, ~!structures.soviet, ~!structures.command, ~!structures.navy, ~!structures.biolo, ~!structures.armored
 		Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
 	Valued:
 		Cost: 800
@@ -820,14 +829,13 @@ Headquarters:
     GrantExternalConditionPower@HQCHARGE:
         Condition: hqcharge
         Duration: 500
-        ChargeInterval: 3000
+        ChargeInterval: 2250
         PauseOnCondition: disabled || empdisable
 		Description: Charge!
 		LongDesc: Infantry, vehicles, & ships charge into battle.\n  150% attack damage\n  150% move speed\n  Cost 50% of health\n  Lasts 20s
         SelectTargetSpeechNotification: SelectTarget
         Dimensions: 4, 4
         Footprint: xxxx xxxx xxxx xxxx
-        Sequence:
         Icon: hqcharge
         OrderName: HQChargeOrder
         StartFullyCharged: False
@@ -835,14 +843,13 @@ Headquarters:
     GrantExternalConditionPower@HQENTRENCH:
         Condition: hqentrench
         Duration: 1125
-        ChargeInterval: 3000
+        ChargeInterval: 2250
         PauseOnCondition: disabled || empdisable
 		Description: Entrench
 		LongDesc: Infantry dig in to hold the line.\n  Take 50% damage\n  Cannot move\n  Lasts 45s
         SelectTargetSpeechNotification: SelectTarget
         Dimensions: 4, 4
         Footprint: xxxx xxxx xxxx xxxx
-        Sequence:
         Icon: hqentrench
         OrderName: HQEntrenchOrder
         StartFullyCharged: False
@@ -850,14 +857,13 @@ Headquarters:
     GrantExternalConditionPower@HQRETREAT:
         Condition: hqretreat
         Duration: 375
-        ChargeInterval: 2250
+        ChargeInterval: 1500
         PauseOnCondition: disabled || empdisable
 		Description: Retreat!
 		LongDesc: Infantry, vehicles, & ships flee from battle.\n  200% move speed\n  0% attack damage\n  Lasts 15s
         SelectTargetSpeechNotification: SelectTarget
         Dimensions: 5, 5
         Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
-        Sequence:
         Icon: hqretreat
         OrderName: HQRetreatOrder
         StartFullyCharged: False
@@ -865,14 +871,13 @@ Headquarters:
     GrantExternalConditionPower@HQSUICIDE:
         Condition: hqsuicide
         Duration: 255
-        ChargeInterval: 4500
+        ChargeInterval: 3000
         PauseOnCondition: disabled || empdisable
 		Description: Suicide Mission
 		LongDesc: When there's no other hope.\nTargets infantry, vehicles, & ships.\n  200% attack damage\n  200% attack speed\n  150% move speed\n  Take 50% damage\n  Die in 10s
         SelectTargetSpeechNotification: SelectTarget
         Dimensions: 3, 3
         Footprint: xxx xxx xxx
-        Sequence:
         Icon: hqsuicide
         OrderName: HQSuicideOrder
         StartFullyCharged: False
@@ -996,6 +1001,12 @@ PBOX:
         ReplaceableTypes: Wall
 	DetectCloaked:
 		Range: 6c0
+    GrantConditionOnFaction@ARMORED:
+        Condition: strongdefense
+        Factions: armored
+    DamageMultiplier@ARMORED:
+        Modifier: 70
+        RequiresCondition: strongdefense
 
 HBOX:
 	Inherits: ^Defense
@@ -1007,7 +1018,7 @@ HBOX:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 50
-		Prerequisites: barracks, ~techlevel.medium, ~!structures.soviet, ~!structures.command, ~!structures.support, ~!structures.navy, ~!structures.airforce, ~!structures.biolo
+		Prerequisites: barracks, ~techlevel.medium, ~!structures.soviet, ~!structures.command, ~!structures.support, ~!structures.navy, ~!structures.airforce, ~!structures.biolo, ~!structures.armored
 		Description: Camouflaged static defense with a fireport\nfor a garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 750
@@ -1112,6 +1123,12 @@ GUN:
 		Range: 6c0
 	-BodyOrientation:
 	ClassicFacingBodyOrientation:
+    GrantConditionOnFaction@ARMORED:
+        Condition: strongdefense
+        Factions: armored
+    DamageMultiplier@ARMORED:
+        Modifier: 70
+        RequiresCondition: strongdefense
 
 FTUR:
 	Inherits: ^Defense
@@ -1159,6 +1176,12 @@ FTUR:
 	Explodes:
 		Weapon: BuildingExplode
 		EmptyWeapon: BuildingExplode
+    GrantConditionOnFaction@ARMORED:
+        Condition: strongdefense
+        Factions: armored
+    DamageMultiplier@ARMORED:
+        Modifier: 70
+        RequiresCondition: strongdefense
 
 SAM:
 	Inherits: ^Defense
@@ -1217,6 +1240,12 @@ SAM:
 		Amount: -40
 	-BodyOrientation:
 	ClassicFacingBodyOrientation:
+    GrantConditionOnFaction@ARMORED:
+        Condition: strongdefense
+        Factions: armored
+    DamageMultiplier@ARMORED:
+        Modifier: 70
+        RequiresCondition: strongdefense
 
 EYE:
 	Inherits: ^ScienceBuilding
@@ -1928,7 +1957,7 @@ PROCCOM:
         BuildDurationModifier: 40
 		Description:  Refines Ore and Gems\ninto credits for divisions.
     Valued:
-		Cost: 700
+		Cost: 1000
 	Tooltip:
 		Name: Command Ore Refinery
     -StoresResources:
@@ -1942,8 +1971,8 @@ OILCOM:
     Buildable:
         Queue: Building
 		Prerequisites: anypower, weap, ~techlevel.infonly, ~structures.command
-        Description: Produces credits at regular intervals.
-        BuildLimit: 6
+        Description: Produces credits at regular intervals.\nBuild Limit: 4
+        BuildLimit: 4
         BuildDurationModifier: 20
     Valued:
         Cost: 1000
@@ -3467,7 +3496,7 @@ BRIKCOM:
 		BuildPaletteOrder: 30
 		Prerequisites: fact, ~techlevel.medium, ~structures.command
 		Description: A stronger, better wall.
-        BuildDurationModifier: 15
+        BuildDurationModifier: 50
 	Valued:
 		Cost: 300
 	CustomSellValue:

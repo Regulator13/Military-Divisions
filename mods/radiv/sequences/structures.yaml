@@ -747,6 +747,7 @@ empcannon:
     
 headquarters:
 	idle: miss
+    active: miss
 	damaged-idle: miss
 		Start: 1
 	dead: miss

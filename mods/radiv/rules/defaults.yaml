@@ -185,6 +185,180 @@
 		ValidRelationships: Ally, Enemy, Neutral
 		RequiresCondition: rank-elite
         
+^GainsExperience@OFFICER:
+	GainsExperience:
+		LevelUpNotification: LevelUp
+		Conditions:
+			200: rank-veteran
+			400: rank-veteran
+			800: rank-veteran
+			1600: rank-veteran
+            2400: rank-veteran
+            3200: rank-veteran
+            4500: rank-veteran
+		LevelUpImage: crate-effects
+        ExperienceModifier: 150
+	GrantCondition@RANK-ELITE:
+		RequiresCondition: rank-veteran >= 4
+		Condition: rank-elite
+	GrantCondition@RANK-ELITE4:
+		RequiresCondition: rank-veteran >= 7
+		Condition: rank-elite4
+	DamageMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
+		Modifier: 95
+	DamageMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
+		Modifier: 90
+	DamageMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
+		Modifier: 85
+	DamageMultiplier@RANK-ELITE:
+		RequiresCondition: rank-veteran == 4
+		Modifier: 75
+	DamageMultiplier@RANK-ELITE2:
+		RequiresCondition: rank-veteran == 5
+		Modifier: 65
+	DamageMultiplier@RANK-ELITE3:
+		RequiresCondition: rank-veteran == 6
+		Modifier: 50
+	DamageMultiplier@RANK-ELITE4:
+		RequiresCondition: rank-veteran >= 7
+		Modifier: 30
+	FirepowerMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
+		Modifier: 105
+	FirepowerMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
+		Modifier: 110
+	FirepowerMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
+		Modifier: 120
+	FirepowerMultiplier@RANK-ELITE:
+		RequiresCondition: rank-veteran == 4
+		Modifier: 130
+	FirepowerMultiplier@RANK-ELITE2:
+		RequiresCondition: rank-veteran == 5
+		Modifier: 140
+	FirepowerMultiplier@RANK-ELITE3:
+		RequiresCondition: rank-veteran == 6
+		Modifier: 155
+	FirepowerMultiplier@RANK-ELITE4:
+		RequiresCondition: rank-veteran >= 7
+		Modifier: 175
+	SpeedMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
+		Modifier: 105
+	SpeedMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
+		Modifier: 110
+	SpeedMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
+		Modifier: 120
+	SpeedMultiplier@RANK-ELITE:
+		RequiresCondition: rank-veteran == 4
+		Modifier: 140
+	SpeedMultiplier@RANK-ELITE2:
+		RequiresCondition: rank-veteran == 5
+		Modifier: 150
+	SpeedMultiplier@RANK-ELITE3:
+		RequiresCondition: rank-veteran == 6
+		Modifier: 160
+	SpeedMultiplier@RANK-ELITE4:
+		RequiresCondition: rank-veteran >= 7
+		Modifier: 175
+	ReloadDelayMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
+		Modifier: 95
+	ReloadDelayMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
+		Modifier: 90
+	ReloadDelayMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
+		Modifier: 85
+	ReloadDelayMultiplier@RANK-ELITE:
+		RequiresCondition: rank-veteran == 4
+		Modifier: 75
+	ReloadDelayMultiplier@RANK-ELITE2:
+		RequiresCondition: rank-veteran == 5
+		Modifier: 65
+	ReloadDelayMultiplier@RANK-ELITE3:
+		RequiresCondition: rank-veteran == 6
+		Modifier: 55
+	ReloadDelayMultiplier@RANK-ELITE4:
+		RequiresCondition: rank-veteran >= 7
+		Modifier: 40
+	ChangesHealth@ELITE:
+		Step: 0
+		PercentageStep: 5
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: rank-elite
+	ChangesHealth@ELITE4:
+		Step: 0
+		PercentageStep: 10
+		Delay: 50
+		StartIfBelow: 100
+		DamageCooldown: 50
+		RequiresCondition: rank-elite4
+	WithDecoration@RANK-1:
+		Image: rank
+		Sequence: rank-veteran-1
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 1
+	WithDecoration@RANK-2:
+		Image: rank
+		Sequence: rank-veteran-2
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 2
+	WithDecoration@RANK-3:
+		Image: rank
+		Sequence: rank-veteran-3
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran == 3
+	WithDecoration@RANK-ELITE:
+		Image: rank
+		Sequence: rank-elite
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran >= 4
+	WithDecoration@RANK-ELITE2:
+		Image: rank
+		Sequence: rank-elite
+		Palette: effect
+		Position: BottomRight
+		Margin: -3, 6
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran >= 5
+	WithDecoration@RANK-ELITE3:
+		Image: rank
+		Sequence: rank-elite
+		Palette: effect
+		Position: BottomRight
+		Margin: 5, 16
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran >= 6
+	WithDecoration@RANK-ELITE4:
+		Image: rank
+		Sequence: rank-elite
+		Palette: effect
+		Position: BottomRight
+		Margin: -3, 16
+		ValidRelationships: Ally, Enemy, Neutral
+		RequiresCondition: rank-veteran >= 7
+        
 ^EmpVisualEffects:
 	WithColoredOverlay@EMPDISABLE:
 		Palette: disabled
@@ -1124,6 +1298,9 @@
 	WithGateSpriteBody:
 		OpenSequence: open
         StartSequence: begin
+	RequiresBuildableArea:
+		AreaTypes: building
+		Adjacent: 10
 	Tooltip:
 	Buildable:
 		Description: Automated barrier that opens for allied units.

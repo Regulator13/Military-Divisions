@@ -56,6 +56,8 @@ explosion:
 			INTERIOR: TEMPERAT
     pulse_effect1: pulse_effect1
         Length: *
+    pulse_effect_small: pulse_effect_small
+        Length: *
             
 internmagnum:
     icon: internmagnumicon
@@ -455,6 +457,12 @@ rank:
 	rank-elite:
 		Start: 3
 		Offset: 1, 3
+        
+stealthcount:
+    count:
+        Start: 0
+        Length: 16
+        Tick: 1000
 
 barrank:
 	Defaults:

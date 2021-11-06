@@ -370,6 +370,62 @@ M1Carbine:
 		Explosions: water_piff
 		Inaccuracy: 171
         
+M4A1:
+    Inherits: M1Carbine
+    ReloadDelay: 75
+    Range: 6c0
+    Report: gun5.aud
+    Burst: 3
+    BurstDelays: 20
+	Warhead@1Dam: SpreadDamage
+		Damage: 5000
+		Versus:
+			None: 150
+			Wood: 10
+			Light: 40
+			Heavy: 10
+			Concrete: 10
+		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+
+OfficerRifle:
+    Inherits: M1Carbine
+    Range: 5c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+		Versus:
+			None: 150
+			Wood: 10
+			Light: 40
+			Heavy: 10
+			Concrete: 10
+		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+        
+OfficerRifleElite:
+    Inherits: M1Carbine
+    Range: 5c512
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+		Versus:
+			None: 200
+			Wood: 20
+			Light: 60
+			Heavy: 20
+			Concrete: 20
+		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+        
+OfficerRifleElite4:
+    Inherits: M1Carbine
+    Range: 6c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+		Versus:
+			None: 250
+			Wood: 30
+			Light: 80
+			Heavy: 30
+			Concrete: 30
+		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+        
 Gatling:
 	Inherits: ^LightMG
 	ReloadDelay: 20
