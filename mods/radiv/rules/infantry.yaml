@@ -222,15 +222,6 @@ E1:
 		RequiresCondition: parachute
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
-    GrantConditionOnPrerequisite@E1RANGE:
-        Condition: e1range
-        Prerequisites: e1range
-    RangeMultiplier:
-        Modifier: 500
-        RequiresCondition: e1range
-    DamageMultiplier:
-        Modifier: 0
-        RequiresCondition: e1range
         
 GATL:
 	Inherits: ^Soldier
@@ -311,6 +302,59 @@ GATL:
 		RequiresCondition: parachute
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
+        
+Officer:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    -GainsExperience
+    Inherits: ^GainsExperience@OFFICER
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 80
+		Prerequisites: ~barr, ~techlevel.low, ~infantry.command
+		Description: Skilled infantry that can advance\nup to 4 star general. Weapons\nimprove at 1 star and 4 star ranks.\n  Gains experience quickly\n  Strong vs. Infantry\n  Weak vs. Tanks, Planes, Buildings\n  Build Limit: 5
+        BuildLimit: 5
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Officer
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 12000
+	Armament@PRIMARY:
+		Weapon: OfficerRifle
+        RequiresCondition: !rank-elite && !rank-elite4
+    Armament@ELITE:
+        Weapon: OfficerRifleElite
+        RequiresCondition: rank-elite && !rank-elite4
+    Armament@ELITE4:
+        Weapon: OfficerRifleElite4
+        RequiresCondition: rank-elite4
+    RevealsShroud:
+        Range: 5c0
+        RequiresCondition: !rank-elite && !rank-elite4
+    RevealsShroud@ELITE:
+        Range: 6c0
+        RequiresCondition: rank-elite && !rank-elite4
+    RevealsShroud@ELITE4:
+        Range: 7c0
+        RequiresCondition: rank-elite4
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: Vulcan
+		MuzzleSequence: garrison-muzzle
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+    GainsExperienceMultiplier:
+        Modifier: 1000
 
 E1R1:
 	Inherits: E1
@@ -684,7 +728,7 @@ Commander:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 120
-		Prerequisites: ~barracks, stek, ~techlevel.high, ~infantry.command
+		Prerequisites: ~barr, stek, ~techlevel.high, ~infantry.command
 		BuildLimit: 1
 		Description: The boss. Kills tanks with his hand cannon.\n  Deploy to toggle cloak/cover mode.
 	Valued:
@@ -741,6 +785,73 @@ Commander:
 		UncloakOn: Attack, Unload, Infiltrate, Demolish
 		IsPlayerPalette: true
         RequiresCondition: stealthy
+        
+NavySeal:
+	Inherits: ^Soldier
+	Inherits: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 120
+		Prerequisites: ~barr, stek, ~techlevel.high, ~infantry.navy
+		BuildLimit: 5
+		Description: Elite special ops infantry armed with M4A1.\nDeploy to cloak. Becomes visible for\n 4 seconds after 12 seconds of cloaking.\nCan c4 a buildin but won't survive\n  Strong vs infantry, buildings\n  Weak vs detection, tanks, planes.\n  Build Limit: 5
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Navy Seal
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 6000
+	Mobile:
+		Speed: 80
+	Guard:
+	RevealsShroud:
+		Range: 7c0
+	Passenger:
+		CustomPipType: red
+    Armament:
+        Weapon: M4A1
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: M4A1
+		MuzzleSequence: garrison-muzzle
+	Demolition:
+		DetonationDelay: 45
+        EnterBehaviour: Suicide
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	Cloak:
+		InitialDelay: 100
+		CloakDelay: 100
+		CloakSound:
+		UncloakSound:
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
+		IsPlayerPalette: true
+        RequiresCondition: stealthy
+    GrantConditionOnDeploy@STEALTH:
+        DeployedCondition: stealthy
+        CanDeployOnRamps: True
+        SkipMakeAnimation: True
+    -TakeCover:
+    TakeCover@STEALTH:
+        Duration: -1
+        DamageModifiers:
+            Prone50Percent: 50
+        SpeedModifier: 70
+        RequiresCondition: stealthy
+    ChangesHealth:
+        Step: -5
+        Delay: 400
+        StartIfBelow: 105
+        DamageTypes: DefaultDeath
+        RequiresCondition: stealthy
+    WithDecoration@STEALTHCOUNT:
+        Image: stealthcount
+        Sequence: count
+        RequiresCondition: stealthy
+        Margin: 6,6
         
 JUMPJET:
 	Inherits: ^Soldier
@@ -1187,7 +1298,7 @@ Bombie:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 200
+		BuildPaletteOrder: 60
 		Prerequisites: ~barracks, ~infantry.navy
 		Description: Best way to get rid of zombies.
 	Health:

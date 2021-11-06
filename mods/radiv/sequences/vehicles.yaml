@@ -239,6 +239,17 @@ arty:
 		Length: 5
 	icon: artyicon
 
+mobileemp:
+    Inherits: ^VehicleOverlays
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	icon: mobileempicon
+
 jeep:
     Inherits: ^VehicleOverlays
 	idle:

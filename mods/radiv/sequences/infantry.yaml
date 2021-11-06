@@ -1491,6 +1491,216 @@ gnrl:
 		TilesetOverrides:
 			DESERT: TEMPERAT
 			INTERIOR: TEMPERAT
+            
+officer:
+	stand: gnrl
+		Facings: 8
+	stand2: gnrl
+		Facings: 8
+	run: gnrl
+		Start: 8
+		Length: 6
+		Facings: 8
+		Tick: 100
+	shoot: gnrl
+		Start: 56
+		Length: 4
+		Facings: 8
+	prone-stand: gnrl
+		Start: 104
+		Stride: 4
+		Facings: 8
+	prone-run: gnrl
+		Start: 104
+		Length: 4
+		Facings: 8
+		Tick: 100
+	standup: gnrl
+		Start: 136
+		Length: 2
+		Facings: 8
+	prone-shoot: gnrl
+		Start: 152
+		Length: 4
+		Facings: 8
+	idle1: gnrl
+		Start: 184
+		Length: 26
+		Tick: 120
+	idle2: gnrl
+		Start: 184
+		Length: 26
+		Tick: 120
+	parachute:
+		Start: 98
+	die1: gnrl
+		Start: 210
+		Length: 8
+		Tick: 80
+	die2: gnrl
+		Start: 218
+		Length: 8
+		Tick: 80
+	die3: gnrl
+		Start: 226
+		Length: 8
+		Tick: 80
+	die4: gnrl
+		Start: 234
+		Length: 12
+		Tick: 80
+	die5: gnrl
+		Start: 246
+		Length: 18
+		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	garrison-muzzle: minigun
+		Length: 12
+		Facings: 8
+		Combine:
+			minigun:
+				Length: 12
+				Frames: 0,1,2,3,4,5,0,1,2,3,4,5
+			minigun:
+				Length: 12
+				Frames: 6,7,8,9,10,11,6,7,8,9,10,11
+			minigun:
+				Length: 12
+				Frames: 12,13,14,15,16,17,12,13,14,15,16,17
+			minigun:
+				Length: 12
+				Frames: 18,19,20,21,22,23,18,19,20,21,22,23
+			minigun:
+				Length: 12
+				Frames: 24,25,26,27,28,29,24,25,26,27,28,29
+			minigun:
+				Length: 12
+				Frames: 30,31,32,33,34,35,30,31,32,33,34,35
+			minigun:
+				Length: 12
+				Frames: 36,37,38,39,40,41,36,37,38,39,40,41
+			minigun:
+				Length: 12
+				Frames: 42,43,44,45,46,47,42,43,44,45,46,47
+    icon: officericon
+    
+navyseal:
+	stand:
+		Facings: 8
+		ShadowStart: 292
+	stand2:
+		Facings: 8
+		ShadowStart: 292
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 300
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 348
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 363
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	prone-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 378
+	standup:
+		Start: 260
+		Length: 2
+		Facings: 8
+		ShadowStart: 552
+	parachute:
+		Start: 218
+	die1:
+		Start: 134
+		Length: 15
+		ShadowStart: 426
+	die2:
+		Start: 149
+		Length: 15
+		ShadowStart: 441
+	die3:
+        Start: 149
+		Length: 15
+		ShadowStart: 441
+	die4:
+		Start: 134
+		Length: 15
+		ShadowStart: 426
+	die5:
+		Start: 134
+		Length: 15
+		ShadowStart: 426
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	garrison-muzzle: minigun
+		Length: 12
+		Facings: 8
+		Combine:
+			minigun:
+				Length: 12
+				Frames: 0,1,2,3,4,5,0,1,2,3,4,5
+			minigun:
+				Length: 12
+				Frames: 6,7,8,9,10,11,6,7,8,9,10,11
+			minigun:
+				Length: 12
+				Frames: 12,13,14,15,16,17,12,13,14,15,16,17
+			minigun:
+				Length: 12
+				Frames: 18,19,20,21,22,23,18,19,20,21,22,23
+			minigun:
+				Length: 12
+				Frames: 24,25,26,27,28,29,24,25,26,27,28,29
+			minigun:
+				Length: 12
+				Frames: 30,31,32,33,34,35,30,31,32,33,34,35
+			minigun:
+				Length: 12
+				Frames: 36,37,38,39,40,41,36,37,38,39,40,41
+			minigun:
+				Length: 12
+				Frames: 42,43,44,45,46,47,42,43,44,45,46,47
+    icon: navysealicon
 
 shok:
 	stand:

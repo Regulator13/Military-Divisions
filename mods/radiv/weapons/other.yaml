@@ -224,6 +224,27 @@ EMPulseCannon:
 		Condition: empdisable
 		ValidTargets: GroundActor, WaterActor, AirborneActor
         
+MobileEMPulse:
+	ReloadDelay: 500
+	Range: 6c0
+    ValidTargets: Ground, Water, GroundActor, WaterActor
+	Projectile: Bullet
+		Speed: 425
+		Blockable: false
+		Shadow: true
+		LaunchAngle: 96
+		Image: pulsball
+	Warhead@1Dam: SpreadDamage
+	Warhead@1Eff: CreateEffect
+		Explosions: pulse_effect_small
+		#ExplosionPalette: effect-ignore-lighting-alpha75
+		ImpactActors: false
+	Warhead@emp: GrantExternalCondition
+		Range: 2c0
+		Duration: 250
+		Condition: empdisable
+		ValidTargets: GroundActor, WaterActor, AirborneActor
+        
 DogJaw:
 	ValidTargets: Infantry
 	ReloadDelay: 10
