@@ -84,6 +84,21 @@
         	UseTargetableCellsOffsets: true
 			TopLeft: 512, -512
 			BottomRight: 1536, 512
+            
+^3x3Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -1536, -1536
+			BottomRight: 1536, 1536
+
+            
+^4x3Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -2048, -1536
+			BottomRight: 2048, 1536
 
 ^GainsExperience:
 	GainsExperience:

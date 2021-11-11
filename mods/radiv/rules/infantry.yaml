@@ -223,6 +223,120 @@ E1:
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
         
+IMMORTAL:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 250
+		Prerequisites: ~barr, temple, ~techlevel.high, ~infantry.armored
+		Description: A nearly unkillable abomination from The Temple\nArmed with armor piercing bullets.\n  Strong vs. Tanks, Individuals\n  Weak vs. Infantry, Groups
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Immortal
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 20000
+    -TakeCover:
+    -Crushable:
+    ChangesHealth@Immortal:
+        Step: 1000
+        Delay: 5
+        StartIfBelow: 100
+	Armament@PRIMARY:
+		Weapon: Anti-TankRifle
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: Anti-TankRifle
+		MuzzleSequence: garrison-muzzle
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+        
+PHOENIX:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 250
+		Prerequisites: ~tent, temple, ~techlevel.high, ~infantry.support
+		Description: The Temple's "research" gives this soldier\n a second (and third) chance to\n defeat your enemies.\nIs stronger from the ashes.\n  Strong vs. Infantry\n  Weak vs. Tanks, Buildings, Planes
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Phoenix Soldier
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 12000
+    -TakeCover:
+	Armament@PRIMARY:
+		Weapon: PhoenixRifle
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: PhoenixRifle
+		MuzzleSequence: garrison-muzzle
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+    WithDecoration@LIVES:
+        Image: lives
+        Sequence: life3
+        Position: BottomRight
+    SpawnActorOnDeath:
+        Actor: PHOENIX2
+        
+PHOENIX2:
+    Inherits: PHOENIX
+    -Buildable:
+    -UpdatesPlayerStatistics:
+    FirepowerMultiplier@REBIRTH:
+		Modifier: 150
+    ReloadDelayMultiplier@REBIRTH:
+        Modifier: 70
+    SpeedMultiplier@REBIRTH:
+        Modifier: 120
+    SpawnActorOnDeath:
+        Actor: PHOENIX3
+    WithDecoration@LIVES:
+        Image: lives
+        Sequence: life2
+        Position: BottomRight
+    RenderSprites:
+        Image: phoenix
+        
+PHOENIX3:
+    Inherits: PHOENIX
+    -Buildable:
+    -UpdatesPlayerStatistics:
+    -SpawnActorOnDeath:
+    FirepowerMultiplier@REBIRTH:
+		Modifier: 200
+    ReloadDelayMultiplier@REBIRTH:
+        Modifier: 50
+    SpeedMultiplier@REBIRTH:
+        Modifier: 150
+    WithDecoration@LIVES:
+        Image: lives
+        Sequence: life1
+        Position: BottomRight
+    RenderSprites:
+        Image: phoenix
+        
 GATL:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove

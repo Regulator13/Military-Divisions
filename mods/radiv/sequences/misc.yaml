@@ -487,6 +487,14 @@ barrank:
 		Start: 9
 	rank-veteran-10:
 		Start: 10
+        
+lives:
+    life3:
+        Start: 0
+    life2:
+        Start: 1
+    life1:
+        Start: 2
 
 iconchevrons:
 	veteran:

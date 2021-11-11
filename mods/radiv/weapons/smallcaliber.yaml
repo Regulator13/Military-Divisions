@@ -370,6 +370,58 @@ M1Carbine:
 		Explosions: water_piff
 		Inaccuracy: 171
         
+Anti-TankRifle:
+	Inherits: ^LightMG
+	ReloadDelay: 20
+	Range: 5c0
+	Report: gun11.aud
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 2500
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 15
+			Wood: 60
+			Light: 80
+			Heavy: 100
+			Concrete: 60
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+	Warhead@2Eff2: CreateEffect
+		Delay: 2
+		Explosions: piff
+		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		Inaccuracy: 171
+	Warhead@3EffWater2: CreateEffect
+		Delay: 2
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Explosions: water_piff
+		Inaccuracy: 171
+	Warhead@2Eff3: CreateEffect
+		Delay: 4
+		Explosions: piff
+		ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+		Inaccuracy: 171
+	Warhead@3EffWater3: CreateEffect
+		Delay: 4
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+		Explosions: water_piff
+		Inaccuracy: 171
+        
+PhoenixRifle:
+    Inherits: M1Carbine
+    Range: 6c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 3000
+		Versus:
+			None: 150
+			Wood: 20
+			Light: 60
+			Heavy: 25
+			Concrete: 20
+		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+        
 M4A1:
     Inherits: M1Carbine
     ReloadDelay: 75
