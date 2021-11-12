@@ -469,6 +469,8 @@ Officer:
 		Prerequisites: barracks.upgraded
     GainsExperienceMultiplier:
         Modifier: 1000
+    RenderSprites:
+        Image: gnrl
 
 E1R1:
 	Inherits: E1
