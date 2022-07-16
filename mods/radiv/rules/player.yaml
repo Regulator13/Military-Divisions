@@ -19,6 +19,20 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
+        Factions: england, france, germany, russia, ukraine, techno, support, armored, airforce, navy, bio
+    ClassicProductionQueue@Building-Command:
+		Type: Building
+		DisplayOrder: 0
+		LowPowerModifier: 300
+		ReadyAudio: ConstructionComplete
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		SpeedUp: True
+        Factions: command
+        BuildTimeSpeedReduction: 90, 75, 65, 55, 45, 40, 35, 30
 	ClassicProductionQueue@Defense:
 		Type: Defense
 		DisplayOrder: 1
@@ -30,6 +44,20 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
+        Factions: england, france, germany, russia, ukraine, techno, support, armored, airforce, navy, bio
+    ClassicProductionQueue@Defense-Command:
+		Type: Defense
+		DisplayOrder: 1
+		LowPowerModifier: 300
+		ReadyAudio: ConstructionComplete
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		SpeedUp: True
+        Factions: command
+        BuildTimeSpeedReduction: 90, 75, 65, 55, 45, 40, 35, 30
 	ClassicProductionQueue@Vehicle:
 		Type: Vehicle
 		DisplayOrder: 3
@@ -42,6 +70,20 @@ Player:
 		CancelledAudio: Cancelled
 		SpeedUp: True
 		BuildTimeSpeedReduction: 100, 75, 60, 50
+        Factions: england, france, germany, russia, ukraine, command, techno, support, airforce, navy, bio
+    ClassicProductionQueue@Vehicle-Armored:
+		Type: Vehicle
+		DisplayOrder: 3
+		LowPowerModifier: 300
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		SpeedUp: True
+		BuildTimeSpeedReduction: 90, 70, 55, 45, 35, 30
+        Factions: armored
 	ClassicProductionQueue@Infantry:
 		Type: Infantry
 		DisplayOrder: 2
@@ -53,6 +95,20 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
+        Factions: england, france, germany, russia, ukraine, command, techno, armored, airforce, navy, bio
+    ClassicProductionQueue@Infantry-Support:
+		Type: Infantry
+		DisplayOrder: 2
+		LowPowerModifier: 300
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		SpeedUp: True
+        BuildTimeSpeedReduction: 90, 75, 65, 55, 45, 40, 35, 30
+        Factions: support
 	ClassicProductionQueue@Ship:
 		Type: Ship
 		DisplayOrder: 5
@@ -64,6 +120,20 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
+        Factions: england, france, germany, russia, ukraine, command, techno, support, armored, airforce, bio
+    ClassicProductionQueue@Ship-Navy:
+		Type: Ship
+		DisplayOrder: 5
+		LowPowerModifier: 300
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		SpeedUp: True
+        Factions: navy
+        BuildTimeSpeedReduction: 90, 75, 65, 55, 45, 40, 35, 30
 	ClassicProductionQueue@Aircraft:
 		Type: Aircraft
 		DisplayOrder: 4
@@ -75,6 +145,20 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
+        Factions: england, france, germany, russia, ukraine, command, techno, support, armored, navy, bio
+    ClassicProductionQueue@Aircraft-Airforce:
+		Type: Aircraft
+		DisplayOrder: 4
+		LowPowerModifier: 300
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		SpeedUp: True
+        Factions: airforce
+        BuildTimeSpeedReduction: 90, 75, 65, 55, 45, 40, 35, 30, 25
 	PlaceBuilding:
 		NewOptionsNotification: NewOptions
 		CannotPlaceNotification: BuildingCannotPlaceAudio

@@ -165,12 +165,14 @@ Brute:
 		Cost: 400
 	Tooltip:
 		Name: Brute
+    Armor:
+        Type: Light
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 20000
+		HP: 25000
 	Mobile:
-		Speed: 70
+		Speed: 80
 		AlwaysTurnInPlace: true
 		Locomotor: foot
 	RevealsShroud:
@@ -436,7 +438,7 @@ Officer:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 12000
+		HP: 18000
 	Armament@PRIMARY:
 		Weapon: OfficerRifle
         RequiresCondition: !rank-elite && !rank-elite4
@@ -1420,7 +1422,7 @@ Bombie:
 	Health:
 		HP: 4000
 	Mobile:
-		Speed: 72
+		Speed: 85
 	Explodes:
 		Weapon: BombieExplode   
         EmptyWeapon: BombieExplode

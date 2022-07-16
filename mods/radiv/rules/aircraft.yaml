@@ -102,7 +102,7 @@ Bomber:
 		Offset: -432,-560,0
 		Interval: 2
 	AmmoPool:
-		Ammo: 5
+		Ammo: 10
         AmmoCondition: ammo
 	Armament:
 		Weapon: BadrBomb
@@ -313,7 +313,7 @@ FireBomber:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
 	AmmoPool:
-		Ammo: 100
+		Ammo: 200
 		ReloadDelay: 5
 		AmmoCondition: ammo
 	WithMuzzleOverlay:

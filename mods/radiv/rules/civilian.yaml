@@ -13,6 +13,7 @@ MoneyHolder:
     DamageMultiplier:
         Modifier: 0
     -Targetable:
+    -Crushable:
     StoresResources: 
         Capacity: 50000
     CashTrickler@Decrease:

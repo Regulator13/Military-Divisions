@@ -67,6 +67,7 @@ Rules:
     radiv|rules/civilian.yaml
     radiv|rules/defaults.yaml
     radiv|rules/misc.yaml
+    radiv|rules/player.yaml
 
 Sequences:
 	ra|sequences/ships.yaml
