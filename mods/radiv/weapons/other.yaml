@@ -60,16 +60,16 @@ Flamer:
         
 TankFlame:
 	Inherits: ^FireWeapon
-	ReloadDelay: 75
+	ReloadDelay: 50
     Range: 7c0
-	Burst: 50
+	Burst: 80
 	BurstDelays: 2
 	Projectile: Bullet
 		Speed: 170
 		TrailImage: fb4
 		Image: fb3
 		LaunchAngle: 62
-		Inaccuracy: 1000
+		Inaccuracy: 500
 	Warhead@1Dam: SpreadDamage
 		Spread: 341
 		Damage: 1000

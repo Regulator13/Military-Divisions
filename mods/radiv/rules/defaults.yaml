@@ -233,34 +233,34 @@
 		Modifier: 75
 	DamageMultiplier@RANK-ELITE2:
 		RequiresCondition: rank-veteran == 5
-		Modifier: 65
+		Modifier: 60
 	DamageMultiplier@RANK-ELITE3:
 		RequiresCondition: rank-veteran == 6
-		Modifier: 50
+		Modifier: 45
 	DamageMultiplier@RANK-ELITE4:
 		RequiresCondition: rank-veteran >= 7
-		Modifier: 30
+		Modifier: 25
 	FirepowerMultiplier@RANK-1:
 		RequiresCondition: rank-veteran == 1
-		Modifier: 105
+		Modifier: 110
 	FirepowerMultiplier@RANK-2:
 		RequiresCondition: rank-veteran == 2
-		Modifier: 110
+		Modifier: 120
 	FirepowerMultiplier@RANK-3:
 		RequiresCondition: rank-veteran == 3
-		Modifier: 120
+		Modifier: 135
 	FirepowerMultiplier@RANK-ELITE:
 		RequiresCondition: rank-veteran == 4
-		Modifier: 130
+		Modifier: 150
 	FirepowerMultiplier@RANK-ELITE2:
 		RequiresCondition: rank-veteran == 5
-		Modifier: 140
+		Modifier: 165
 	FirepowerMultiplier@RANK-ELITE3:
 		RequiresCondition: rank-veteran == 6
-		Modifier: 155
+		Modifier: 180
 	FirepowerMultiplier@RANK-ELITE4:
 		RequiresCondition: rank-veteran >= 7
-		Modifier: 175
+		Modifier: 200
 	SpeedMultiplier@RANK-1:
 		RequiresCondition: rank-veteran == 1
 		Modifier: 105
@@ -306,16 +306,16 @@
 	ChangesHealth@ELITE:
 		Step: 0
 		PercentageStep: 5
-		Delay: 100
+		Delay: 30
 		StartIfBelow: 100
-		DamageCooldown: 125
+		DamageCooldown: 50
 		RequiresCondition: rank-elite
 	ChangesHealth@ELITE4:
 		Step: 0
 		PercentageStep: 10
-		Delay: 50
+		Delay: 15
 		StartIfBelow: 100
-		DamageCooldown: 50
+		DamageCooldown: 20
 		RequiresCondition: rank-elite4
 	WithDecoration@RANK-1:
 		Image: rank
@@ -619,17 +619,10 @@
 	TimedConditionBar@HQCHARGE:
 		Condition: hqcharge
     FirepowerMultiplier@HQCHARGE:
-        Modifier: 150
+        Modifier: 175
         RequiresCondition: hqcharge
     SpeedMultiplier@HQCHARGE:
-        Modifier: 150
-        RequiresCondition: hqcharge
-    ChangesHealth@HQCHARGE:
-        Step: 0
-        PercentageStep: -10
-        Delay: 100
-        StartIfBelow: 110
-        DamageTypes: DefaultDeath
+        Modifier: 175
         RequiresCondition: hqcharge
     ExternalCondition@HQRETREAT:
         Condition: hqretreat
@@ -639,7 +632,7 @@
         Modifier: 0
         RequiresCondition: hqretreat
     SpeedMultiplier@HQRETREAT:
-        Modifier: 200
+        Modifier: 250
         RequiresCondition: hqretreat
     ExternalCondition@HQSUICIDE:
         Condition: hqsuicide
@@ -658,7 +651,7 @@
         Modifier: 150
         RequiresCondition: hqsuicide
     KillsSelf@HQSUICIDE:
-        Delay: 250
+        Delay: 375
         DamageTypes: DefaultDeath
         RequiresCondition: hqsuicide
 
@@ -814,13 +807,6 @@
     SpeedMultiplier@HQCHARGE:
         Modifier: 150
         RequiresCondition: hqcharge
-    ChangesHealth@HQCHARGE:
-        Step: 0
-        PercentageStep: -10
-        Delay: 100
-        StartIfBelow: 110
-        DamageTypes: DefaultDeath
-        RequiresCondition: hqcharge
     ExternalCondition@HQRETREAT:
         Condition: hqretreat
 	TimedConditionBar@HQRETREAT:
@@ -829,17 +815,17 @@
         Modifier: 0
         RequiresCondition: hqretreat
     SpeedMultiplier@HQRETREAT:
-        Modifier: 200
+        Modifier: 250
         RequiresCondition: hqretreat
     ExternalCondition@HQENTRENCH:
         Condition: hqentrench
 	TimedConditionBar@HQENTRENCH:
 		Condition: hqentrench
     DamageMultiplier@HQENTRENCH:
-        Modifier: 50
+        Modifier: 30
         RequiresCondition: hqentrench
     SpeedMultiplier@HQENTRENCH:
-        Modifier: 5
+        Modifier: 50
         RequiresCondition: hqentrench
     ExternalCondition@HQSUICIDE:
         Condition: hqsuicide
@@ -858,7 +844,7 @@
         Modifier: 150
         RequiresCondition: hqsuicide
     KillsSelf@HQSUICIDE:
-        Delay: 250
+        Delay: 375
         DamageTypes: DefaultDeath
         RequiresCondition: hqsuicide
 
@@ -979,13 +965,6 @@
     SpeedMultiplier@HQCHARGE:
         Modifier: 150
         RequiresCondition: hqcharge
-    ChangesHealth@HQCHARGE:
-        Step: 0
-        PercentageStep: -10
-        Delay: 100
-        StartIfBelow: 110
-        DamageTypes: DefaultDeath
-        RequiresCondition: hqcharge
     ExternalCondition@HQRETREAT:
         Condition: hqretreat
 	TimedConditionBar@HQRETREAT:
@@ -994,7 +973,7 @@
         Modifier: 0
         RequiresCondition: hqretreat
     SpeedMultiplier@HQRETREAT:
-        Modifier: 200
+        Modifier: 250
         RequiresCondition: hqretreat
     ExternalCondition@HQSUICIDE:
         Condition: hqsuicide
@@ -1013,7 +992,7 @@
         Modifier: 150
         RequiresCondition: hqsuicide
     KillsSelf@HQSUICIDE:
-        Delay: 250
+        Delay: 375
         DamageTypes: DefaultDeath
         RequiresCondition: hqsuicide
 
@@ -1101,6 +1080,21 @@
     FirepowerMultiplier@AIRFORCE:
         Modifier: 80
         RequiresCondition: airforcemoney
+    GrantConditionOnPrerequisite@BETTERPLANES:
+        Condition: betterplanes
+        Prerequisites: betterplanes
+    ReloadAmmoDelayMultiplier@BETTERPLANES:
+        Modifier: 50
+        RequiresCondition: betterplanes
+    ProductionCostMultiplier@BETTERPLANES:
+        Multiplier: 70
+        Prerequisites: betterplanes
+        Queue: Aircraft, Helicopter
+    ProductionTimeMultiplier@BETTERPLANES:
+        Multiplier: 80
+        Prerequisites: betterplanes
+        Queue: Aircraft, Helicopter
+        
 
 ^Helicopter:
 	Inherits: ^Plane

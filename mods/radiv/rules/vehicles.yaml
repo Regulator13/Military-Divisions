@@ -648,7 +648,7 @@ BGGY:
 		Prerequisites: ~vehicles.support, ~techlevel.low
 		Description: Fast buggy that fires rockets.\nAnti-Tank and Anti-Air.
 	Valued:
-		Cost: 800
+		Cost: 650
 	Tooltip:
 		Name: Rocket Buggy
 	UpdatesPlayerStatistics:
@@ -1099,7 +1099,7 @@ FTNK:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
-	Armament:
+	Armament@PRIMARY:
 		Weapon: TankFlame
 		FireDelay: 8
     AttackFrontal:

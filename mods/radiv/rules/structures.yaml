@@ -751,14 +751,14 @@ CommTower:
 		Prerequisites: dome, ~techlevel.medium, ~structures.command
 		Description: Provides a large radius of vision to allies
     Valued:
-        Cost: 500
+        Cost: 600
     Power:
         Amount: -40
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 	RevealsShroud:
-		Range: 10c0
+		Range: 12c0
 		RevealGeneratedShroud: False
         RequiresCondition: !disabled  && !empdisable
 	RevealsShroud@Offline:
@@ -828,11 +828,11 @@ Headquarters:
 	ProvidesPrerequisite@buildingname:
     GrantExternalConditionPower@HQCHARGE:
         Condition: hqcharge
-        Duration: 500
+        Duration: 375
         ChargeInterval: 2250
         PauseOnCondition: disabled || empdisable
 		Description: Charge!
-		LongDesc: Infantry, vehicles, & ships charge into battle.\n  150% attack damage\n  150% move speed\n  Cost 50% of health\n  Lasts 20s
+		LongDesc: Infantry, vehicles, & ships charge into battle.\n  175% attack damage\n  175% move speed\n Lasts 15s
         SelectTargetSpeechNotification: SelectTarget
         Dimensions: 4, 4
         Footprint: xxxx xxxx xxxx xxxx
@@ -842,11 +842,11 @@ Headquarters:
         SupportPowerPaletteOrder: 1000
     GrantExternalConditionPower@HQENTRENCH:
         Condition: hqentrench
-        Duration: 1125
+        Duration: 750
         ChargeInterval: 2250
         PauseOnCondition: disabled || empdisable
 		Description: Entrench
-		LongDesc: Infantry dig in to hold the line.\n  Take 50% damage\n  Cannot move\n  Lasts 45s
+		LongDesc: Infantry dig in to hold the line.\n  Take 30% damage\n  Lasts 30s
         SelectTargetSpeechNotification: SelectTarget
         Dimensions: 4, 4
         Footprint: xxxx xxxx xxxx xxxx
@@ -856,11 +856,11 @@ Headquarters:
         SupportPowerPaletteOrder: 1100
     GrantExternalConditionPower@HQRETREAT:
         Condition: hqretreat
-        Duration: 375
+        Duration: 175
         ChargeInterval: 1500
         PauseOnCondition: disabled || empdisable
 		Description: Retreat!
-		LongDesc: Infantry, vehicles, & ships flee from battle.\n  200% move speed\n  0% attack damage\n  Lasts 15s
+		LongDesc: Infantry, vehicles, & ships flee from battle.\n  250% move speed\n  0% attack damage\n  Lasts 7s
         SelectTargetSpeechNotification: SelectTarget
         Dimensions: 5, 5
         Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
@@ -870,11 +870,11 @@ Headquarters:
         SupportPowerPaletteOrder: 1200
     GrantExternalConditionPower@HQSUICIDE:
         Condition: hqsuicide
-        Duration: 255
+        Duration: 380
         ChargeInterval: 3000
         PauseOnCondition: disabled || empdisable
 		Description: Suicide Mission
-		LongDesc: When there's no other hope.\nTargets infantry, vehicles, & ships.\n  200% attack damage\n  200% attack speed\n  150% move speed\n  Take 50% damage\n  Die in 10s
+		LongDesc: When there's no other hope.\nTargets infantry, vehicles, & ships.\n  300% attack damage\n  200% attack speed\n  200% move speed\n  Take 50% damage\n  Die in 15s
         SelectTargetSpeechNotification: SelectTarget
         Dimensions: 3, 3
         Footprint: xxx xxx xxx
@@ -1792,6 +1792,9 @@ FACT:
     ProvidesPrerequisite@FASTBUILD:
         Factions: command
         Prerequisite: fastbuild
+    ProvidesPrerequisite@BETTERPLANES:
+        Factions: airforce
+        Prerequisite: betterplanes
 	Health:
 		HP: 150000
 	Armor:
@@ -2680,6 +2683,27 @@ AFLD.Airforce:
 		StartRepairingNotification: Repairing
 		FinishRepairingNotification: UnitRepaired
 		PlayerExperience: 15
+	AirstrikePower@spyplane:
+		OrderName: SovietSpyPlane
+		Prerequisites: aircraft.soviet-airforce
+		Icon: spyplane
+		ChargeInterval: 1500
+		Description: Spy Plane
+		LongDesc: Reveals an area of the map.
+		SelectTargetSpeechNotification: SelectTarget
+		EndChargeSpeechNotification: SpyPlaneReady
+		CameraActor: camera.spyplane
+		CameraRemoveDelay: 150
+		UnitType: u2
+		QuantizedFacings: 8
+		DisplayBeacon: true
+		BeaconPoster: camicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: paradirection
+		SupportPowerPaletteOrder: 60
 
 POWR:
 	Inherits: ^Building
@@ -3003,7 +3027,7 @@ BARR:
 		RequiresCondition: !being-captured
 		SpawnOffset: -725,640,0
 		ExitCell: 0,2
-		ProductionTypes: Soldier, Infantry
+		ProductionTypes: Soldier, Infantry, Infantry-Support
 	Production:
 		Produces: Infantry, Soldier
 	GrantExternalConditionToProduced:
@@ -3294,7 +3318,7 @@ TENT:
 		ExitCell: 0,2
 		ProductionTypes: Soldier, Infantry
 	Production:
-		Produces: Infantry, Soldier
+		Produces: Infantry, Soldier, Infantry-Support
 	GrantExternalConditionToProduced:
 		Condition: produced
 	ProductionBar:
