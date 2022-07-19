@@ -732,7 +732,167 @@ e3:
 		Length: 10
 		Facings: 8
 	icon: e3icon
+    
+e3-av:
+    stand: e3
+		Facings: 8
+	stand2: e3
+		Start: 8
+		Facings: 8
+	run: e3
+		Start: 16
+		Length: 6
+		Facings: 8
+		Tick: 120
+	shoot: e3
+		Start: 64
+		Length: 8
+		Facings: 8
+	parachute: e3
+		Start: 393
+	idle1: e3
+		Start: 272
+		Length: 14
+		Tick: 120
+	idle2: e3
+		Start: 287
+		Length: 16
+		Tick: 120
+	die1: e3
+		Start: 304
+		Length: 8
+		Tick: 80
+	die2: e3
+		Start: 312
+		Length: 8
+		Tick: 80
+	die3: e3
+		Start: 320
+		Length: 8
+		Tick: 80
+	die4: e3
+		Start: 328
+		Length: 12
+		Tick: 80
+	die5: e3
+		Start: 340
+		Length: 18
+		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	prone-stand: e3
+		Start: 144
+		Stride: 4
+		Facings: 8
+	prone-stand2: e3
+		Start: 144
+		Stride: 4
+		Facings: 8
+	prone-run: e3
+		Start: 144
+		Length: 4
+		Facings: 8
+		Tick: 120
+	prone-shoot: e3
+		Start: 192
+		Length: 10
+		Facings: 8
+	icon: bazookaicon
 
+e3-aa:
+    stand: e3
+		Facings: 8
+	stand2: e3
+		Start: 8
+		Facings: 8
+	run: e3
+		Start: 16
+		Length: 6
+		Facings: 8
+		Tick: 120
+	shoot: e3
+		Start: 64
+		Length: 8
+		Facings: 8
+	parachute: e3
+		Start: 393
+	idle1: e3
+		Start: 272
+		Length: 14
+		Tick: 120
+	idle2: e3
+		Start: 287
+		Length: 16
+		Tick: 120
+	die1: e3
+		Start: 304
+		Length: 8
+		Tick: 80
+	die2: e3
+		Start: 312
+		Length: 8
+		Tick: 80
+	die3: e3
+		Start: 320
+		Length: 8
+		Tick: 80
+	die4: e3
+		Start: 328
+		Length: 12
+		Tick: 80
+	die5: e3
+		Start: 340
+		Length: 18
+		Tick: 80
+	die6: electro
+		Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+		Length: *
+		Tick: 80
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	die-crushed: corpse1
+		Length: 6
+		Tick: 1600
+		ZOffset: -511
+		UseTilesetExtension: true
+		TilesetOverrides:
+			DESERT: TEMPERAT
+			INTERIOR: TEMPERAT
+	prone-stand: e3
+		Start: 144
+		Stride: 4
+		Facings: 8
+	prone-stand2: e3
+		Start: 144
+		Stride: 4
+		Facings: 8
+	prone-run: e3
+		Start: 144
+		Length: 4
+		Facings: 8
+		Tick: 120
+	prone-shoot: e3
+		Start: 192
+		Length: 10
+		Facings: 8
+	icon: aasoldiericon
+    
 e6:
 	stand:
 		Facings: 8

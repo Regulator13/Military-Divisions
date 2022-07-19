@@ -435,7 +435,7 @@ M4A1:
 			None: 150
 			Wood: 10
 			Light: 40
-			Heavy: 10
+			Heavy: 20
 			Concrete: 10
 		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
 
