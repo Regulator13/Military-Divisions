@@ -388,6 +388,9 @@ SYRD:
 	RenderDetectionCircle:
     ProvidesPrerequisite@SHIPS:
         Prerequisite: Ships
+    ProvidesPrerequisite@navy:
+        Factions: navy
+        Prerequisite: ships.navy
 	ProvidesPrerequisite@allies:
 		Factions: allies, england, france, germany
 		Prerequisite: ships.allies
@@ -2704,6 +2707,50 @@ AFLD.Airforce:
 		UseDirectionalTarget: True
 		DirectionArrowAnimation: paradirection
 		SupportPowerPaletteOrder: 60
+	ParatroopersPower@paratroopers:
+		OrderName: SovietParatroopers
+		Prerequisites: aircraft.soviet-airforce
+		Icon: paratroopers
+		ChargeInterval: 3750
+        SquadSize: 2
+		Description: Paratroopers
+		LongDesc: A Badger drops a squad of infantry\nanywhere on the map.
+		DropItems: E1R1,E1R1,E1R1,E1R1,E3R1,E3R1,E4,E4,E6,SPY
+		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
+		SelectTargetSpeechNotification: SelectTarget
+		AllowImpassableCells: false
+		QuantizedFacings: 8
+		CameraActor: camera.paradrop
+		DisplayBeacon: true
+		BeaconPoster: pinficon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: paradirection
+		SupportPowerPaletteOrder: 50
+	AirstrikePower@parabombs:
+		OrderName: UkraineParabombs
+		Prerequisites: aircraft.ukraine-airforce
+		Icon: parabombs
+		ChargeInterval: 3750
+		Description: Parabombs
+		LongDesc: A squad of Badgers drop parachuted\nbombs on your target.
+		SelectTargetSpeechNotification: SelectTarget
+		CameraActor: camera
+		CameraRemoveDelay: 150
+		UnitType: badr.bomber
+		QuantizedFacings: 8
+		DisplayBeacon: true
+		BeaconPoster: pbmbicon
+		SquadSize: 3
+		SquadOffset: 1792,1792,0
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: paradirection
+		SupportPowerPaletteOrder: 40
 
 POWR:
 	Inherits: ^Building

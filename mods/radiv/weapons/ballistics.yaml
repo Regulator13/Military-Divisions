@@ -178,6 +178,10 @@ TurretGun:
 	Warhead@4EffWater: CreateEffect
 		Explosions: large_splash
 
+16Inch:
+    Inherits: 8Inch
+    Burst: 3
+    
 2Inch:
 	Inherits: ^Cannon
 	ReloadDelay: 60
