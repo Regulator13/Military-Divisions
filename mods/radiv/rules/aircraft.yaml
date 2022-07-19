@@ -65,10 +65,10 @@ Bomber:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
     ParaDrop:
-		DropRange: 4c0
+		DropRange: 6c0
 		ChuteSound: chute1.aud
 	Health:
-		HP: 25000
+		HP: 30000
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
@@ -93,6 +93,9 @@ Bomber:
 		Offset: -432,560,0
 	Contrail@2:
 		Offset: -432,-560,0
+    Explodes:
+		Weapon: CrateNuke
+		RequiresCondition: !airborne
 	SpawnActorOnDeath:
 		Actor: BADR.Husk
 	SmokeTrailWhenDamaged@0:
@@ -102,7 +105,7 @@ Bomber:
 		Offset: -432,-560,0
 		Interval: 2
 	AmmoPool:
-		Ammo: 10
+		Ammo: 8
         AmmoCondition: ammo
 	Armament:
 		Weapon: BadrBomb
@@ -192,7 +195,7 @@ MIG:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
-
+        
 YAK:
 	Inherits: ^Plane
     Inherits@EMP: ^EMPableAircraft
@@ -277,10 +280,10 @@ FireBomber:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 30
-		Prerequisites: ~afld, ~techlevel.medium, ~aircraft.airforce
+		Prerequisites: techcenter, ~afld, ~techlevel.medium, ~aircraft.airforce
 		Description: YAK that lights things up.
 	Valued:
-		Cost: 1500
+		Cost: 2000
 	Tooltip:
 		Name: Fire Bomber
 	UpdatesPlayerStatistics:
@@ -299,6 +302,10 @@ FireBomber:
 		Weapon: AirFlame
 		LocalOffset: 256,0,0
 		PauseOnCondition: !ammo
+	Armament@SECONDARY:
+		Weapon: AirFlame
+		LocalOffset: 256,0,0
+		PauseOnCondition: !ammo
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
@@ -306,15 +313,15 @@ FireBomber:
 	Aircraft:
 		CruiseAltitude: 2560
 		TurnSpeed: 16
-		Speed: 178
+		Speed: 250
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
 	AmmoPool:
-		Ammo: 200
-		ReloadDelay: 5
+		Ammo: 150
+		ReloadDelay: 2
 		AmmoCondition: ammo
 	WithMuzzleOverlay:
 	Contrail:
@@ -349,7 +356,7 @@ TRAN:
 		Queue: Aircraft
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 10
-		Prerequisites: ~hpad, ~techlevel.medium
+		Prerequisites: ~hpad, ~techlevel.medium, ~!aircraft.airforce
 		Description: Fast Infantry Transport Helicopter.\n  Unarmed
 	Valued:
 		Cost: 900
@@ -397,6 +404,67 @@ TRAN:
 		Actor: TRAN.Husk
 	Selectable:
 		DecorationBounds: 40,36
+        
+CH-47:
+	Inherits: ^Helicopter
+    Inherits@EMP: ^EMPableAircraft
+	Inherits@CARGOPIPS: ^CargoPips
+	Buildable:
+		Queue: Aircraft
+		BuildAtProductionType: Helicopter
+		BuildPaletteOrder: 10
+		Prerequisites: ~hpad, ~techlevel.medium, ~aircraft.airforce
+		Description: Transport Chopper equipped with missile jammer.\n  No offensive weapons
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: CH-47
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 14000
+	RevealsShroud:
+		MinRange: 6c0
+		Range: 8c0
+		Type: GroundPosition
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 6c0
+		Type: GroundPosition
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 128
+		AltitudeVelocity: 0c58
+	WithIdleOverlay@ROTOR1AIR:
+		Offset: 597,0,213
+		Sequence: rotor
+		RequiresCondition: airborne
+	WithIdleOverlay@ROTOR1GROUND:
+		Offset: 597,0,213
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
+	WithIdleOverlay@ROTOR2AIR:
+		Offset: -597,0,341
+		Sequence: rotor2
+		RequiresCondition: airborne
+	WithIdleOverlay@ROTOR2GROUND:
+		Offset: -597,0,341
+		Sequence: slow-rotor2
+		RequiresCondition: !airborne
+	Cargo:
+		Types: Infantry
+		MaxWeight: 8
+		AfterUnloadDelay: 40
+    Repairable:
+        RepairActors: hpad.airforce
+	SpawnActorOnDeath:
+		Actor: TRAN.Husk
+	Selectable:
+		DecorationBounds: 40,36
+    JamsMissiles:
+        Range: 6c0
+        DeflectionRelationships: Enemy, Neutral
+        Chance: 70
 
 HELI:
 	Inherits: ^Helicopter
@@ -813,3 +881,11 @@ MH60:
 		Margin: 4, 3
 		RequiresSelection: true
 		PipCount: 6
+    GrantConditionOnPrerequisite@BETTERPLANES:
+        Condition: betterplanes
+        Prerequisites: betterplanes
+    Cloak:
+        UncloakOn: Attack, Move, Unload, Infiltrate, Demolish, Dock, Damage
+        CloakDelay: 60
+        IsPlayerPalette: True
+        RequiresCondition: betterplanes

@@ -1084,14 +1084,14 @@
         Condition: betterplanes
         Prerequisites: betterplanes
     ReloadAmmoDelayMultiplier@BETTERPLANES:
-        Modifier: 50
+        Modifier: 500
         RequiresCondition: betterplanes
     ProductionCostMultiplier@BETTERPLANES:
         Multiplier: 70
         Prerequisites: betterplanes
         Queue: Aircraft, Helicopter
     ProductionTimeMultiplier@BETTERPLANES:
-        Multiplier: 80
+        Multiplier: 70
         Prerequisites: betterplanes
         Queue: Aircraft, Helicopter
         

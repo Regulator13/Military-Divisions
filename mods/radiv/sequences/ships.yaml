@@ -59,3 +59,32 @@ msub:
 	idle:
 		Facings: 16
 	icon: msubicon
+    
+iowa:
+    Inherits: ^ShipOverlays
+	idle:
+		Facings: 32
+	tur16inA: iowa16iA
+		Facings: 32
+	tur16inB: iowa16iB
+		Facings: 32
+	tur5inH: iowa5inH
+		Facings: 32
+	tur5inL: iowa5inL
+		Facings: 32
+	turMG: iowaMG
+		Facings: 32
+	muzzle: gunfire2
+		Length: 5
+	muzzleMG: minigun
+		Length: 6
+		Facings: 8
+	superstructure: iowa_s
+		Facings: 32
+		ZOffset: 100
+	idle_damaged: iowa_d
+		Facings: 32
+	superstructure_damaged: iowa_sd
+		Facings: 32
+		ZOffset: 100
+	icon: caicon

@@ -534,7 +534,7 @@ E3:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 30
-		Prerequisites: ~barracks, ~techlevel.infonly, ~!infantry.techno
+		Prerequisites: ~barracks, ~techlevel.infonly, ~!infantry.techno, ~!infantry.airforce, ~!infantry.navy
 		Description: Anti-tank/Anti-aircraft infantry.\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
 	Selectable:
 		Class: E3
@@ -556,6 +556,82 @@ E3:
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: Dragon
+	TakeCover:
+		ProneOffset: 384,0,-395
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	AutoTarget:
+		ScanRadius: 5
+        
+E3-AA:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 30
+		Prerequisites: ~barracks, ~techlevel.infonly, ~infantry.airforce
+		Description: Anti-aircraft infantry.\n  Strong vs Aircraft
+	Selectable:
+		Class: E3
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: AA Rocket Soldier
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 4500
+	Armament@PRIMARY:
+		Weapon: Nike
+		LocalOffset: 0,0,555
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: Nike
+	TakeCover:
+		ProneOffset: 384,0,-395
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	AutoTarget:
+		ScanRadius: 5
+        
+E3-AV:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 30
+		Prerequisites: ~barracks, ~techlevel.infonly, ~infantry.navy
+		Description: Anti-tank infantry.\n  Strong vs Vehicles\n Weak vs Infantry
+	Selectable:
+		Class: E3
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Bazooka Soldier
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 3500
+	Armament@PRIMARY:
+		Weapon: Bazooka
+		LocalOffset: 0,0,555
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: Bazooka
 	TakeCover:
 		ProneOffset: 384,0,-395
 	WithInfantryBody:
@@ -921,9 +997,9 @@ NavySeal:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 6000
+		HP: 12000
 	Mobile:
-		Speed: 80
+		Speed: 100
 	Guard:
 	RevealsShroud:
 		Range: 7c0
@@ -1408,7 +1484,7 @@ Bombie:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
-		Cost: 500
+		Cost: 400
 	Tooltip:
 		Name: Bombie
 	UpdatesPlayerStatistics:

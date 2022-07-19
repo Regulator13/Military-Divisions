@@ -34,7 +34,6 @@ Packages:
 	ra|bits
 	ra|bits/desert
 	ra|bits/scripts
-	ra|uibits
     radiv|bits
     radiv|uibits
 
@@ -93,7 +92,6 @@ Cursors:
 	ra|cursors.yaml
 
 Chrome:
-	ra|chrome.yaml
     radiv|chrome.yaml
 
 Assemblies:
