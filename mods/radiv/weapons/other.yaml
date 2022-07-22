@@ -86,7 +86,7 @@ TankFlame:
 AirFlame:
 	Inherits: ^FireWeapon
 	ReloadDelay: 5
-	Burst: 200
+	Burst: 100
 	BurstDelays: 0
 	Projectile: Bullet
 		Speed: 220
@@ -96,7 +96,7 @@ AirFlame:
 		Inaccuracy: 5000
 	Warhead@1Dam: SpreadDamage
 		Spread: 356
-		Damage: 3000
+		Damage: 1500
 		Versus:
 			Tree: 80
 			Light: 40
