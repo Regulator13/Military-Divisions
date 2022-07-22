@@ -45,24 +45,24 @@ BadrBomb:
 	Warhead@BombDamage: SpreadDamage
 		Spread: 2c0
 		Damage: 2000
-        Falloff: 500, 100
+        Falloff: 400, 100
 		ValidTargets: GroundActor, WaterActor
 		Versus:
+            None: 50
 			Light: 90
             Heavy: 80
 			Concrete: 70
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
     Warhead@FalloutDamage: SpreadDamage
 		Spread: 1c0
-		Damage: 2000
-        Falloff: 200, 150, 120, 100, 80, 50, 20
+		Damage: 1000
+        Falloff: 100, 80, 40, 15, 5
 		ValidTargets: GroundActor, WaterActor
 		Versus:
-            None: 125
-			Wood: 80
-			Light: 75
-            Heavy: 50
-			Concrete: 35
+			Wood: 30
+			Light: 30
+            Heavy: 15
+			Concrete: 0
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
