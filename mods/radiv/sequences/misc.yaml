@@ -68,6 +68,9 @@ internarmor:
 internheal:
     icon: internhealicon
     
+tier2_powers:
+    icon: tier2_powersicon
+    
 pluscash:
     idle:
 
@@ -144,6 +147,14 @@ pips:
 		Length: *
 		Tick: 300
 		Offset: 0, -6
+    pip-charge: hqpips
+        Start: 0
+    pip-suicide: hqpips
+        Start: 1
+    pip-retreat: hqpips
+        Start: 2
+    pip-entrench: hqpips
+        Start: 3
 
 v2:
 	idle:
@@ -566,6 +577,8 @@ icon:
     hqretreat: hqretreaticon
     hqsuicide: hqsuicideicon
     empulse: empulseicon
+    eliteparatroopers: eliteparatroopersicon
+    ironwall: ironwallicon
     
 pulsball:
 	idle:

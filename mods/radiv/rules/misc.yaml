@@ -429,6 +429,24 @@ upgrade.e1range:
 		Prerequisite: e1range
 	Interactable:
 	AlwaysVisible:
+    
+tier2-airforce:
+	Tooltip:
+		Name: Tier 2 Support Powers
+	Buildable:
+		BuildPaletteOrder: 230
+		Prerequisites: anyair, techcenter, ~techlevel.medium, ~aircraft.airforce
+		Queue: Aircraft
+		BuildLimit: 1
+		Description: Toggle tier 2 support abilities: Parabombers and Elite Paratroopers. Costs money while charging
+	Valued:
+		Cost: 1000
+	RenderSprites:
+		Image: tier2_powers
+	ProvidesPrerequisite:
+		Prerequisite: tier2-airforce
+	Interactable:
+	AlwaysVisible:
 
 barracks.upgraded:
 	AlwaysVisible:
@@ -439,6 +457,10 @@ vehicles.upgraded:
 	ProvidesPrerequisite:
 
 aircraft.upgraded:
+	AlwaysVisible:
+	ProvidesPrerequisite:
+    
+derricks.upgraded:
 	AlwaysVisible:
 	ProvidesPrerequisite:
 

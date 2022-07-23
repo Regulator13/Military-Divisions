@@ -438,6 +438,17 @@
 		Condition: invulnerability
 	ExternalCondition@INVULNERABILITY:
 		Condition: invulnerability
+        
+^IronWallable:
+	WithColoredOverlay@IRONCURTAIN:
+		RequiresCondition: wallinvulnerability
+	DamageMultiplier@IRONCURTAIN:
+		RequiresCondition: wallinvulnerability
+		Modifier: 0
+	TimedConditionBar:
+		Condition: wallinvulnerability
+	ExternalCondition@INVULNERABILITY:
+		Condition: wallinvulnerability
 
 ^AutoTargetGround:
 	AutoTarget:
@@ -807,6 +818,14 @@
     SpeedMultiplier@HQCHARGE:
         Modifier: 150
         RequiresCondition: hqcharge
+	WithDecoration@HQCHARGE:
+		Image: pips
+		Sequence: pip-charge
+		Position: TopRight
+		Margin: 17, 4
+		RequiresCondition:hqcharge
+		BlinkInterval: 5
+		BlinkPattern: Off, On
     ExternalCondition@HQRETREAT:
         Condition: hqretreat
 	TimedConditionBar@HQRETREAT:
@@ -817,6 +836,14 @@
     SpeedMultiplier@HQRETREAT:
         Modifier: 250
         RequiresCondition: hqretreat
+	WithDecoration@HQRETREAT:
+		Image: pips
+		Sequence: pip-retreat
+		Position: TopRight
+		Margin: 17, 4
+		RequiresCondition:hqretreat
+		BlinkInterval: 5
+		BlinkPattern: Off, On
     ExternalCondition@HQENTRENCH:
         Condition: hqentrench
 	TimedConditionBar@HQENTRENCH:
@@ -827,6 +854,14 @@
     SpeedMultiplier@HQENTRENCH:
         Modifier: 50
         RequiresCondition: hqentrench
+	WithDecoration@HQENTRENCH:
+		Image: pips
+		Sequence: pip-entrench
+		Position: TopRight
+		Margin: 17, 4
+		RequiresCondition:hqentrench
+		BlinkInterval: 5
+		BlinkPattern: Off, On
     ExternalCondition@HQSUICIDE:
         Condition: hqsuicide
 	TimedConditionBar@HQSUICIDE:
@@ -847,6 +882,14 @@
         Delay: 375
         DamageTypes: DefaultDeath
         RequiresCondition: hqsuicide
+	WithDecoration@HQSUICIDE:
+		Image: pips
+		Sequence: pip-suicide
+		Position: TopRight
+		Margin: 17, 4
+		RequiresCondition:hqsuicide
+		BlinkInterval: 5
+		BlinkPattern: Off, On
 
 ^Soldier:
 	Inherits: ^Infantry
@@ -1127,6 +1170,7 @@
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^IronCurtainable
 	Inherits@3: ^SpriteActor
+    Inherits@4: ^IronWallable
 	Inherits@shape: ^1x1Shape
 	Inherits@bounty: ^GlobalBounty
 	Inherits@selection: ^SelectableBuilding

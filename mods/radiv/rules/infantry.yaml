@@ -65,6 +65,9 @@ DOG:
 	-TakeCover:
     -ExperienceTrickler:
     -ExternalCondition@Teach:
+    DetectCloaked:
+        CloakTypes: sealcloak
+        Range: 4c0
     
 BIODOG:
     Inherits: DOG
@@ -858,6 +861,37 @@ SPY.England:
 		Name: British Spy
 	RenderSprites:
 		Image: spy
+        
+Researcher:
+	Inherits: ^Soldier
+    Inherits@selection: ^SelectableSupportUnit
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 90
+		Prerequisites: ~tent, rlab, ~techlevel.high, ~infantry.techno, ~disabled
+		Description: Infiltrates allied structures to improve them.\nUnarmed. 
+	Valued:
+		Cost: 700
+	Tooltip:
+        Name: Researcher
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	-Guard:
+    -TakeCover:
+	RevealsShroud:
+		Range: 5c0
+	Passenger:
+		CustomPipType: blue
+	Infiltrates:
+		Types: ResearchInfiltrate
+        ValidRelationships: Ally
+		Notification: BuildingInfiltrated
+		PlayerExperience: 50
+    -AttackFrontal:
+	RenderSprites:
+        Image: einstein
+
 
 E7:
 	Inherits: ^Soldier
@@ -1012,7 +1046,7 @@ NavySeal:
 		Weapon: M4A1
 		MuzzleSequence: garrison-muzzle
 	Demolition:
-		DetonationDelay: 45
+		DetonationDelay: 30
         EnterBehaviour: Suicide
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
@@ -1023,6 +1057,7 @@ NavySeal:
 		UncloakSound:
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 		IsPlayerPalette: true
+        CloakTypes: sealcloak
         RequiresCondition: stealthy
     GrantConditionOnDeploy@STEALTH:
         DeployedCondition: stealthy
@@ -1037,7 +1072,7 @@ NavySeal:
         RequiresCondition: stealthy
     ChangesHealth:
         Step: -5
-        Delay: 400
+        Delay: 800
         StartIfBelow: 105
         DamageTypes: DefaultDeath
         RequiresCondition: stealthy
