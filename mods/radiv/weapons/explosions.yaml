@@ -166,14 +166,15 @@ BarrelExplode:
 BigBarrelExplode:
 	Inherits: ^Explosion
 	Warhead@1Dam: SpreadDamage
-		Falloff: 2000, 1000, 400, 200, 50, 20, 0
+		Falloff: 2000, 1000, 400, 200, 50, 20
 		Delay: 5
 		ValidTargets: GroundActor, Trees
 		Versus:
-			None: 120
-			Wood: 100
-			Light: 50
-			Concrete: 10
+			None: 100
+			Wood: 70
+			Light: 120
+            Heavy: 250
+			Concrete: 100
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, Incendiary
 	Warhead@2Eff: CreateEffect
 		Explosions: napalm

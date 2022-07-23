@@ -472,6 +472,9 @@ IRON:
 		RequiresCondition: !disabled  && !empdisable
 	WithBuildingBib:
 		HasMinibib: true
+    GrantConditionOnFaction@ARMORED:
+        Condition: ironarmored
+        Factions: armored
 	GrantExternalConditionPower@IRONCURTAIN:
 		PauseOnCondition: disabled || empdisable
 		Icon: invuln
@@ -489,6 +492,27 @@ IRON:
 		SupportPowerPaletteOrder: 10
 		Dimensions: 3, 3
 		Footprint: _x_ xxx _x_
+        OrderName: IronCurtain
+	GrantExternalConditionPower@IRONWALL:
+		PauseOnCondition: disabled || empdisable
+        RequiresCondition: ironarmored
+		Icon: ironwall
+		ChargeInterval: 6000
+		Description: Iron Wall
+		LongDesc: Protects a base from an income nuclear missile.\mLasts 20 seconds.\nCan build multiple for more walls!
+		Duration: 500
+		SelectTargetSpeechNotification: SelectTarget
+		InsufficientPowerSpeechNotification: InsufficientPower
+		BeginChargeSpeechNotification: IronCurtainCharging
+		EndChargeSpeechNotification: IronCurtainReady
+		DisplayRadarPing: True
+		Condition: wallinvulnerability
+		OnFireSound: ironcur9.aud
+		SupportPowerPaletteOrder: 20
+		Dimensions: 14, 14
+		Footprint: xxxxxxxxxxxxxx xxxxxxxxxxxxxx xxxxxxxxxxxxxx xxxxxxxxxxxxxx xxxxxxxxxxxxxx xxxxxxxxxxxxxx xxxxxxxxxxxxxx xxxxxxxxxxxxxx xxxxxxxxxxxxxx xxxxxxxxxxxxxx xxxxxxxxxxxxxx xxxxxxxxxxxxxx xxxxxxxxxxxxxx xxxxxxxxxxxxxx
+        OrderName: IronWall
+        AllowMultiple: True
 	SupportPowerChargeBar:
 	InfiltrateForSupportPowerReset:
 		Types: SpyInfiltrate
@@ -1919,6 +1943,7 @@ PROC:
 		Facing: 256
 	InfiltrateForCash:
 		Percentage: 50
+        Maximum: 5000
 		Types: SpyInfiltrate, ThiefInfiltrate
 		InfiltratedNotification: CreditsStolen
 	WithBuildingBib:
@@ -1982,6 +2007,8 @@ OILCOM:
         BuildDurationModifier: 20
     Valued:
         Cost: 1000
+	Targetable:
+		TargetTypes: GroundActor, Structure, C4, DetonateAttack
 	HitShape:
 		UseTargetableCellsOffsets: false
 		TargetableOffsets: 0,0,0, 630,-300,0, 420,512,0, -420,-512,0, -630,300,0
@@ -2003,7 +2030,7 @@ OILCOM:
 	CapturableProgressBar:
 	CapturableProgressBlink:
 	EngineerRepairable:
-	CashTrickler:
+	CashTrickler@Normal:
 		Interval: 375
 		Amount: 100
 		RequiresCondition: !disabled  && !empdisable
@@ -2054,6 +2081,7 @@ SILO:
 		Range: 4c0
 	InfiltrateForCash:
 		Percentage: 50
+        Maximum: 5000
 		Types: ThiefInfiltrate
 		InfiltratedNotification: CreditsStolen
 	WithBuildingBib:
@@ -2101,6 +2129,7 @@ STORE:
 		Range: 4c0
 	InfiltrateForCash:
 		Percentage: 50
+        Maximum: 5000
 		Types: ThiefInfiltrate
 		InfiltratedNotification: CreditsStolen
 	WithBuildingBib:
@@ -2208,6 +2237,7 @@ DISP:
 		Range: 4c0
 	InfiltrateForCash:
 		Percentage: 50
+        Maximum: 5000
 		Types: ThiefInfiltrate
 		InfiltratedNotification: CreditsStolen
 	WithBuildingBib:
@@ -2706,16 +2736,15 @@ AFLD.Airforce:
 		CircleSequence: circles
 		UseDirectionalTarget: True
 		DirectionArrowAnimation: paradirection
-		SupportPowerPaletteOrder: 60
+		SupportPowerPaletteOrder: 30
 	ParatroopersPower@paratroopers:
 		OrderName: SovietParatroopers
 		Prerequisites: aircraft.soviet-airforce
 		Icon: paratroopers
 		ChargeInterval: 3750
-        SquadSize: 2
 		Description: Paratroopers
 		LongDesc: A Badger drops a squad of infantry\nanywhere on the map.
-		DropItems: E1R1,E1R1,E1R1,E1R1,E3R1,E3R1,E4,E4,E6,SPY
+		DropItems: E1R1,E1R1,E1R1,E3R1,E3R1
 		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
 		SelectTargetSpeechNotification: SelectTarget
 		AllowImpassableCells: false
@@ -2731,9 +2760,9 @@ AFLD.Airforce:
 		SupportPowerPaletteOrder: 50
 	AirstrikePower@parabombs:
 		OrderName: UkraineParabombs
-		Prerequisites: aircraft.ukraine-airforce
+		Prerequisites: aircraft.ukraine-airforce, tier2-airforce
 		Icon: parabombs
-		ChargeInterval: 3750
+		ChargeInterval: 5000
 		Description: Parabombs
 		LongDesc: A squad of Badgers drop parachuted\nbombs on your target.
 		SelectTargetSpeechNotification: SelectTarget
@@ -2750,7 +2779,28 @@ AFLD.Airforce:
 		CircleSequence: circles
 		UseDirectionalTarget: True
 		DirectionArrowAnimation: paradirection
-		SupportPowerPaletteOrder: 40
+		SupportPowerPaletteOrder: 70
+	ParatroopersPower@ELITEparatroopers:
+		OrderName: EliteParatroopers
+		Prerequisites: aircraft.soviet-airforce, tier2-airforce
+		Icon: eliteparatroopers
+		ChargeInterval: 3750
+		Description: Elite Paratroopers
+		LongDesc: A Badger drops a squad of elite infantry\nanywhere on the map.
+		DropItems: E4,E4,E4,E6,SPY
+		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
+		SelectTargetSpeechNotification: SelectTarget
+		AllowImpassableCells: false
+		QuantizedFacings: 8
+		CameraActor: camera.paradrop
+		DisplayBeacon: true
+		BeaconPoster: pinficon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: paradirection
+		SupportPowerPaletteOrder: 60
 
 POWR:
 	Inherits: ^Building
