@@ -443,8 +443,8 @@ IRON:
 		Queue: Defense
 		BuildPaletteOrder: 130
 		Prerequisites: techcenter, ~structures.soviet-armored, ~techlevel.unrestricted
-		BuildLimit: 1
-		Description: Makes a group of units invulnerable\nfor a short time.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Invulnerability
+		Description: Makes a group of units invulnerable\nfor a short time.\nRequires power to operate.\n  Special Ability: Invulnerability
+        BuildLimit: 10
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -2944,9 +2944,9 @@ NUK2:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
     Explodes:
-		Weapon: MiniNuke
-		EmptyWeapon: MiniNuke
-		DamageSource: Killer
+		Weapon: FriendlyNuke
+		EmptyWeapon: FriendlyNuke
+		DamageSource: Self
     GrantConditionOnPrerequisite@TECHNO:
         Condition: techmoney
         Prerequisites: techmoney

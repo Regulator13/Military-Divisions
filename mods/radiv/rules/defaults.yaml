@@ -635,6 +635,14 @@
     SpeedMultiplier@HQCHARGE:
         Modifier: 175
         RequiresCondition: hqcharge
+	WithDecoration@HQCHARGE:
+		Image: pips
+		Sequence: pip-charge
+		Position: TopRight
+		Margin: 17, 4
+		RequiresCondition:hqcharge
+		BlinkInterval: 5
+		BlinkPattern: Off, On
     ExternalCondition@HQRETREAT:
         Condition: hqretreat
 	TimedConditionBar@HQRETREAT:
@@ -645,6 +653,14 @@
     SpeedMultiplier@HQRETREAT:
         Modifier: 250
         RequiresCondition: hqretreat
+	WithDecoration@HQRETREAT:
+		Image: pips
+		Sequence: pip-retreat
+		Position: TopRight
+		Margin: 17, 4
+		RequiresCondition:hqretreat
+		BlinkInterval: 5
+		BlinkPattern: Off, On
     ExternalCondition@HQSUICIDE:
         Condition: hqsuicide
 	TimedConditionBar@HQSUICIDE:
@@ -665,6 +681,14 @@
         Delay: 375
         DamageTypes: DefaultDeath
         RequiresCondition: hqsuicide
+	WithDecoration@HQSUICIDE:
+		Image: pips
+		Sequence: pip-suicide
+		Position: TopRight
+		Margin: 17, 4
+		RequiresCondition:hqsuicide
+		BlinkInterval: 5
+		BlinkPattern: Off, On
 
 ^TrackedVehicle:
 	Inherits: ^Vehicle
@@ -1008,6 +1032,14 @@
     SpeedMultiplier@HQCHARGE:
         Modifier: 150
         RequiresCondition: hqcharge
+	WithDecoration@HQCHARGE:
+		Image: pips
+		Sequence: pip-charge
+		Position: TopRight
+		Margin: 17, 4
+		RequiresCondition:hqcharge
+		BlinkInterval: 5
+		BlinkPattern: Off, On
     ExternalCondition@HQRETREAT:
         Condition: hqretreat
 	TimedConditionBar@HQRETREAT:
@@ -1018,6 +1050,14 @@
     SpeedMultiplier@HQRETREAT:
         Modifier: 250
         RequiresCondition: hqretreat
+	WithDecoration@HQRETREAT:
+		Image: pips
+		Sequence: pip-retreat
+		Position: TopRight
+		Margin: 17, 4
+		RequiresCondition:hqretreat
+		BlinkInterval: 5
+		BlinkPattern: Off, On
     ExternalCondition@HQSUICIDE:
         Condition: hqsuicide
 	TimedConditionBar@HQSUICIDE:
@@ -1038,6 +1078,14 @@
         Delay: 375
         DamageTypes: DefaultDeath
         RequiresCondition: hqsuicide
+	WithDecoration@HQSUICIDE:
+		Image: pips
+		Sequence: pip-suicide
+		Position: TopRight
+		Margin: 17, 4
+		RequiresCondition:hqsuicide
+		BlinkInterval: 5
+		BlinkPattern: Off, On
 
 ^NeutralPlane:
 	Inherits@1: ^ExistsInWorld
